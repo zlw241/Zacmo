@@ -24,7 +24,6 @@ sufficient CSS styling:
 - [ ] Profile page with feed of personal transactions
 - [ ] Link bank account and/or card(s)
 - [ ] Zacmo balance
-- [ ] Cancel payments/decline charges
 - [ ] Production README [sample](docs/production_readme.md)
 
 ## Design Docs
@@ -48,20 +47,20 @@ sufficient CSS styling:
 
 **Objective:** Functioning rails project with front-end Authentication - signup, login, logout form
 
-#### Phase 2: Basic index page and profile views. (1 day)
+#### Phase 2: Basic index page and profile views. (0.5 days)
 
 **Objective:** When logged in, be able to see account information; buttons for login, logout, and signup; and simple navigation. Be able to view other users profile page.
 
-#### Phase 3: Friends Model, API, and components (1 day)
+#### Phase 3: Friends Model, API, and components (0.5 days)
 
 **Objective:** Add friends. Friend/Unfriend through the API. Display form on users' pages to add user as a friend. List of friends on profile.
 
-#### Phase 4: Transactions Model, API (1 day)
+#### Phase 4: Transactions Model, API (0.5 days)
 
 **Objective:** Payments to friends can be made through API. Display form on index page with fields
 for friend to be paid, amount, and memo.
 
-#### Phase 5: Feed (1 day)
+#### Phase 5: Feed Model, API, and view (0.5 days)
 
 **Objective:** Display feed of transactions among friends on index page. For each payment payer, payee, memo, and time since transaction.
 
@@ -71,18 +70,26 @@ for friend to be paid, amount, and memo.
 
 ### Stage 2
 
-#### Phase X: Overview (X days)
+#### Phase 7: Balance, comments, and likes API (1 day)
 
-**Objective:** Description
+**Objective:** Comment and/or like transactions through API, User balance gets automatically updated when making or receiving payments.
 
-#### Phase X: Overview (X days)
+#### Phase 8: Bank/Card Model, API (1 day)
 
-**Objective:** Description
+**Objective:** User can link bank or debit card information.
 
+#### Phase 9: SynapsePay API to allow for real transactions between users (3-4 days)
+
+**Objective:** Use SynapsePay API to authenticate bank accounts and make ACH pulls to transfer money to another user. Tie in payment functionality with existing transactions functionality between users.
+
+#### Phase 10: Refactor, Style, and Test (1 day)
+
+**Objective:** Go back and clean up anything that needs it. Elements should be formatted and laid out properly at this point so add style to make it look clean. 
 
 ### Bonus Features (TBD)
 - [ ] Infinite Scroll
 - [ ] Email verification on signup/change of account email
+- [ ] Cancel payments/decline charges
 - [ ] Signup with phone number instead of email
 - [ ] Profile picture
 - [ ] Link Facebook account with OAuth2

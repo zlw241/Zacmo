@@ -24,6 +24,7 @@ sufficient CSS styling:
 - [ ] Profile page with feed of personal transactions
 - [ ] Link bank account and/or card(s)
 - [ ] Zacmo balance
+- [ ] HTTPS
 - [ ] Production README [sample](docs/production_readme.md)
 
 ## Design Docs

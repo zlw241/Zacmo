@@ -84,10 +84,11 @@ for friend to be paid, amount, and memo.
 
 #### Phase 10: Refactor, Style, and Test (1 day)
 
-**Objective:** Go back and clean up anything that needs it. Elements should be formatted and laid out properly at this point so add style to make it look clean. 
+**Objective:** Go back and clean up anything that needs it. Elements should be formatted and laid out properly at this point so add style to make it look clean.
 
 ### Bonus Features (TBD)
 - [ ] Infinite Scroll
+- [ ] Mobile Design
 - [ ] Email verification on signup/change of account email
 - [ ] Cancel payments/decline charges
 - [ ] Signup with phone number instead of email
@@ -100,3 +101,4 @@ for friend to be paid, amount, and memo.
 - [ ] Two-factor authentication
 - [ ] Notifications
 - [ ] Payments at a later date - specify date/time payment is to be sent
+- [ ] React-Native application for phones

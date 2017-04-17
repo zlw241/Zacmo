@@ -9,7 +9,7 @@ email           | string    | not null, indexed, unique
 first_name      | string    | not null
 last_name       | string    | not null
 phone_num       | string    | unique, indexed, unique
-balance         | integer   | default: 0
+balance         | integer   | not null, default: 0
 profile_pic     | string    |
 password_digest | string    | not null
 session_token   | string    | not null, indexed, unique
@@ -51,7 +51,6 @@ user_id         | integer   | not null, foreign_key (references users), indexed
 authenticated   | boolean   | default: false
 created_at      | datetime  | not null
 updated_at      | datetime  | not null
-
 
 ## cards
 column name | data type | details

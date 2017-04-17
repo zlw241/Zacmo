@@ -13,31 +13,24 @@
 
 **FeedContainer**
  - FeedHeader
-  + FeedSear
+  + FeedFilter
  - Transaction
   + TransactionDetail
    - Comment
 
 **HeaderContainer**
- - 
+ - Search
+ - Nav
+
 
 
 **SearchResultsContainer**
  - Search
  - NoteIndex
 
-**TagContainer**
- - NotebookHeader
-  + NoteIndex
-
-**NoteIndex**
- - NoteIndexItem
-  + NoteDetail
-    + NoteTools
-    - NotebookSearch
-    - Tags
-      - Tag
-    * Note
+**ProfileContainer**
+ - Profile
+  - ProfileDetail
 
 **NewNoteContainer**
  - NewNote
@@ -45,8 +38,9 @@
   - NewNoteButton
 
 **Search**
+ - SearchResult
 
-**NewNotebook**
+**New**
  - NewNotebook
 
 **NewTag**

@@ -11,6 +11,10 @@
  - HomeContainer
  - ProfileContainer
 
+ **HeaderContainer**
+  - MainSearchContainer
+  - Nav
+
 **HomeContainer**
  - NewTransactionContainer
  - FeedContainer
@@ -26,10 +30,6 @@
 **AuthFormContainer**
  - LoginForm
  - SignupForm
-
-**HeaderContainer**
- - MainSearchContainer
- - Nav
 
 **NewTransactionContainer**
  - NewTransaction

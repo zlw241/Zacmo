@@ -15,16 +15,13 @@ following criteria with smooth, bug-free navigation, adequate seed data and
 sufficient CSS styling:
 
 - [ ] Hosting on Heroku
-- [ ] New account creation, login, and guest/demo login
+- [ ] Profile
 - [ ] Friends
-- [ ] Transactions (payments/charges) between friends
-- [ ] Pay/Charge form at top of each page with search bar
+- [ ] Transactions (payments/charges) with memos between friends
 - [ ] Feed of transactions between friends
-- [ ] Comment/Like others' transactions
-- [ ] Profile page with feed of personal transactions
+- [ ] Comment/Like others' items in feed
 - [ ] Link bank account and/or card(s)
 - [ ] Zacmo balance
-- [ ] HTTPS
 - [ ] Production README [sample](docs/production_readme.md)
 
 ## Design Docs
@@ -88,6 +85,7 @@ for friend to be paid, amount, and memo.
 **Objective:** Go back and clean up anything that needs it. Elements should be formatted and laid out properly at this point so add style to make it look clean.
 
 ### Bonus Features (TBD)
+- [ ] HTTPS
 - [ ] Infinite Scroll
 - [ ] Mobile Design
 - [ ] Email verification on signup/change of account email

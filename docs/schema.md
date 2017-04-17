@@ -23,7 +23,7 @@ id              | integer   | not null, primary key
 user_id         | integer   | not null, foreign key (references users), indexed
 recipient_id    | integer   | not null, foreign key (references users), indexed
 memo            | text      | not null
-amount          | integer   | not null
+amount          | Float     | not null
 visibility      | string    | not null, default: public
 archived        | boolean   | default: false
 created_at      | datetime  | not null
@@ -49,6 +49,7 @@ bank_id         | string    |
 bank_pw_digest  | string    |
 user_id         | integer   | not null, foreign_key (references users), indexed
 authenticated   | boolean   | default: false
+active          | boolean   | not null, default: false
 created_at      | datetime  | not null
 updated_at      | datetime  | not null
 
@@ -59,7 +60,7 @@ id          | integer   | not null, primary key
 user_id     | integer   | not null, foreign key (references users), indexed
 card_number | string    | not null, unique
 exp_date    | datetime  | not null
-cvv         | string    | not null
+ccv         | string    | not null
 zip_code    | string    |
 created_at  | datetime  | not null
 updated_at  | datetime  | not null

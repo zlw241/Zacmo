@@ -1,72 +1,95 @@
 ## Component Hierarchy
 
-**AuthFormContainer**
- - AuthForm
+
+**AppContainer**
+ - AuthFormContainer
+ - IndexContainer
+ - ProfileContainer
+
+**IndexContainer**
+ - HeaderContainer
+ - HomeContainer
+ - ProfileContainer
 
 **HomeContainer**
- - Home
- - Sidebar
+ - NewTransactionContainer
+ - FeedContainer
+ - SidebarContainer
 
-**NotesContainer**
- - NotesHeader
-  * NoteIndex
+**ProfileContainer**
+ - NewTransactionContainer
+ - Profile
+  + ProfileDetail
+ - FeedContainer
+ - SidebarContainer
+
+**AuthFormContainer**
+ - LoginForm
+ - SignupForm
+
+**HeaderContainer**
+ - MainSearchContainer
+ - Nav
+
+**NewTransactionContainer**
+ - NewTransaction
+  + TransactionForm
+   - SearchContainer
+
+**MainSearchFormContainer**
+ + MainSearchForm
+ - MainSearchResultsContainer
+  + MainSearchResultsList
+   - MainSearchResultsItem
+
+**SearchContainer**
+ - SearchFormContainer
+  + SearchForm
+ - SearchResultsContainer
+  + SearchResultsList
+   - SearchResultsItem
 
 **FeedContainer**
  - FeedHeader
   + FeedFilter
- - Transaction
-  + TransactionDetail
-   - Comment
+ - TransactionListContainer
 
-**HeaderContainer**
- - Search
- - Nav
+**TransactionListContainer**
+ - TransactionList
+  + TransactionItemContainer
+
+**TransactionItemContainer**
+ - TransactionDetail
+ - CommentContainer
+
+**CommentContainer**
+ - CommentList
+  + CommentItem
+
+**SidebarContainer**
+ - SidebarListContainer
+  + SidebarList
+   - SidebarItem
 
 
-**SearchResultsContainer**
- - Search
- - NoteIndex
-
-**ProfileContainer**
- - Profile
-  - ProfileDetail
-
-**NewNoteContainer**
- - NewNote
-  - RTETools
-  - NewNoteButton
-
-**Search**
- - SearchResult
-
-**New**
- - NewNotebook
-
-**NewTag**
- - NewTag
-
-**NotebookSearch**
- + AutoSearch
- * AutoSearchResults
-
-**TagsSearch**
- + AutoSearch
- * AutoSearchResults
 
 ## Routes
 
 |Path   | Component   |
 |-------|-------------|
-| "/sign-up" | "AuthFormContainer" |
-| "/sign-in" | "AuthFormContainer" |
-| "/home" | "HomeContainer" |
-| "/home/note/:noteId" | "NotesContainer" |
-| "/home/notebook/:notebookId/note/:noteId" | "NotebookContainer" |
-| "/home/tag/:tagId/note/:notedId" | "TagContainer" |
-| "/home/search-results" | "SearchResultsContainer"
-| "/new-note" | "NewNoteContainer" |
-| "/search" | "Search" |
-| "/new-notebook" | "NewNotebook" |
-| "/new-tag" | "NewTag" |
-| "/tag-search" | "TagSearch" |
-| "/notebook-search" | "NotebookSearch" |
+| "/" | "IndexContainer" |
+| "/signup" | "AuthFormContainer" |
+| "/login" | "AuthFormContainer" |
+| "/:username" | "ProfileContainer" |
+| "/account/settings" | "SettingsContainer" |
+| "/account/payment-methods" | "PaymentMethodsContainer" |
+| "/account/privacy" | "PrivacyContainer" |
+
+- /
+  - /login
+  - /signup
+  - /:username
+  - /account
+    - /settings
+    - /payment-methods
+    - /privacy

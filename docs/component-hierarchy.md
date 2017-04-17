@@ -23,7 +23,6 @@
  - Nav
 
 
-
 **SearchResultsContainer**
  - Search
  - NoteIndex

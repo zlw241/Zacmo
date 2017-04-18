@@ -1,9 +1,12 @@
 
 
 {
-  currentUser: {
-    id: 1,
-    username: "username"
+  session: {
+    currentUser: {
+      id: 1,
+      username: "username"
+    },
+    errors: []
   },
 
   forms: {

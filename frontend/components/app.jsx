@@ -2,7 +2,10 @@ import React from 'react';
 
 const App = ({children}) => {
   return (
-    <h1>Zacmo</h1>
+    <main>
+      <h1>Zacmo</h1>
+      {children}
+    </main>
   );
 }
 

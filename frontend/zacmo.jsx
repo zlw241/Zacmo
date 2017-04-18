@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import * as APIUtil from './util/APIUtil';
+import * as APIUtil from './util/api_util';
 
 document.addEventListener('DOMContentLoaded', () => {
   window.createUser = APIUtil.createUser;

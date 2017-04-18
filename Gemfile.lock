@@ -40,6 +40,10 @@ GEM
       rake (>= 0.8.7)
     arel (6.0.4)
     bcrypt (3.1.11)
+    better_errors (2.1.1)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+      rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.3)
@@ -155,6 +159,8 @@ PLATFORMS
 DEPENDENCIES
   annotate
   bcrypt (~> 3.1.7)
+  better_errors
+  binding_of_caller
   byebug
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)

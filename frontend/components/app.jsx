@@ -1,13 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router';
+import NavContainer from './nav/nav_container';
 
 const App = ({children}) => {
 
-  
   return (
-    <main>
-      <h1>Zacmo</h1>
+    <div>
+      <header>
+        <Link to="/" className="header-link">
+          <h1>Zacmo</h1>
+        </Link>
+        <NavContainer />
+      </header>
       {children}
-    </main>
+    </div>
   );
 }
 

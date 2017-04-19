@@ -20,12 +20,20 @@ class SessionForm extends React.Component {
     this.renderErrors = this.renderErrors.bind(this);
   }
 
+  componentDidUpdate() {
+    this.redirectIfLoggedIn();
+  }
+
+  redirectIfLoggedIn() {
+    if (this.props.loggedIn) {
+      this.props.router.push("/");
+    }
+  }
+
   handleSubmit(e) {
     e.preventDefault()
     const user = this.state;
-    this.props.processForm(user).then(
-      () => hashHistory.push('/')
-    );
+    this.props.processForm(user)
   }
 
   handleInput(e) {

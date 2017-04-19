@@ -1,0 +1,23 @@
+
+.header {
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.header nav {
+  border: 1px solid black;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.header nav .nav {
+  border: 1px solid black;
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}

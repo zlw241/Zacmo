@@ -1,6 +1,6 @@
 import React from 'react';
 
-class EditSettings extends React.Component {
+class Settings extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -12,4 +12,4 @@ class EditSettings extends React.Component {
   }
 }
 
-export default EditSettings;
+export default Settings;

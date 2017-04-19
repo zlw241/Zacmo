@@ -26,7 +26,7 @@ class Nav extends React.Component {
       navItems = (
         <div className="nav">
           <Link to="/">Home</Link>
-          <Link to="/account">{username}</Link>
+          <Link to="/profile">{username}</Link>
           <button onClick={this.handleLogout}>Logout</button>
         </div>
       );

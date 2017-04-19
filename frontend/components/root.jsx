@@ -4,8 +4,9 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './app.jsx';
 import SessionFormContainer from './session_form/session_form_container';
 import ProfileContainer from './profile/profile_container';
-import EditSettings from './profile/edit/settings';
-import EditBanks from './profile/edit/banks';
+import AccountContainer from './account/account_container';
+import Settings from './account/edit/settings';
+import Payments from './account/edit/banks';
 
 const Root = ({store}) => {
 
@@ -30,9 +31,10 @@ const Root = ({store}) => {
         <Route path="/" component={App}>
           <Route path="/login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn}/>
           <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn}/>
-          <Route path="/account" component={ProfileContainer} onEnter={_ensureLoggedIn}>
-            <Route path="edit" component={EditSettings} />
-            <Route path="banks" component={EditBanks} />
+          <Route path="/profile" component={ProfileContainer} onEnter={_ensureLoggedIn} />
+          <Route path="/account" component={AccountContainer} onEnter={_ensureLoggedIn}>
+            <Route path="settings" component={Settings} />
+            <Route path="payments" component={Payments} />
           </Route>
         </Route>
       </Router>

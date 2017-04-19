@@ -28,7 +28,7 @@ class SessionForm extends React.Component {
 
   redirectIfLoggedIn() {
     if (this.props.loggedIn) {
-      this.props.router.push("/account");
+      this.props.router.push("/profile");
     }
   }
 
@@ -115,11 +115,17 @@ class SessionForm extends React.Component {
     let emailInput = null;
     let phoneInput = null;
 
+    let guestLoginButton = (
+      <button onClick={this.guestLogin}>Guest Log In</button>
+    );
+
     let toggleForm = (
       <Link to="/signup">Sign Up</Link>
     );
 
     if (this.props.formType === 'signup') {
+      guestLoginButton = null;
+
       toggleForm = (
         <Link to="/login">Log In</Link>
       );
@@ -171,7 +177,7 @@ class SessionForm extends React.Component {
           <input type="submit" onClick={this.handleSubmit} value="Submit" />
         </form>
         {toggleForm}
-        <button onClick={this.guestLogin}>Guest Log In</button>
+        {guestLoginButton}
       </div>
     );
   };

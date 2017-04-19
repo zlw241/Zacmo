@@ -1,14 +1,18 @@
 import React from 'react';
 import Settings from './settings';
 import { connect } from 'react-redux';
-import { updateUser } from '../../../actions/session_actions';
+import { fetchUser, updateUser } from '../../../actions/user_actions';
 
-const mapStateToProps = ({session}) => ({
-  currentUser: session.currentUser,
-  loggedIn: Boolean(session.currentUser)
+
+const mapStateToProps = (state) => ({
+
+  currentUser: state.session.currentUser,
+  user: state.user,
+  loggedIn: Boolean(state.session.currentUser)
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  fetchUser: (user_id) => dispatch(fetchUser(user_id)),
   updateUser: (user) => dispatch(updateUser(user))
 });
 

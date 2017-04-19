@@ -1,4 +1,5 @@
 import React from 'react';
+import { hashHistory } from 'react-router';
 
 class Settings extends React.Component {
   constructor(props) {
@@ -6,7 +7,26 @@ class Settings extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInput = this.handleInput.bind(this);
-    this.state = this.props.currentUser;
+    this.state = {
+      first_name: "",
+      last_name: "",
+      username: "",
+      email: "",
+      phone_num: ""
+    }
+
+  }
+
+  componentWillMount() {
+    this.props.fetchUser(this.props.currentUser.id).then(
+      () => this.setState({
+        first_name: this.props.user.first_name,
+        last_name: this.props.user.last_name,
+        username: this.props.user.username,
+        email: this.props.user.email,
+        phone_num: this.props.user.phone_num
+      })
+    )
   }
 
   handleInput(e) {
@@ -18,7 +38,11 @@ class Settings extends React.Component {
   handleSubmit(e) {
     e.preventDefault()
     const user = this.state;
-    this.props.updateUser(user);
+    this.props.updateUser(user).then(
+      () => {
+        hashHistory.push('/profile');
+      }
+    );
   }
 
   render() {

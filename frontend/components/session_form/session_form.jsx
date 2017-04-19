@@ -65,6 +65,8 @@ class SessionForm extends React.Component {
   }
 
   guestLogin() {
+    document.getElementById('guest-button').disabled = true;
+
     this.setState({username: "", password: ""})
     setTimeout(() => {
       this.animateTyping("username", "g")
@@ -117,7 +119,7 @@ class SessionForm extends React.Component {
     let phoneInput = null;
 
     let guestLoginButton = (
-      <button onClick={this.guestLogin}>Guest Log In</button>
+      <button id="guest-button" onClick={this.guestLogin}>Guest Log In</button>
     );
 
     let toggleForm = (

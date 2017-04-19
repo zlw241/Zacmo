@@ -15,7 +15,7 @@ export const receiveErrors = (errors) => ({
 });
 
 export const signup = (user) => (dispatch) => {
-  return APIUtil.signup(user).then(
+  return APIUtil.createUser(user).then(
     (newUser) => dispatch(receiveUser(newUser)),
     (err) => dispatch(receiveErrors(err.responseJSON))
   );
@@ -34,3 +34,10 @@ export const logout = () => (dispatch) => {
     (err) => dispatch(receiveErrors(err.responseJSON))
   ).then(() => console.log('THENNNNNNNNN'));
 };
+
+export const updateUser = (user) => (dispatch) => {
+  return APIUtil.updateUser(user).then(
+    (updatedUser) => dispatch(receiveUser(updateUser)),
+    (err) => dispatch(receiveErrors(err.respoonseJSON))
+  );
+}

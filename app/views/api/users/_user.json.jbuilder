@@ -1,6 +1,4 @@
 
-json.extract! current_user, :id
-
 # json.extract! user, :id,
 #   :username,
 #   :first_name,

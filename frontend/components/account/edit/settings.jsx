@@ -22,7 +22,7 @@ class Settings extends React.Component {
   }
 
   render() {
-    
+
     return (
       <div className="edit-profile">
         <form onSubmit={this.handleSubmit}>

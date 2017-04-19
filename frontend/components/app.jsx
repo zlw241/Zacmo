@@ -5,8 +5,8 @@ import NavContainer from './nav/nav_container';
 const App = ({children}) => {
 
   return (
-    <div>
-      <header>
+    <div className="main">
+      <header className="header">
         <Link to="/" className="header-link">
           <h1>Zacmo</h1>
         </Link>

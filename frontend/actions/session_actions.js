@@ -2,6 +2,7 @@ import * as APIUtil from '../util/api_util';
 
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
+import { hashHistory } from 'react-router';
 
 export const receiveUser = (currentUser) => ({
   type: RECEIVE_CURRENT_USER,
@@ -31,5 +32,5 @@ export const logout = () => (dispatch) => {
   return APIUtil.logout().then(
     () => dispatch(receiveUser(null)),
     (err) => dispatch(receiveErrors(err.responseJSON))
-  );
+  ).then(() => console.log('THENNNNNNNNN'));
 };

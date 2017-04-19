@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './app.jsx';
 import SessionFormContainer from './session_form/session_form_container';
+import ProfileContainer from './profile/profile_container';
 
 const Root = ({store}) => {
 

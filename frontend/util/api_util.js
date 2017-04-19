@@ -15,7 +15,7 @@ export function logout() {
   });
 }
 
-export function createUser(user) {
+export function signup(user) {
   return $.ajax({
     url: 'api/users',
     method: 'POST',

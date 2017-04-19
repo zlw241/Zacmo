@@ -65,6 +65,7 @@ class SessionForm extends React.Component {
   }
 
   guestLogin() {
+    this.setState({username: "", password: ""})
     setTimeout(() => {
       this.animateTyping("username", "g")
       setTimeout(() => {

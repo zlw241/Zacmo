@@ -18,6 +18,8 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+    this.guestLogin = this.guestLogin.bind(this);
+    this.animateTyping = this.animateTyping.bind(this);
   }
 
   componentDidUpdate() {
@@ -31,7 +33,9 @@ class SessionForm extends React.Component {
   }
 
   handleSubmit(e) {
-    e.preventDefault()
+    if (e) {
+      e.preventDefault()
+    }
     const user = this.state;
     this.props.processForm(user)
   }
@@ -52,6 +56,56 @@ class SessionForm extends React.Component {
       )}
       </ul>
     )
+  }
+
+  animateTyping(field, letter) {
+    this.setState({
+      [field]: this.state[field] + letter
+    });
+  }
+
+  guestLogin() {
+    setTimeout(() => {
+      this.animateTyping("username", "g")
+      setTimeout(() => {
+        this.animateTyping("username","u")
+        setTimeout(() => {
+          this.animateTyping("username","e")
+          setTimeout(() => {
+            this.animateTyping("username","s")
+            setTimeout(() => {
+              this.animateTyping("username", "t")
+            }, 100);
+          }, 100);
+        }, 100);
+      }, 100);
+    }, 100);
+
+    setTimeout(() => {
+      this.animateTyping("password", "p")
+      setTimeout(() => {
+        this.animateTyping("password","a")
+        setTimeout(() => {
+          this.animateTyping("password","s")
+          setTimeout(() => {
+            this.animateTyping("password","s")
+            setTimeout(() => {
+              this.animateTyping("password", "w")
+              setTimeout(() => {
+                this.animateTyping("password", "o")
+                setTimeout(() => {
+                  this.animateTyping("password", "r")
+                  setTimeout(() => {
+                    this.animateTyping("password", "d")
+                    this.handleSubmit()
+                  }, 100);
+                }, 100);
+              }, 100);
+            }, 100);
+          }, 100);
+        }, 100);
+      }, 100);
+    }, 1000);
   }
 
   render() {
@@ -94,9 +148,7 @@ class SessionForm extends React.Component {
         </label>
       )
 
-
     }
-
 
     return (
       <div className='session-form'>
@@ -119,6 +171,7 @@ class SessionForm extends React.Component {
           <input type="submit" onClick={this.handleSubmit} value="Submit" />
         </form>
         {toggleForm}
+        <button onClick={this.guestLogin}>Guest Log In</button>
       </div>
     );
   };

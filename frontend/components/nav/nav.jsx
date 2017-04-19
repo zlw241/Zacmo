@@ -1,9 +1,15 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router';
+import { Link, withRouter, hashHistory} from 'react-router';
+
 
 class Nav extends React.Component {
   constructor(props) {
     super(props);
+    this.handleLogout = this.handleLogout.bind(this);
+  }
+
+  handleLogout() {
+    this.props.logout().then(() => hashHistory.push('/login'))
   }
 
   render() {
@@ -15,14 +21,13 @@ class Nav extends React.Component {
       </div>
     );
 
-
     if (this.props.currentUser) {
       const username = this.props.currentUser.username;
       navItems = (
         <div className="nav">
           <Link to="/">Home</Link>
           <Link to="/account">{username}</Link>
-          <button onClick={this.props.logout}>Logout</button>
+          <button onClick={this.handleLogout}>Logout</button>
         </div>
       );
     }

@@ -16,6 +16,9 @@ class Profile extends React.Component {
         <h1>{this.props.currentUser.first_name} {this.props.currentUser.last_name}</h1>
         <div>{this.props.currentUser.username}</div>
         <div>{this.props.currentUser.email}</div>
+        <Link to="/account/edit">Edit</Link>
+        <Link to="/account/banks">Banks and Cards</Link>
+        {this.props.children}
       </div>
     );
   }

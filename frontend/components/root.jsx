@@ -7,6 +7,7 @@ import ProfileContainer from './profile/profile_container';
 import AccountContainer from './account/account_container';
 import SettingsContainer from './account/edit/settings_container';
 import Payments from './account/edit/banks';
+import UserContainer from './user/user_container';
 
 const Root = ({store}) => {
 
@@ -36,6 +37,7 @@ const Root = ({store}) => {
             <Route path="settings" component={SettingsContainer} />
             <Route path="payments" component={Payments} />
           </Route>
+          <Route path="/:user_id" component={UserContainer} />
         </Route>
       </Router>
     </Provider>

@@ -9,11 +9,11 @@ class Profile extends React.Component {
   }
 
   componentWillMount() {
-    this.props.fetchUser(this.props.currentUser.id)
+    this.props.fetchUser(this.props.currentUser.id);
   }
 
   render() {
-    if (!this.props.currentUser) { return null }
+  //  if (!this.props.currentUser) { return null }
 
     return (
       <div className="profile">

@@ -8,14 +8,18 @@ class Profile extends React.Component {
     super(props);
   }
 
-  render() {
+  componentWillMount() {
+    this.props.fetchUser(this.props.currentUser.id)
+  }
 
+  render() {
     if (!this.props.currentUser) { return null }
+
     return (
       <div className="profile">
-        <h1>{this.props.currentUser.first_name} {this.props.currentUser.last_name}</h1>
-        <div>{this.props.currentUser.username}</div>
-        <div>{this.props.currentUser.email}</div>
+        <h1 id="red">{this.props.user.first_name} {this.props.user.last_name}</h1>
+        <div>{this.props.user.username}</div>
+        <div>{this.props.user.email}</div>
         <Link to="/account/settings">Edit</Link>
         {this.props.children}
       </div>

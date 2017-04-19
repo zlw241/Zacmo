@@ -16,20 +16,20 @@ export const receiveErrors = (errors) => ({
 export const signup = (user) => (dispatch) => {
   return APIUtil.signup(user).then(
     (newUser) => dispatch(receiveUser(newUser)),
-    (error) => dispatch(receiveErrors(error))
+    (err) => dispatch(receiveErrors(err.responseJSON))
   );
 };
 
 export const login = (user) => (dispatch) => {
   return APIUtil.login(user).then(
     (currentUser) => dispatch(receiveUser(currentUser)),
-    (error) => dispatch(receiveErrors(error))
+    (err) => dispatch(receiveErrors(err.responseJSON))
   );
 };
 
 export const logout = () => (dispatch) => {
   return APIUtil.logout().then(
     (loggedOutUser) => dispatch(receiveUser(loggedOutUser)),
-    (error) => dispatch(receiveErrors(error))
+    (err) => dispatch(receiveErrors(err.responseJSON))
   );
 };

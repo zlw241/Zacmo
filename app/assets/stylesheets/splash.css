@@ -1,4 +1,6 @@
 
+/*font-family: 'Oswald', sans-serif;
+font-family: 'Noto Sans', sans-serif;*/
 
 .landing-page-container {
   display: flex;
@@ -6,8 +8,13 @@
   margin-top: 30px;
 }
 
+.splash-welcome {
+  padding-right: 50px;
+}
+
 .splash-img {
   width: 70%;
+  height: 100%;
   display: flex;
   justify-content: center;
 }
@@ -20,7 +27,6 @@
   background-color: #3D95CE;
   border: none;
   color: white;
-
   border-radius: 4px;
 }
 
@@ -30,10 +36,114 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 60%;
-
+  height: 50%;
 }
 
 .welcome-content h1 {
   text-align: center;
+}
+
+.animatedFeed {
+  margin-top: -5px;
+  border: 2px solid black;
+  padding: 0;
+  width: 280px;
+  height: 465px;
+  overflow: hidden;
+  font-size: 14px;
+  /*margin-bottom: 100px;*/
+}
+
+.demo-feed-item {
+  border-bottom: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+
+}
+
+.demo-feed-item:last-child {
+  border: none;
+}
+
+.like-comment {
+  display: flex;
+  width: 50%;
+  justify-content: space-around;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-left: 20px;
+}
+
+.demo-feed-item-memo {
+  display: flex;
+  justify-content: flex-start;
+  width: 60%;
+  padding-left: 22px;
+}
+
+.demo-feed-item-heading {
+  display: flex;
+  padding-left: 22px;
+  justify-content: flex-start;
+  margin-bottom: 5px;
+}
+
+.demo-feed-user {
+  /*font-family: 'Oswald', sans-serif;*/
+  font-family: 'Noto Sans', sans-serif;
+
+  font-weight: bolder;
+}
+
+.demo-item-action {
+  /*font-family: 'Noto Sans', sans-serif;*/
+  margin-top: 3px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.iphone {
+  border: 3px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 620px;
+  width: 300px;
+  border-radius: 35px;
+
+}
+
+.iphone-button {
+  width: 45px;
+  height: 45px;
+  border-radius: 100%;
+  border: 3px solid black;
+  margin-bottom: -30px;
+}
+
+.above-screen {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.iphone-speaker {
+  width: 50px;
+  height: 5px;
+  background-color: black;
+  border-radius: 30%;
+  margin-bottom: 10px;
+}
+
+.iphone-camera {
+  width: 8px;
+  height: 8px;
+  background-color: black;
+  border-radius: 100%;
+  margin-bottom: 15px;
+  margin-top: -15px;
 }

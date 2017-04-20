@@ -8,7 +8,13 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
 
-  has_many :friends
+  has_many :friendships
+
+  has_many :friends,
+    through: :friendships,
+    source: :friend
+
+
 
   def self.generate_session_token
     SecureRandom.urlsafe_base64(16)

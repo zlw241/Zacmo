@@ -16,11 +16,14 @@ if current_user
       :balance,
       :phone_num
   else
-    json.extract! user,
-    :id,
-    :username,
-    :first_name,
-    :last_name
+    json.id user.id
+    json.username user.username
+    json.first_name user.first_name
+    json.last_name user.last_name
+    json.friends user.friends do |friend|
+      json.friend_id friend.id
+      json.username friend.username
+    end 
   end
 end
 

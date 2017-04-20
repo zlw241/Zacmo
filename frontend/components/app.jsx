@@ -8,7 +8,7 @@ const App = ({children}) => {
     <div className="main">
       <header className="header">
         <Link to="/" className="header-link">
-          <h1>zacmo</h1>
+          <em><h1>zacmo</h1></em>
         </Link>
         <NavContainer />
       </header>

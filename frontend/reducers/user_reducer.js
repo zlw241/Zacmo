@@ -12,7 +12,8 @@ const _nullUser = {
   balance: 0, // only user's own page
   friends: {
     id: null,
-  }
+  },
+  errors: []
 }
 
 const UserReducer = (state = _nullUser, action) => {
@@ -23,7 +24,9 @@ const UserReducer = (state = _nullUser, action) => {
       return newState
     }
     case RECEIVE_ERRORS: {
-      debugger
+      const newState = merge({}, state);
+      newState.errors = action.errors;
+      return newState;
     }
     default:
       return state;

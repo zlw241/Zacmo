@@ -8,6 +8,7 @@ import AccountContainer from './account/account_container';
 import SettingsContainer from './account/edit/settings_container';
 import Payments from './account/edit/banks';
 import UserContainer from './user/user_container';
+import LandingPageContainer from './landing_page/landing_page_container';
 
 const Root = ({store}) => {
 
@@ -21,7 +22,7 @@ const Root = ({store}) => {
   const _redirectIfLoggedIn = (nextState, replace) => {
     const currentUser = store.getState().session.currentUser;
     if (currentUser) {
-      replace('/');
+      replace('/profile');
     }
   };
 
@@ -30,6 +31,7 @@ const Root = ({store}) => {
     <Provider store={store}>
       <Router history={hashHistory}>
         <Route path="/" component={App}>
+          <IndexRoute component={LandingPageContainer} onEnter={_redirectIfLoggedIn}/>
           <Route path="/login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn}/>
           <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn}/>
           <Route path="/profile" component={ProfileContainer} onEnter={_ensureLoggedIn} />
@@ -37,7 +39,7 @@ const Root = ({store}) => {
             <Route path="settings" component={SettingsContainer} />
             <Route path="payments" component={Payments} />
           </Route>
-          <Route path="/:user_id" component={UserContainer} />
+          <Route path="/:user_id" component={UserContainer} onEnter={_ensureLoggedIn}/>
         </Route>
       </Router>
     </Provider>

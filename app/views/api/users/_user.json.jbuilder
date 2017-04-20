@@ -13,6 +13,7 @@ if current_user
       :first_name,
       :last_name,
       :email,
+      :balance,
       :phone_num
   else
     json.extract! user,

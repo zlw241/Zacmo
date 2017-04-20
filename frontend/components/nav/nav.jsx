@@ -9,7 +9,7 @@ class Nav extends React.Component {
   }
 
   handleLogout() {
-    this.props.logout().then(() => hashHistory.push('/login'))
+    this.props.logout().then(() => hashHistory.push('/'))
   }
 
   render() {

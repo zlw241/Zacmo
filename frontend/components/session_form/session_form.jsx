@@ -118,69 +118,104 @@ class SessionForm extends React.Component {
     let emailInput = null;
     let phoneInput = null;
 
+    let formClass = 'session-form login';
+
     let guestLoginButton = (
       <button id="guest-button" onClick={this.guestLogin}>Guest Log In</button>
     );
 
+    let submitButtonText = "Create a Zacmo Account";
+
+    let toggleFormButton = "Log in to Zacmo";
+
     let toggleForm = (
-      <Link to="/signup">Sign Up</Link>
+      <Link to="/signup">{submitButtonText}</Link>
     );
+
+    let formHeader = "Please Log In";
 
     if (this.props.formType === 'signup') {
       guestLoginButton = null;
+      formClass = 'session-form signup';
+      formHeader = submitButtonText;
+
+      submitButtonText = "Log In";
+      toggleFormButton = "Complete Signup";
 
       toggleForm = (
-        <Link to="/login">Log In</Link>
+        <Link to="/login">{submitButtonText}</Link>
       );
 
       firstNameInput = (
-        <label>First Name
-        <input type="text" onChange={this.handleInput} name="first_name" value={this.state.first_name} />
-        </label>
+        <div className="form-item input-text">
+          <div className="input-label">
+            <label>First Name</label>
+          </div>
+          <input type="text" className="session-form-input"
+          onChange={this.handleInput} name="first_name" value={this.state.first_name} />
+        </div>
       );
 
       lastNameInput = (
-        <label>Last Name
-        <input type="text" onChange={this.handleInput} name="last_name" value={this.state.last_name} />
-        </label>
+        <div className="form-item input-text">
+          <div className="input-label">Last Name</div>
+          <input type="text" className="session-form-input"
+          onChange={this.handleInput} name="last_name" value={this.state.last_name} />
+        </div>
       );
 
       emailInput = (
-        <label>Email
-        <input type="text" onChange={this.handleInput} name="email" value={this.state.email} />
-        </label>
-      )
+        <div className="form-item input-text">
+          <div className="input-label">Email</div>
+          <input type="text" className="session-form-input"
+          onChange={this.handleInput} name="email" value={this.state.email} />
+        </div>
+      );
 
       phoneInput = (
-        <label>Phone
-        <input type="text" onChange={this.handleInput} name="phone_num" value={this.state.phone_num} />
-        </label>
-      )
+        <div className="form-item input-text">
+          <div className="input-label">Phone</div>
+          <input type="text" className="session-form-input"
+          onChange={this.handleInput} name="phone_num" value={this.state.phone_num} />
+        </div>
+      );
 
     }
 
     return (
-      <div className='session-form'>
+      <div className={formClass}>
         <div className="form-errors">
           {this.renderErrors()}
         </div>
-        <form>
+        <div className="form-header">
+          {guestLoginButton}
+          <h2>{formHeader}</h2>
+          <p>To continue, use your email, phone number, or Zacmo username to log into your Zacmo account.</p>
+        </div>
+        <form onSubmit={this.handleSubmit}>
           {firstNameInput}
           {lastNameInput}
           {emailInput}
           {phoneInput}
-          <label>Username
-          <input type="text" onChange={this.handleInput} name="username" value={this.state.username} />
-          </label>
+          <div className="form-item input-text">
+            <div className="input-label">Username</div>
+            <input type="text" className="session-form-input" onChange={this.handleInput} name="username"
+            value={this.state.username} />
+          </div>
 
-          <label>Password
-          <input type="password" onChange={this.handleInput} name="password" value={this.state.password} />
-          </label>
+          <div className="form-item input-text">
+            <div className="input-label">Password</div>
+            <input type="password" className="session-form-input"
+            onChange={this.handleInput} name="password" value={this.state.password} />
+          </div>
 
-          <input type="submit" onClick={this.handleSubmit} value="Submit" />
+          <div className="form-item">
+            <div className="form-help"><Link to="/help">Help</Link></div>
+            <button className="button-submit">{toggleFormButton}</button>
+          </div>
+
         </form>
         {toggleForm}
-        {guestLoginButton}
       </div>
     );
   };

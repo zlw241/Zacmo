@@ -1,13 +1,14 @@
 
 .header {
-  border: 1px solid black;
+  // border: 1px solid black;
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px solid #6d6d6d;
 
 }
 
 .header nav {
-  border: 1px solid black;
+  // border: 1px solid black;
   width: 50%;
   display: flex;
   align-items: center;
@@ -15,9 +16,15 @@
 }
 
 .header nav .nav {
-  border: 1px solid black;
+  // border: 1px solid black;
   width: 50%;
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+.header-link {
+  margin-left: 20px;
+  font-style: italic;
+  font-size: 20px;
 }

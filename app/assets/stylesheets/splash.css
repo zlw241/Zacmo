@@ -1,0 +1,39 @@
+
+
+.landing-page-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+.splash-img {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+}
+
+.splash-page-signup {
+  border: none;
+  font-size: 18px;
+  width: 200px;
+  height: 50px;
+  background-color: #3D95CE;
+  border: none;
+  color: white;
+
+  border-radius: 4px;
+}
+
+
+.welcome-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60%;
+
+}
+
+.welcome-content h1 {
+  text-align: center;
+}

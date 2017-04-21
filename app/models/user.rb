@@ -14,11 +14,11 @@ class User < ActiveRecord::Base
     through: :friendships,
     source: :friend
 
-  has_many :requested_friends, -> { where "status = 'requested'"},
+  has_many :friend_requests, -> { where "status = 'requested'"},
     through: :friendships,
     source: :friend
 
-  has_many :pending_requests, -> { where "status = 'pending'"},
+  has_many :pending_friends, -> { where "status = 'pending'"},
     through: :friendships,
     source: :friend
 

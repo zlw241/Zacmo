@@ -9,9 +9,25 @@ if current_user
     json.email user.email
     json.balance user.balance
     json.phone_num user.phone_num
+    json.friendships do
+      json.friends user.friends do |friend|
+        json.id friend.id
+        json.username friend.username
+      end
+      json.friend_requests user.friend_requests do |requester|
+        json.id requester.id
+        json.username requester.username
+      end
+      json.pending_friends user.pending_friends do |pending_friend|
+        json.id pending_friend.id
+        json.username pending_friend.username
+      end
+    end
   end
-  json.friends user.friends do |friend|
-    json.id friend.id
-    json.username friend.username
+  json.friendships do
+    json.friends user.friends do |friend|
+      json.id friend.id
+      json.username friend.username
+    end
   end
 end

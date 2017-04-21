@@ -1,7 +1,9 @@
 class Api::FriendsControllerController < ApplicationController
   def create
-    @friend = Friend.new(friend_params)
-    if @friend.save
+    user = User.find(params[:user_id])
+    friend = User.find(params[:friend_id])
+    @friendship = Friendship.request(user, friend)
+    if @friendship.save
       render "api/users/show"
     else
       render json: @friend.errors.full_messages, 401

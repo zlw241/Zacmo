@@ -1,10 +1,10 @@
 
 .header {
-  // border: 1px solid black;
   display: flex;
   justify-content: space-around;
   border-bottom: 1px solid #6d6d6d;
   align-items: center;
+  height: 100px;
 }
 
 .header nav {
@@ -30,8 +30,8 @@
 }
 
 .search-bar {
-
-  // border: 1px solid black;
+  // margin-top: 20px;
+  border: 1px solid black;
   margin-left: 30px;
 }
 
@@ -43,4 +43,14 @@
   outline: none;
   border-width: 0.5px;
   padding-left: 5px;
+}
+
+.search-results {
+  position: absolute;
+  background-color: white;
+  z-index: 1;
+  box-shadow: -1px 4px 6px 1px rgba(0,0,0,0.09);
+  // border: 1px solid;
+  width: 250px;
+  margin-top: 10px;
 }

@@ -36,6 +36,10 @@ class Search extends React.Component {
   }
 
   render() {
+
+    if (!this.props.currentUser) {
+      return null
+    }
     return (
       <div className="search">
         <div className="search-bar">
@@ -44,14 +48,15 @@ class Search extends React.Component {
             name="query"
             placeholder="Search for users"
             onChange={this.handleInput} />
+            <div className="search-results">
+              <ul>
+                {this.state.search_results.map((user) => (
+                  <li key={user.id}><Link onClick={this.clearState} to={`/${user.id}`}>{user.username}</Link></li>
+                ))}
+              </ul>
+            </div>
         </div>
-        <div className="search-results">
-          <ul>
-            {this.state.search_results.map((user) => (
-              <li key={user.id}><Link onClick={this.clearState} to={`/${user.id}`}>{user.username}</Link></li>
-            ))}
-          </ul>
-        </div>
+
       </div>
 
     )

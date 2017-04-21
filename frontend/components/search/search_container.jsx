@@ -4,7 +4,7 @@ import Search from './search';
 import { searchUsers } from '../../util/user_api_util';
 
 const mapStateToProps = (state) => ({
-
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = (dispatch) => ({

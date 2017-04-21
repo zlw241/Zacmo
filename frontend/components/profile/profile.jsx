@@ -19,7 +19,10 @@ class Profile extends React.Component {
 
     return (
       <div className="profile">
-        <h1>{this.props.user.first_name} {this.props.user.last_name}</h1>
+        <h1>
+          {this.props.user.first_name} {this.props.user.last_name}
+          <small>  <Link to="/account/settings">Edit</Link>  </small>
+        </h1>
         <div>{this.props.user.username}</div>
         <div>{this.props.user.email}</div>
         <div>{this.props.user.balance}</div>
@@ -56,7 +59,7 @@ class Profile extends React.Component {
           </div>
 
         </div>
-        <Link to="/account/settings">Edit</Link>
+
         {this.props.children}
       </div>
     );

@@ -8,9 +8,6 @@ class User extends React.Component {
   constructor(props) {
     super(props)
 
-    // this.addFriend = this.addFriend.bind(this);
-    // this.removeFriend = this.removeFriend.bind(this);
-    // this.acceptRequest = this.acceptRequest.bind(this);
   }
 
   componentWillMount() {
@@ -23,52 +20,26 @@ class User extends React.Component {
     }
   }
 
-  // addFriend() {
-  //   this.props.addFriend(this.props.user.id);
-  // }
-  //
-  // removeFriend() {
-  //   this.props.removeFriend(this.props.user.id);
-  // }
-  //
-  // acceptRequest() {
-  //   this.props.acceptRequest(this.props.user.id);
-  // }
-  //
-  // userButton() {
-  //   this.props.currentUser
-  // }
-
   render() {
-
-
-    // let friendButton;
-    // if (this.props.user.friend_status === "friends") {
-    //   friendButton = (
-    //     <button onClick={this.removeFriend}>Unfriend</button>
-    //   );
-    // } else if (this.props.user.friend_status === "pending") {
-    //   friendButton = (
-    //     <button disabled>Pending</button>
-    //   );
-    // } else if (this.props.user.friend_status === "requested") {
-    //   friendButton = (
-    //     <button onClick={this.acceptRequest}>Accept</button>
-    //   );
-    // } else {
-    //   friendButton = (
-    //     <button onClick={this.addFriend}>Add Friend</button>
-    //   );
-    // }
 
     return (
       <div className="user">
-        <h1>{this.props.user.first_name} {this.props.user.last_name}</h1>
-        <div>status: {this.props.user.friend_status}</div>
-        <div>{this.props.user.username}</div>
-        <div>{this.props.user.email}</div>
+        <h1>
+          {this.props.user.first_name} {this.props.user.last_name}
+           <small> @{this.props.user.username}</small>
+        </h1>
         <FriendButton />
-        <Link to="/account/settings">Edit</Link>
+
+        <div className="friends">
+          <h3>Friends</h3>
+          <ul>
+            {this.props.user.friendships.friends.map((friend) => (
+              <li key={friend.id}>
+                <Link key={friend.id} to={`/${friend.id}`}>{friend.username}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
         {this.props.children}
       </div>
     );

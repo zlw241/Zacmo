@@ -48,30 +48,37 @@ class Settings extends React.Component {
   render() {
 
     return (
-      <div className="edit-profile">
-        <form onSubmit={this.handleSubmit}>
-          <label>First Name
+      <div className="content-container">
+      <form className="user-form" onSubmit={this.handleSubmit}>
+        <div>
+          <div>First Name</div>
           <input type="text" onChange={this.handleInput} name="first_name" value={this.state.first_name} />
-          </label>
+        </div>
 
-          <label>Last Name
+        <div>
+          <div>Last Name</div>
           <input type="text" onChange={this.handleInput} name="last_name" value={this.state.last_name} />
-          </label>
+        </div>
 
-          <label>Email
+        <div>
+          <div>Email</div>
           <input type="text" onChange={this.handleInput} name="email" value={this.state.email} />
-          </label>
+        </div>
 
-          <label>Phone
+        <div>
+          <div>Phone</div>
           <input type="text" onChange={this.handleInput} name="phone_num" value={this.state.phone_num} />
-          </label>
+        </div>
 
-          <label>Username
+        <div>
+          <div>Username</div>
           <input type="text" onChange={this.handleInput} name="username" value={this.state.username} />
-          </label>
+        </div>
 
-          <input type="submit" value="Save Settings" />
-        </form>
+        <div className="form-submit">
+          <button type="submit">Save Settings</button>
+        </div>
+      </form>
       </div>
     );
   }

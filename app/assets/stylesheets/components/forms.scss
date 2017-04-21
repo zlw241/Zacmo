@@ -1,0 +1,43 @@
+
+
+
+.user-form {
+  border: 1px solid black;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.8
+}
+
+.user-form input[type=text] {
+  border: 0.5px solid $gray;
+  margin: 10px;
+  margin-top: 5px;
+  width: 70%;
+}
+
+.user-form > div {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  margin-bottom: 0px;
+  width: 100%;
+}
+
+
+.form-submit > button {
+  width: 200px;
+  background-color: $blue;
+  color: $light-gray;
+  height: 40px;
+  font-size: 15px;
+  margin: 10px;
+}
+
+.content-container {
+  display: flex;
+  border: 1px solid red;
+  width: 100%;
+  justify-content: center;
+}

@@ -9,14 +9,20 @@ class Account extends React.Component {
   }
 
   render() {
-
-    if (!this.props.currentUser) { return null }
+    // if (!this.props.currentUser) { return null }
     return (
-      <div className="account">
-        <h2>Settings</h2>
-        <Link to="/account/settings">Profile</Link>
-        <Link to="/account/payments">Payments</Link>
+      <div className="home">
+        <div className="side-nav">
+          <h2>Settings</h2>
+          <Link>Feed</Link>
+          <Link to="/account/settings">Profile</Link>
+          <Link to="/account/payments">Payments</Link>
+          <Link>Settings</Link>
+        </div>
+
+        <div className="home-content">
         {this.props.children}
+        </div>
       </div>
     );
   }

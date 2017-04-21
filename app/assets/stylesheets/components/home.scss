@@ -1,0 +1,31 @@
+
+.main {
+  height: 100%;
+}
+
+.home {
+  display: flex;
+  margin-top: 50px;
+  height: 100%;
+  border: 1px solid black;
+}
+
+.side-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  line-height: 1.8;
+  font-size: 18px;
+  height: 50%;
+  border: 1px solid black;
+  width: 30%;
+}
+
+.home-content {
+  padding-left: 40px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}

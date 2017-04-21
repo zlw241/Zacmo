@@ -72,7 +72,7 @@ users = User.create([
       last_name: "The Necromancer",
       phone_num: "666-666-6666",
       password: "oneringtorulethemall"
-    }
+    },
     {
       username: "guest",
       email: "guest@guest.com",

@@ -25,25 +25,20 @@ class FriendButton extends React.Component {
   }
 
   render() {
-
-    if (this.props.user.friend_status === "friends") {
-      return (
+    switch(this.props.user.friend_status) {
+      case "friends": return (
         <button onClick={this.removeFriend}>Unfriend</button>
-      );
-    } else if (this.props.user.friend_status === "pending") {
-      return (
+      )
+      case "pending": return (
         <button disabled>Pending</button>
-      );
-    } else if (this.props.user.friend_status === "requested") {
-      return (
+      )
+      case "requested": return (
         <button onClick={this.acceptRequest}>Accept</button>
-      );
-    } else {
-      return (
-        <button onClick={this.addFriend}>Add Friend</button>
-      );
+      )
+      default: return (
+          <button onClick={this.addFriend}>Add Friend</button>
+        )
     }
-
   }
 
 }

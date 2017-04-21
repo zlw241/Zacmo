@@ -29,6 +29,17 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def search
+    if params[:query].present?
+      @users = User.where("username ~ ?", params[:query])
+      render "api/users/search"
+    else
+      @users = User.none
+      render {}
+    end
+  end
+
+
   def destroy
   end
 

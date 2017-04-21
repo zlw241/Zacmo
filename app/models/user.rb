@@ -51,6 +51,15 @@ class User < ActiveRecord::Base
     friendship = friendships.where(status: 'requested', friend_id: friend.id)
   end
 
+  def user_friend_ids
+    @friend_ids ||= friends.pluck(:friend_id)
+  end
+
+
+  def friends_with?(user)
+    user_friend_ids.include?(user.id)
+  end
+
   private
   def ensure_session_token
     self.session_token ||= User.generate_session_token

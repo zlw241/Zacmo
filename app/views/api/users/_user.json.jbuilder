@@ -5,6 +5,7 @@ if current_user
   json.username user.username
   json.first_name user.first_name
   json.last_name user.last_name
+
   if current_user.id == user.id
     json.email user.email
     json.balance user.balance
@@ -23,7 +24,10 @@ if current_user
         json.username pending_friend.username
       end
     end
+  else
+    json.friends_with current_user.friends_with? user
   end
+
   json.friendships do
     json.friends user.friends do |friend|
       json.id friend.id

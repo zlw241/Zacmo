@@ -215,7 +215,7 @@ class SessionForm extends React.Component {
           </div>
 
         </form>
-        {toggleForm}
+        
       </div>
     );
   };

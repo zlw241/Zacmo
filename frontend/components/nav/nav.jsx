@@ -17,7 +17,7 @@ class Nav extends React.Component {
     let navItems = (
       <div className="nav">
         <Link to='/login'>Log In</Link>
-        <Link to='/signup'>Sign Up</Link>
+        <Link to='/signup'>Create Zacmo Account</Link>
       </div>
     );
 

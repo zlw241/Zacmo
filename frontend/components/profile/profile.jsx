@@ -10,18 +10,41 @@ class Profile extends React.Component {
   }
 
   componentWillMount() {
-    this.props.fetchUser(this.props.currentUser.id);
+    this.props.fetchUser(this.props.currentUser.id)
   }
 
 
   render() {
   //  if (!this.props.currentUser) { return null }
+
     return (
       <div className="profile">
         <h1>{this.props.user.first_name} {this.props.user.last_name}</h1>
         <div>{this.props.user.username}</div>
         <div>{this.props.user.email}</div>
         <div>{this.props.user.balance}</div>
+        <div>
+          {this.isFriendsWithCurrentUser()}
+          <div className="friends">
+            <h3>Friends</h3>
+            <ul>
+              {this.props.user.friendships.friends.map((friend) => <li key={friend.id}>{friend.username}</li>)}
+            </ul>
+          </div>
+          <div className="pending-friends">
+            <h3>Pending</h3>
+            <ul>
+              {this.props.user.friendships.pending_friends.map((friend) => <li key={friend.id}>{friend.username}</li>)}
+            </ul>
+          </div>
+          <div className="friend-requests">
+            <h3>Requests</h3>
+            <ul>
+              {this.props.user.friendships.friend_requests.map((friend) => <li key={friend.id}>{friend.username}</li>)}
+            </ul>
+          </div>
+
+        </div>
         <Link to="/account/settings">Edit</Link>
         {this.props.children}
       </div>

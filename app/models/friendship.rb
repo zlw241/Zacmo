@@ -22,7 +22,7 @@ class Friendship < ActiveRecord::Base
         create!(user_id: friend.id, friend_id: user.id, status: 'requested')
       end
     else
-      return "friendship already requested"
+      return false
     end
   end
 

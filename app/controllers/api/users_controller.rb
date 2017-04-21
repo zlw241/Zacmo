@@ -39,6 +39,11 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  # def friend
+  #   @user = User.find(params[:id])
+  #   Friendship.request(current_user, @user)
+  #   render "api/users/show"
+  # end
 
   def destroy
   end

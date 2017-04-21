@@ -26,6 +26,7 @@ if current_user
     end
   else
     json.friends_with current_user.friends_with? user
+    json.friend_status current_user.friend_status user
   end
 
   json.friendships do

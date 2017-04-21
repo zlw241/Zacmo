@@ -34,3 +34,10 @@ export const createUser = (user) => (dispatch) => {
     (err) => dispatch(receiveErrors(err))
   );
 }
+
+export const addFriend = (friend_id) => (dispatch) => {
+  return UserAPIUtil.addFriend(friend_id).then(
+    (pending_friend) => dispatch(receiveUser(pending_friend)),
+    (err) => dispatch(receiveErrors(err))
+  );
+}

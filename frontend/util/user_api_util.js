@@ -30,3 +30,10 @@ export function searchUsers(query) {
     data: { query }
   });
 }
+
+export function addFriend(friend_id) {
+  return $.ajax({
+      url: `/api/users/${friend_id}/friendships`,
+      method: 'POST'
+  });
+}

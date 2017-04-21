@@ -4,10 +4,10 @@ html {
 }
 
 body {
-	width: 90%;
+	width: 95%;
 	margin: 0 auto;
 	// font-family: $serif;
-	font-size: 12px;
+	font-size: 16px;
 }
 
 button {
@@ -36,6 +36,7 @@ a:hover {
 .hidden {
 	display: none;
 }
+
 
 /*
 	Font Elements
@@ -126,4 +127,8 @@ hr {
 
 input[type="search"] {
 	padding: 5px;
+}
+
+input[type="search"]:focus, input[type="text"]:focus {
+	color: $light-blue;
 }

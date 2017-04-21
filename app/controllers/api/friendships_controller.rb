@@ -22,7 +22,8 @@ class Api::FriendshipsController < ApplicationController
     # @friendship = Friendship.find_by(user_id: current_user.id, friend_id: params[:id])
     # @friendship = current_user.friendships.where(friend_id: params[:id])
     @user = User.find(params[:id])
-    if current_user.friends.delete(@user)
+    
+    if current_user.friends.delete(@user) && @user.friends.delete(current_user)
       render "api/users/show"
     else
       render json: @user.errors.fullmessages, status: 422

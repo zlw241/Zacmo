@@ -8,7 +8,6 @@ const App = ({children}) => {
 
   return (
     <div className="main">
-
       <header className="header">
         <Link to="/" className="header-link">
           <em><h1>zacmo</h1></em>

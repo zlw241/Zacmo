@@ -41,10 +41,10 @@ class Search extends React.Component {
       return null
     }
     return (
-      <div className="search">
+      <div className="search-container">
         <div className="search-bar">
-          <input
-            type="text"
+          <input className="search"
+            type="search"
             name="query"
             placeholder="Search for users"
             onChange={this.handleInput} />

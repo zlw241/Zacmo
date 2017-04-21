@@ -8,12 +8,16 @@ class LandingPage extends React.Component {
 
     this.state = {
       list: [
+        {user1: "Brandon", user2: "Zach", memo: "for kale salad. yum yum yum"},
         {user1: "John", user2: "Michael", memo: "for food"},
         {user1: "Abby", user2: "Emma", memo: "for ice-cream"},
+        {user1: "Brandon", user2: "Zach", memo: "for kale salad. yum yum yum"},
         {user1: "William", user2: "Gabriela", memo: "for lunch"},
         {user1: "Paul", user2: "Simon", memo: "I owe u"},
+        {user1: "Brandon", user2: "Zach", memo: "for kale salad. yum yum yum"},
         {user1: "Sarah", user2: "Tom", memo: "Thanks sweetie"},
         {user1: "Adam", user2: "Zach", memo: "Thanks man"},
+        {user1: "Brandon", user2: "Zach", memo: "for kale salad. yum yum yum"},
         {user1: "Chris", user2: "Zach", memo: "chipotle"},
         {user1: "Rupert", user2: "Oscar", memo: "We've got weird names"},
         {user1: "Sally", user2: "Joe", memo: "Idk"}
@@ -26,8 +30,13 @@ class LandingPage extends React.Component {
     this._tick();
   }
 
+  componentWillUnmount() {
+    clearInterval(this.interval)
+  }
+
+
   _tick() {
-    setInterval(() => {
+    this.interval = setInterval(() => {
       this._rotate()
     }, 2000);
   }

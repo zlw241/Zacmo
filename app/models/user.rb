@@ -8,6 +8,20 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
 
+  has_many :friendships
+
+  has_many :friends, -> { where "status = 'accepted'"},
+    through: :friendships,
+    source: :friend
+
+  has_many :friend_requests, -> { where "status = 'requested'"},
+    through: :friendships,
+    source: :friend
+
+  has_many :pending_friends, -> { where "status = 'pending'"},
+    through: :friendships,
+    source: :friend
+
   def self.generate_session_token
     SecureRandom.urlsafe_base64(16)
   end
@@ -31,6 +45,19 @@ class User < ActiveRecord::Base
     user = User.find_by(username: username)
     return user if user && user.valid_password?(password)
     nil
+  end
+
+  def accept_friend_request(friend)
+    friendship = friendships.where(status: 'requested', friend_id: friend.id)
+  end
+
+  def user_friend_ids
+    @friend_ids ||= friends.pluck(:friend_id)
+  end
+
+
+  def friends_with?(user)
+    user_friend_ids.include?(user.id)
   end
 
   private

@@ -30,3 +30,7 @@ a {
   text-decoration: none;
   color: #3D95CE;
 }
+
+button:hover {
+  cursor: pointer;
+}

@@ -21,3 +21,12 @@ export function updateUser(user) {
     data: {user}
   });
 }
+
+export function searchUsers(query) {
+  return $.ajax({
+    url: "api/users/search",
+    dataType: "json",
+    method: "GET",
+    data: { query }
+  });
+}

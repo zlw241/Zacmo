@@ -35,9 +35,23 @@ export const createUser = (user) => (dispatch) => {
   );
 }
 
-export const addFriend = (friend_id) => (dispatch) => {
-  return UserAPIUtil.addFriend(friend_id).then(
-    (pending_friend) => dispatch(receiveUser(pending_friend)),
+export const addFriend = (friendId) => (dispatch) => {
+  return UserAPIUtil.addFriend(friendId).then(
+    (pendingFriend) => dispatch(receiveUser(pendingFriend)),
     (err) => dispatch(receiveErrors(err))
   );
+}
+
+export const removeFriend = (friendId) => (dispatch) => {
+  return UserAPIUtil.removeFriend(friendId).then(
+    (removedFriend) => dispatch(receiveUser(removedFriend)),
+    (err) => dispatch(receiveErrors(err))
+  );
+}
+
+export const acceptRequest = (friendId) => (dispatch) => {
+  return UserAPIUtil.acceptRequest(friendId).then(
+    (newFriend) => dispatch(receiveUser(newFriend)),
+    (err) => dispatch(receiveErrors(err))
+  )
 }

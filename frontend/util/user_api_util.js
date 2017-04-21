@@ -37,3 +37,17 @@ export function addFriend(friend_id) {
       method: 'POST'
   });
 }
+
+export function removeFriend(friend_id) {
+  return $.ajax({
+    url: `/api/friendships/${friend_id}`,
+    method: 'DELETE'
+  });
+}
+
+export function acceptRequest(friend_id) {
+  return $.ajax({
+    url: `/api/friendships/${friend_id}`,
+    method: 'PATCH'
+  });
+}

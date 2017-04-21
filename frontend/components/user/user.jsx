@@ -9,6 +9,7 @@ class User extends React.Component {
 
     this.addFriend = this.addFriend.bind(this);
     this.removeFriend = this.removeFriend.bind(this);
+    this.acceptRequest = this.acceptRequest.bind(this);
   }
 
   componentWillMount() {
@@ -26,7 +27,11 @@ class User extends React.Component {
   }
 
   removeFriend() {
+    this.props.removeFriend(this.props.user.id);
+  }
 
+  acceptRequest() {
+    this.props.acceptRequest(this.props.user.id);
   }
 
   userButton() {
@@ -40,17 +45,21 @@ class User extends React.Component {
     }
 
     let friendButton;
-    if (this.props.user.friend_status === 0) {
+    if (this.props.user.friend_status === "friends") {
       friendButton = (
-        <button onClick={this.addFriend}>Friend</button>
+        <button onClick={this.removeFriend}>Unfriend</button>
       );
-    } else if (this.props.user.friend_status === 1) {
+    } else if (this.props.user.friend_status === "pending") {
       friendButton = (
         <button disabled>Pending</button>
       );
+    } else if (this.props.user.friend_status === "requested") {
+      friendButton = (
+        <button onClick={this.acceptRequest}>Accept</button>
+      );
     } else {
       friendButton = (
-        <button onClick={this.removeFriend}>Unfriend</button>
+        <button onClick={this.addFriend}>Add Friend</button>
       );
     }
 

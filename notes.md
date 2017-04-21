@@ -12,6 +12,13 @@
 
 - user /:username for user route instead of /:user_id
 
+
+### Friends
+
+- make sure to add error handling for friend requests, updates, etc
+- think about how to better separate methods for handling friendships from the
+  user model, they're pretty tightly coupled right now
+
 ### Session
 
 - `DELETE /api/session`

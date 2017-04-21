@@ -13,7 +13,7 @@ Rails.application.routes.draw do
       resources :friendships, only: [:create, :destroy]
     end
     resource :session, only: [:create, :destroy]
-
+    resources :friendships, only: [:destroy, :update]
   end
 
   root "static_pages#root"

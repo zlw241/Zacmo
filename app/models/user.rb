@@ -59,6 +59,9 @@ class User < ActiveRecord::Base
     @pending_ids ||= pending_friends.pluck(:friend_id)
   end
 
+  def user_requested_ids
+    @requested_ids ||= friend_requests.pluck(:friend_id)
+  end
 
   def friends_with?(user)
     user_friend_ids.include?(user.id)
@@ -66,11 +69,13 @@ class User < ActiveRecord::Base
 
   def friend_status(user)
     if user_friend_ids.include?(user.id)
-      2
+      "friends"
     elsif user_pending_ids.include?(user.id)
-      1
+      "pending"
+    elsif user_requested_ids.include?(user.id)
+      "requested"
     else
-      0
+      nil
     end
   end
 

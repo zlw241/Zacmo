@@ -25,7 +25,7 @@ class Nav extends React.Component {
       const username = this.props.currentUser.username;
       navItems = (
         <div className="nav">
-          <Link to="/">Home</Link>
+          <Link to="/home/feed">Home</Link>
           <Link to="/profile">{username}</Link>
           <button onClick={this.handleLogout}>Logout</button>
         </div>

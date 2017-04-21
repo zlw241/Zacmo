@@ -24,8 +24,7 @@ class Profile extends React.Component {
           <small>  <Link to="/account/settings">Edit</Link>  </small>
         </h1>
         <div>{this.props.user.username}</div>
-        <div>{this.props.user.email}</div>
-        <div>{this.props.user.balance}</div>
+        <div>Balance: {this.props.user.balance}</div>
         <div>
           <div className="friends">
             <h3>Friends</h3>

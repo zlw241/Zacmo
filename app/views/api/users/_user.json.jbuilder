@@ -35,4 +35,5 @@ if current_user
       json.username friend.username
     end
   end
+  json.member_since user.created_at
 end

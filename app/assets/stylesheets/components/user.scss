@@ -1,0 +1,36 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.user {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user * {
+  border: 1px solid red;
+}
+
+.friends {
+  width: 35%;
+}
+
+.user-header {
+  display: flex;
+}
+
+.user-detail {
+  width: 65%;
+}
+
+.friend-button {
+
+}
+
+.friends-list-header {
+
+}
+
+.friends-list {
+
+}

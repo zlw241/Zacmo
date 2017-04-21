@@ -2,7 +2,6 @@ class Api::FriendshipsController < ApplicationController
 
   def create
 
-    puts "AHAHSHHAHAHAHAHAHAHh"
     @user = User.find(params[:user_id])
     # @friendship = Friendship.request(current_user, friend)
     Friendship.request(current_user, @user)
@@ -22,7 +21,7 @@ class Api::FriendshipsController < ApplicationController
     # @friendship = Friendship.find_by(user_id: current_user.id, friend_id: params[:id])
     # @friendship = current_user.friendships.where(friend_id: params[:id])
     @user = User.find(params[:id])
-    
+
     if current_user.friends.delete(@user) && @user.friends.delete(current_user)
       render "api/users/show"
     else

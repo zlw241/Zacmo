@@ -10,8 +10,10 @@ const _nullUser = {
   profile_pic: null,
   phone_num: null, // only user's own page
   balance: 0, // only user's own page
-  friends: {
-    id: null,
+  friendships: {
+    friends: [],
+    friend_requests: [],
+    pending_friends: []
   },
   errors: []
 }

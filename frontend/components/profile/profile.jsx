@@ -24,23 +24,34 @@ class Profile extends React.Component {
         <div>{this.props.user.email}</div>
         <div>{this.props.user.balance}</div>
         <div>
-          {this.isFriendsWithCurrentUser()}
           <div className="friends">
             <h3>Friends</h3>
             <ul>
-              {this.props.user.friendships.friends.map((friend) => <li key={friend.id}>{friend.username}</li>)}
+              {this.props.user.friendships.friends.map((friend) => (
+                <li key={friend.id}>
+                  <Link key={friend.id} to={`/${friend.id}`}>{friend.username}</Link>
+                </li>
+              ))}
             </ul>
           </div>
           <div className="pending-friends">
             <h3>Pending</h3>
             <ul>
-              {this.props.user.friendships.pending_friends.map((friend) => <li key={friend.id}>{friend.username}</li>)}
+              {this.props.user.friendships.pending_friends.map((friend) => (
+                <li key={friend.id}>
+                  <Link key={friend.id} to={`/${friend.id}`}>{friend.username}</Link>
+                </li>
+              ))}
             </ul>
           </div>
           <div className="friend-requests">
             <h3>Requests</h3>
             <ul>
-              {this.props.user.friendships.friend_requests.map((friend) => <li key={friend.id}>{friend.username}</li>)}
+              {this.props.user.friendships.friend_requests.map((friend) => (
+                <li key={friend.id}>
+                  <Link key={friend.id} to={`/${friend.id}`}>{friend.username}</Link>
+                </li>
+              ))}
             </ul>
           </div>
 

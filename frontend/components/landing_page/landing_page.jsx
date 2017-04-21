@@ -26,11 +26,15 @@ class LandingPage extends React.Component {
     this._tick();
   }
 
+  componentWillUnmount() {
+    clearInterval(this.interval)
+  }
+
+
   _tick() {
-    setTimeout(() => {
+    this.interval = setInterval(() => {
       this._rotate()
-      this._tick()
-    }, 3000);
+    }, 2000);
   }
 
 

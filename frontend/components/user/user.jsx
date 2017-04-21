@@ -18,25 +18,29 @@ class User extends React.Component {
   }
 
   isFriendsWithCurrentUser() {
-    let isFriends = "no"
-    this.props.user.friendships.friends.map((f) => {
-
-      if (f.id === this.props.currentUser.id) {
-        isFriends = "yes"
-      }
-    });
-    return isFriends
+    if (this.props.currentUser) {
+      let isFriends = "no"
+      this.props.user.friendships.friends.map((f) => {
+        if (f.id === this.props.currentUser.id) {
+          isFriends = "yes"
+        }
+      });
+      return isFriends
+    } else {
+      return null
+    }
   }
 
   render() {
-    debugger
+    let friendsWith = null;
+    if (this.props.currentUser) {
+      friendsWith = this.isFriendsWithCurrentUser()
+    }
+
     return (
       <div className="user">
-        <Link to="/1">1</Link>
-        <Link to="/5">5</Link>
-        <Link to="/12">12</Link>
-        <Link to="/13">13</Link>
         <h1>{this.props.user.first_name} {this.props.user.last_name}</h1>
+        {}
         friend? {this.isFriendsWithCurrentUser()}
         <div>{this.props.user.username}</div>
         <div>{this.props.user.email}</div>

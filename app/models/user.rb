@@ -55,9 +55,28 @@ class User < ActiveRecord::Base
     @friend_ids ||= friends.pluck(:friend_id)
   end
 
+  def user_pending_ids
+    @pending_ids ||= pending_friends.pluck(:friend_id)
+  end
+
+  def user_requested_ids
+    @requested_ids ||= friend_requests.pluck(:friend_id)
+  end
 
   def friends_with?(user)
     user_friend_ids.include?(user.id)
+  end
+
+  def friend_status(user)
+    if user_friend_ids.include?(user.id)
+      "friends"
+    elsif user_pending_ids.include?(user.id)
+      "pending"
+    elsif user_requested_ids.include?(user.id)
+      "requested"
+    else
+      nil
+    end
   end
 
   private

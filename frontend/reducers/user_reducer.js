@@ -11,6 +11,7 @@ const _nullUser = {
   phone_num: null, // only user's own page
   balance: 0, // only user's own page
   friends_with: null,
+  friend_status: null,
   friendships: {
     friends: [],
     friend_requests: [],

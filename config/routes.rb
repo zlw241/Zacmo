@@ -8,8 +8,12 @@ Rails.application.routes.draw do
   end
 
   namespace :api, defaults: { format: :json } do
-    resources :users, only: [:create, :show, :update, :destroy, :index]
+    resources :users, only: [:create, :show, :update, :destroy, :index] do
+      get "search", on: :collection
+
+    end
     resource :session, only: [:create, :destroy]
+
   end
 
   root "static_pages#root"

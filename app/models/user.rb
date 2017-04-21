@@ -10,11 +10,17 @@ class User < ActiveRecord::Base
 
   has_many :friendships
 
-  has_many :friends,
+  has_many :friends, -> { where "status = 'accepted'"},
     through: :friendships,
     source: :friend
 
+  has_many :requested_friends, -> { where "status = 'requested'"},
+    through: :friendships,
+    source: :friend
 
+  has_many :pending_requests, -> { where "status = 'pending'"},
+    through: :friendships,
+    source: :friend
 
   def self.generate_session_token
     SecureRandom.urlsafe_base64(16)
@@ -39,6 +45,10 @@ class User < ActiveRecord::Base
     user = User.find_by(username: username)
     return user if user && user.valid_password?(password)
     nil
+  end
+
+  def accept_friend_request(friend)
+    friendship = friendships.where(status: 'requested', friend_id: friend.id)
   end
 
   private

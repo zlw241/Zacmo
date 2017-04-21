@@ -1,2 +1,2 @@
-module Api::FriendsControllerHelper
+module Api::FriendshipHelper
 end

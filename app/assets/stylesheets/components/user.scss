@@ -11,12 +11,14 @@
   border: 1px solid red;
 }
 
-.friends {
-  width: 35%;
-}
 
 .user-header {
   display: flex;
+}
+
+.friends {
+  border: 1px solid black;
+  width: 35%;
 }
 
 .user-detail {

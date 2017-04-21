@@ -1,0 +1,34 @@
+
+.profile {
+  display: flex;
+
+}
+
+.user-friends {
+  border: 1px solid black;
+  width: 60%;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: space-around;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid #6d6d6d;
+}
+
+.tabs button {
+
+  margin-left: 20px;
+  background-color: white;
+  border: 1px solid #6d6d6d;
+  border-radius: -10px;
+  border-bottom: none;
+  color: $blue;
+}
+
+.tabs button {
+  border-bottom: 1px solid #6d6d6d;
+}

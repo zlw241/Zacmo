@@ -12,11 +12,26 @@ font-family: 'Noto Sans', sans-serif;*/
   padding-right: 50px;
 }
 
-.splash-img {
+.iphone-container {
   width: 70%;
   height: 100%;
   display: flex;
   justify-content: center;
+}
+
+.rotate-right {
+  z-index: 1;
+  transform: translateX(-140px);
+
+}
+
+.scale-down {
+  // transform: rotate(20deg);
+  transform: scale(0.9, 0.9);
+}
+
+.black-body {
+  background-color: black;
 }
 
 .splash-page-signup {
@@ -113,6 +128,7 @@ font-family: 'Noto Sans', sans-serif;*/
   height: 620px;
   width: 300px;
   border-radius: 35px;
+  background-color: white;
 
 }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 import { hashHistory } from 'react-router';
-
+import Sidebar from '../side_bar/side_bar';
 
 class Home extends React.Component {
   constructor(props) {
@@ -11,17 +11,15 @@ class Home extends React.Component {
   render() {
     // if (!this.props.currentUser) { return null }
     return (
-      <div className="home">
-        <div className="side-nav">
-          <h2>Settings</h2>
-          <Link to="/home/feed">Feed</Link>
-          <Link to="/home/settings">Settings</Link>
-          <Link to="/home/notifications">Notifications</Link>
-          <Link to="/home/payments">Payments</Link>
-        </div>
+      <div className="app-container">
+        <div id="transaction-form">Form to treate transactions between friends will go here</div>
+        <div className="home">
 
-        <div className="home-content">
-        {this.props.children}
+          <Sidebar />
+
+          <div className="home-content">
+          {this.props.children}
+          </div>
         </div>
       </div>
     );

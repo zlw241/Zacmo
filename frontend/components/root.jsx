@@ -6,7 +6,7 @@ import SessionFormContainer from './session_form/session_form_container';
 import ProfileContainer from './profile/profile_container';
 // import AccountContainer from './account/account_container';
 // import SettingsContainer from './account/edit/settings_container';
-import Payments from './account/edit/banks';
+import LinkedAccountsContainer from './accounts/linked_accounts';
 import UserContainer from './user/user_container';
 import LandingPageContainer from './landing_page/landing_page_container';
 import HomeContainer from './home/home_container';
@@ -43,7 +43,7 @@ const Root = ({store}) => {
             <Route path="feed" component={FeedContainer} />
             <Route path="notifications" component={NotificationsContainer} />
             <Route path="settings" component={SettingsContainer} />
-            <Route path="payments" component={Payments} />
+            <Route path="accounts" component={LinkedAccountsContainer} />
           </Route>
           <Route path="/:user_id" component={UserContainer} onEnter={_ensureLoggedIn}/>
         </Route>

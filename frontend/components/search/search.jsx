@@ -29,8 +29,15 @@ class Search extends React.Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.clearState()
+    debugger
+
+  }
+
   componentWillUnmount() {
     this.clearState()
+    debugger
   }
 
 

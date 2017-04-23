@@ -12,6 +12,7 @@ class Nav extends React.Component {
     this.props.logout().then(() => hashHistory.push('/'))
   }
 
+
   render() {
 
     let navItems = (

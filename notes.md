@@ -3,7 +3,7 @@
 
 - user slice of state and session slice of state are mixed too much, separate out the two and clean everything up
 
-- search bar will still container items search results even after logging out and logging back in
+- search bar will still container items search results even after logging out and logging back in, (not unmounting upon log out)
 
 - side bar will still contain previous user until page refresh, after logging out and logging back in as a different user. (fixed by changing the way side bar recieves current user)
 

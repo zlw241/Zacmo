@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170420204607) do
+ActiveRecord::Schema.define(version: 20170423025134) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,19 @@ ActiveRecord::Schema.define(version: 20170420204607) do
   end
 
   add_index "friendships", ["user_id", "friend_id"], name: "index_friendships_on_user_id_and_friend_id", unique: true, using: :btree
+
+  create_table "transactions", force: :cascade do |t|
+    t.integer  "user_id",                         null: false
+    t.integer  "recipient_id",                    null: false
+    t.text     "memo",                            null: false
+    t.float    "amount",                          null: false
+    t.string   "visibility",   default: "public", null: false
+    t.boolean  "archived",     default: false,    null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+  end
+
+  add_index "transactions", ["user_id", "recipient_id"], name: "index_transactions_on_user_id_and_recipient_id", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "username",                      null: false

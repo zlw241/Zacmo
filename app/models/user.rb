@@ -22,6 +22,10 @@ class User < ActiveRecord::Base
     through: :friendships,
     source: :friend
 
+  has_many :sent_transactions, class_name: "Transaction", foreign_key: :user_id
+  has_many :received_transactions, class_name: "Transaction", foreign_key: :recipient_id
+
+
   def self.generate_session_token
     SecureRandom.urlsafe_base64(16)
   end
@@ -77,6 +81,13 @@ class User < ActiveRecord::Base
     else
       nil
     end
+  end
+
+  def feed_transactions(limit = nil, max_created_at = nil)
+    @feed = sent_transactions + (friends.map { |f| f.sent_transactions })
+
+      # .order("transactions.created_at DESC")
+      # .uniq
   end
 
   private

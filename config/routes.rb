@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+
   namespace :api, defaults: { format: :json } do
     resources :users, only: [:create, :show, :update, :destroy, :index] do
       get "search", on: :collection
@@ -8,6 +9,8 @@ Rails.application.routes.draw do
     end
     resource :session, only: [:create, :destroy]
     resources :friendships, only: [:destroy, :update]
+
+    resources :transactions, only: [:create, :show, :index, :destroy]
   end
 
   root "static_pages#root"

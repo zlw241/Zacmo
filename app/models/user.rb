@@ -98,7 +98,7 @@ class User < ActiveRecord::Base
     .order("transactions.created_at")
     .pluck("transactions.*")
 
-
+    
     (self.transactions + self.friends)
 
     # @feed = User.joins(:friends).joins(:transactions).where("transactions.user_id = friends.id", self.id).pluck("transactions.*")

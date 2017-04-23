@@ -83,9 +83,19 @@ class User < ActiveRecord::Base
     end
   end
 
-  def feed_transactions(limit = nil, max_created_at = nil)
-    @feed = sent_transactions + (friends.map { |f| f.sent_transactions })
+  def transactions
+    sent_transactions.or(received_transactions)
+  end
 
+  def feed_transactions
+    # @feed = sent_transactions + (friends.map { |f| f.sent_transactions })
+    friends.transactions
+    # @feed = Transaction
+    #   .joins(:user)
+    #   .joins("LEFT OUTER JOIN friendships ON users.id = friendships.user_id")
+    #   .where("transactions.user_id = :id OR friendships.friend_id", id: self.id)
+    #   .order("transactions.created_at DESC")
+    #   .uniq
       # .order("transactions.created_at DESC")
       # .uniq
   end

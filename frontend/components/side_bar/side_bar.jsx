@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 
 
-const Sidebar = () => {
+const Sidebar = ({currentUser}) => {
   if (!currentUser) { return null }
   return (
     <div id="side-bar">
@@ -25,9 +25,10 @@ const Sidebar = () => {
   )
 }
 
-const mapStateToProps = (state) => ({
-  currentUser: state.session.currentUser
-});
+// const mapStateToProps = (state) => ({
+//   currentUser: state.session.currentUser
+// });
 
 
-export default connect(mapStateToProps)(Sidebar);
+// export default connect(mapStateToProps)(Sidebar);
+export default Sidebar;

@@ -15,7 +15,7 @@ class Home extends React.Component {
         <div id="transaction-form">Form to create transactions between friends will go here</div>
         <div className="home">
 
-          <Sidebar />
+          <Sidebar currentUser={this.props.currentUser}/>
 
           <div className="home-content">
           {this.props.children}

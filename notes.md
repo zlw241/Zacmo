@@ -5,6 +5,8 @@
 
 - search bar will still container items search results even after logging out and logging back in
 
+- side bar will still contain previous user until page refresh, after logging out and logging back in as a different user. (fixed by changing the way side bar recieves current user)
+
 ### Users
 
 - modify friends state to be nested objects instead of arrays

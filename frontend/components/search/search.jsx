@@ -30,11 +30,9 @@ class Search extends React.Component {
   }
 
   componentWillUnmount() {
-    this.setState({
-      query: "",
-      search_results: []
-    });
+    this.clearState()
   }
+
 
   clearState() {
     this.setState({

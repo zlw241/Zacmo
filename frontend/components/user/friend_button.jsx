@@ -12,29 +12,6 @@ class FriendButton extends React.Component {
     this.acceptRequest = this.acceptRequest.bind(this);
   }
 
-  // componentDidMount() {
-  //   this.props.fetchUser(this.props.user.id)
-  // }
-
-
-  // componentDidUpdate() {
-  //   debugger
-  // }
-  //
-  // componentWillReceiveProps() {
-  //   debugger
-  // }
-  //
-  // componentDidReceiveProps() {
-  //   debugger
-  // }
-
-  // friendsWith() {
-  //   this.props.currentUser.friendships.friends.map((friend) => {
-  //     debugger
-  //   })
-  // }
-
   addFriend() {
     this.props.addFriend(this.props.user.id);
   }
@@ -69,7 +46,6 @@ class FriendButton extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  // user: state.user,
   currentUser: state.session.currentUser
 });
 

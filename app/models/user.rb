@@ -89,22 +89,33 @@ class User < ActiveRecord::Base
 
   def feed_transactions
 
-    # @feed = User.joins("INNER JOIN friendships ON users.id = friendships.user_id")
-    # .joins("INNER JOIN transactions ON friendships.friend_id = transactions.user_id")
-    # .where("users.id = ?", self.id)
-    # .where("friendships.status = 'accepted'")
-    # .select("transactions.*")
-    # .order("transactions.created_at")
-    # .pluck("transactions.*", "users.*")
+    @transactions = self.transactions.pluck("transactions.*")
+    @transactions + User.joins("INNER JOIN friendships ON users.id = friendships.user_id")
+    .joins("INNER JOIN transactions ON friendships.friend_id = transactions.user_id")
+    .where("users.id = ?", self.id)
+    .where("friendships.status = 'accepted'")
+    .select("transactions.*")
+    .order("transactions.created_at")
+    .pluck("transactions.*")
+
+
+    (self.transactions + self.friends)
 
     # @feed = User.joins(:friends).joins(:transactions).where("transactions.user_id = friends.id", self.id).pluck("transactions.*")
 
-    @transactions = [self.transactions]
-    self.friends.each do |friend|
-      @transactions << friend.transactions
-    end
+    # @transactions = [self.transactions]
+    # self.friends.each do |friend|
+    #   @transactions << friend.transactions
+    # end
+    #
 
-    @transactions
+    @transactions = User.
+      where(id: User.joins(:friendships)
+        .where("friendships.user_id = ? AND friendships.status = 'accepted'", 1)
+        .select("friendships.friend_id")
+      ).joins(:transactions)
+      .pluck("transactions.*")
+    # @transactions
     # self.friends.transactions.(:all, order: "created_at DESC")
   end
 

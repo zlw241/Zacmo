@@ -15,9 +15,9 @@ class Friends extends React.Component {
   //   this.props.fetchUser(this.props.currentUser.id)
   // }
   //
-  componentDidMount() {
-    this.props.fetchUser(this.props.currentUser.id);
-  }
+  // componentDidMount() {
+  //   this.props.fetchUser(this.props.currentUser.id);
+  // }
 
   render() {
     if (!this.props.currentUser) { return null }

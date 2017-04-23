@@ -5,5 +5,5 @@ json.array!(@users) do |user|
   json.id user.id
   json.first_name user.first_name
   json.last_name user.last_name
-  json.friends current_user.friends_with?(user)
+  json.friend_status current_user.friend_status user
 end

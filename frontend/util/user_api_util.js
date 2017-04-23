@@ -6,6 +6,14 @@ export function fetchUser(userId) {
   });
 }
 
+// export function fetchByUsername(username) {
+//
+//   return $.ajax({
+//     url: `api/users/${username}`,
+//     method: 'GET'
+//   })
+// }
+
 export function createUser(user) {
   return $.ajax({
     url: 'api/users',

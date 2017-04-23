@@ -12,7 +12,7 @@ class Home extends React.Component {
     // if (!this.props.currentUser) { return null }
     return (
       <div className="app-container">
-        <div id="transaction-form">Form to treate transactions between friends will go here</div>
+        <div id="transaction-form">Form to create transactions between friends will go here</div>
         <div className="home">
 
           <Sidebar />

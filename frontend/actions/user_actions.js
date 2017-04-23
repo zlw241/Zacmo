@@ -21,6 +21,13 @@ export const fetchUser = (id) => (dispatch) => {
   );
 }
 
+// export const fetchByUsername = (username) => (dispatch) => {
+//   return UserAPIUtil.fetchUser(username).then(
+//     (user) => dispatch(receiveUser(user)),
+//     (err) => dispatch(receiveErrors(err))
+//   );
+// }
+
 export const updateUser = (user) => (dispatch) => {
   return UserAPIUtil.updateUser(user).then(
     (updatedUser) => dispatch(receiveUser(updatedUser)),

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 import { connect } from 'react-redux';
-import { addFriend, removeFriend, acceptRequest } from '../../actions/user_actions';
+import { addFriend, removeFriend, acceptRequest, fetchUser } from '../../actions/user_actions';
 
 class FriendButton extends React.Component {
   constructor(props) {
@@ -11,6 +11,29 @@ class FriendButton extends React.Component {
     this.removeFriend = this.removeFriend.bind(this);
     this.acceptRequest = this.acceptRequest.bind(this);
   }
+
+  // componentDidMount() {
+  //   this.props.fetchUser(this.props.user.id)
+  // }
+
+
+  // componentDidUpdate() {
+  //   debugger
+  // }
+  //
+  // componentWillReceiveProps() {
+  //   debugger
+  // }
+  //
+  // componentDidReceiveProps() {
+  //   debugger
+  // }
+
+  // friendsWith() {
+  //   this.props.currentUser.friendships.friends.map((friend) => {
+  //     debugger
+  //   })
+  // }
 
   addFriend() {
     this.props.addFriend(this.props.user.id);
@@ -25,7 +48,9 @@ class FriendButton extends React.Component {
   }
 
   render() {
+
     switch(this.props.user.friend_status) {
+
       case "friends": return (
         <button onClick={this.removeFriend}>Unfriend</button>
       )
@@ -36,15 +61,15 @@ class FriendButton extends React.Component {
         <button onClick={this.acceptRequest}>Accept</button>
       )
       default: return (
-          <button onClick={this.addFriend}>Add Friend</button>
-        )
+        <button onClick={this.addFriend}>Add Friend</button>
+      )
     }
   }
 
 }
 
 const mapStateToProps = (state) => ({
-  user: state.user,
+  // user: state.user,
   currentUser: state.session.currentUser
 });
 

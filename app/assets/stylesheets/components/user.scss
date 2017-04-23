@@ -4,11 +4,12 @@
 
 .user {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .user * {
-  border: 1px solid red;
+  // border: 1px solid red;
 }
 
 
@@ -16,10 +17,6 @@
   display: flex;
 }
 
-.friends {
-  border: 1px solid black;
-  width: 35%;
-}
 
 .user-detail {
   width: 65%;

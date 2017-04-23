@@ -28,7 +28,7 @@ class SessionForm extends React.Component {
 
   redirectIfLoggedIn() {
     if (this.props.loggedIn) {
-      this.props.router.push("/profile");
+      this.props.router.push("/home/feed");
     }
   }
 
@@ -215,7 +215,7 @@ class SessionForm extends React.Component {
           </div>
 
         </form>
-        
+
       </div>
     );
   };

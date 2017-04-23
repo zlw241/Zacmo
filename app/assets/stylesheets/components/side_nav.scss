@@ -1,5 +1,16 @@
 
 
+#side-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 18px;
+  height: 50%;
+  border: 1px solid black;
+  width: 30%;
+}
+
 #side-nav {
   display: flex;
   flex-direction: column;
@@ -9,5 +20,24 @@
   font-size: 18px;
   height: 50%;
   border: 1px solid black;
-  width: 30%;
+  width: 100%;
+}
+
+#sidenav-header {
+  line-height: 1.4;
+  padding: 10px;
+  background: $light-gray;
+  width: 100%;
+}
+
+#sidenav-name {
+  font-weight: bold;
+}
+
+#sidenav-username {
+  font-size: 14px;
+}
+
+#sidenav-balance {
+  font-size: 14px;
 }

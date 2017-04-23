@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, hashHistory } from 'react-router';
-
+import SearchItem from './search_item';
+import FriendButton from '../user/friend_button';
 
 class Search extends React.Component {
   constructor(props) {
@@ -47,11 +48,14 @@ class Search extends React.Component {
             type="search"
             name="query"
             placeholder="Search for users"
-            onChange={this.handleInput} />
+            onChange={this.handleInput} value={this.state.query} />
             <div className="search-results">
               <ul>
                 {this.state.search_results.map((user) => (
-                  <li key={user.id}><Link onClick={this.clearState} to={`/${user.id}`}>{user.username}</Link></li>
+                  <li key={user.id} onClick={this.clearState}>
+                    <SearchItem user={user} />
+                    <FriendButton user={user} />
+                  </li>
                 ))}
               </ul>
             </div>

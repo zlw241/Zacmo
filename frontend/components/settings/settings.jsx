@@ -40,12 +40,13 @@ class Settings extends React.Component {
     const user = this.state;
     this.props.updateUser(user).then(
       () => {
-        hashHistory.push('/profile');
+        hashHistory.push('/home/profile');
       }
     );
   }
 
   render() {
+
 
     return (
       <div className="content-container">

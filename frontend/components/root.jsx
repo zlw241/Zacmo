@@ -28,7 +28,7 @@ const Root = ({store}) => {
   const _redirectIfLoggedIn = (nextState, replace) => {
     const currentUser = store.getState().session.currentUser;
     if (currentUser) {
-      replace('/profile');
+      replace('/home/feed');
     }
   };
 
@@ -43,16 +43,19 @@ const Root = ({store}) => {
           <Route path="/profile" component={ProfileContainer} onEnter={_ensureLoggedIn} />
           <Route path="/home" component={HomeContainer} onEnter={_ensureLoggedIn}>
             <Route path="feed" component={FeedContainer} />
+            <Route path="profile" component={ProfileContainer} />
             <Route path="notifications" component={NotificationsContainer} />
             <Route path="settings" component={SettingsContainer} />
             <Route path="accounts" component={LinkedAccountsContainer} />
             <Route path="friends" component={FriendsContainer}>
+              <IndexRoute component={ExistingFriends} />
               <Route path="pending" component={PendingFriends} />
               <Route path="requested" component={RequestedFriends} />
-              <Route path="existing" component={ExistingFriends} />
             </Route>
+            <Route path=":user_id" component={UserContainer} />
           </Route>
           <Route path="/:user_id" component={UserContainer} onEnter={_ensureLoggedIn}/>
+
         </Route>
       </Router>
     </Provider>

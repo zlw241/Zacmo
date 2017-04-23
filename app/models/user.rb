@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
 
   has_many :sent_transactions, class_name: "Transaction", foreign_key: :user_id
   has_many :received_transactions, class_name: "Transaction", foreign_key: :recipient_id
-
+  has_many :transactions
 
   def self.generate_session_token
     SecureRandom.urlsafe_base64(16)
@@ -83,21 +83,29 @@ class User < ActiveRecord::Base
     end
   end
 
-  def transactions
-    sent_transactions.or(received_transactions)
-  end
+  # def transactions
+  #   sent_transactions.or(received_transactions)
+  # end
 
   def feed_transactions
-    # @feed = sent_transactions + (friends.map { |f| f.sent_transactions })
-    friends.transactions
-    # @feed = Transaction
-    #   .joins(:user)
-    #   .joins("LEFT OUTER JOIN friendships ON users.id = friendships.user_id")
-    #   .where("transactions.user_id = :id OR friendships.friend_id", id: self.id)
-    #   .order("transactions.created_at DESC")
-    #   .uniq
-      # .order("transactions.created_at DESC")
-      # .uniq
+
+    # @feed = User.joins("INNER JOIN friendships ON users.id = friendships.user_id")
+    # .joins("INNER JOIN transactions ON friendships.friend_id = transactions.user_id")
+    # .where("users.id = ?", self.id)
+    # .where("friendships.status = 'accepted'")
+    # .select("transactions.*")
+    # .order("transactions.created_at")
+    # .pluck("transactions.*", "users.*")
+
+    # @feed = User.joins(:friends).joins(:transactions).where("transactions.user_id = friends.id", self.id).pluck("transactions.*")
+
+    @transactions = [self.transactions]
+    self.friends.each do |friend|
+      @transactions << friend.transactions
+    end
+
+    @transactions
+    # self.friends.transactions.(:all, order: "created_at DESC")
   end
 
   private

@@ -1,4 +1,9 @@
 
+## Bigger Issues
+
+- user slice of state and session slice of state are mixed too much, separate out the two and clean everything up
+
+- search bar will still container items search results even after logging out and logging back in
 
 ### Users
 

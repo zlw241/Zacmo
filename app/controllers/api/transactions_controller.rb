@@ -1,7 +1,16 @@
 class Api::TransactionsController < ApplicationController
   def create
-    @transaction = current_user.transactions.new(transaction_params)
+    recipient = User.find_by(username: transaction_params['recipient_username'])
+
+    recipient_id = recipient.id
+    memo = transaction_params['memo']
+    amount = transaction_params['amount']
+    new_transaction = {'recipient_id': recipient_id, 'memo': memo, 'amount': amount}
+
+    @transaction = current_user.transactions.new(new_transaction)
+
     if @transaction.save
+      recipient.update(balance: recipient.balance+@transaction.amount)
       render "/api/transactions/show"
     else
       render json: @transaction.errors.full_messages, status: 401
@@ -26,6 +35,6 @@ class Api::TransactionsController < ApplicationController
   end
 
   def transaction_params
-    params.require(:transaction).permit(:recipient_id, :memo, :amount)
+    params.require(:transaction).permit(:recipient_username, :memo, :amount)
   end
 end

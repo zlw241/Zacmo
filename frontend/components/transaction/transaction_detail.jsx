@@ -35,7 +35,14 @@ const TransactionDetail = ({transaction, currentUser}) => {
 
         <span className="transaction-amount">{transactionAmount}</span>
       </div>
+      <div className="likes">[likes]</div>
       <div className="transaction-memo">{transaction.memo}</div>
+      <div className="comments">
+        [comments]
+      </div>
+      <div className="add-comment">
+        [new comment]
+      </div>
     </div>
   );
 }

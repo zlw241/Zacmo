@@ -29,16 +29,24 @@ class FriendButton extends React.Component {
     switch(this.props.user.friend_status) {
 
       case "friends": return (
-        <button onClick={this.removeFriend}>Unfriend</button>
+        <div className="friend-button">
+          <button onClick={this.removeFriend}>Unfriend</button>
+        </div>
       )
       case "pending": return (
-        <button disabled>Pending</button>
+        <div className="friend-button">
+          <button disabled>Pending</button>
+        </div>
       )
       case "requested": return (
-        <button onClick={this.acceptRequest}>Accept</button>
+        <div className="friend-button">
+          <button onClick={this.acceptRequest}>Accept</button>
+        </div>
       )
       default: return (
-        <button onClick={this.addFriend}>Add Friend</button>
+        <div className="friend-button">
+          <button onClick={this.addFriend}>Add Friend</button>
+        </div>
       )
     }
   }

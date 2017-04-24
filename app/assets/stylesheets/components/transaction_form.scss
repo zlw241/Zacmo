@@ -1,0 +1,125 @@
+
+
+#transaction-form {
+  margin-top: 30px;
+  // border: 1px solid black;
+  // height: 50px;
+}
+
+.form-fields {
+  border: 1px solid black;
+  width: 100%;
+  padding: 10px;
+}
+
+#transaction-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.form-top {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.transaction-recipient {
+  // border: 1px solid black;
+  width: 65%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.transaction-recipient input {
+  border: 1px solid black;
+  height: 40px;
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 20px;
+}
+
+#transaction-memo {
+  border: 1px solid black;
+  width: 100%;
+  height: 100px;
+  padding: 5px;
+}
+
+.memo-bottom {
+  border: 1px solid black;
+  height: 35px;
+  width: 100%;
+  background-color: #eee;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.amount-to-pay {
+  // border: 1px solid black;
+  display: flex;
+  padding: 10px;
+  width: 35%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.amount-to-pay input {
+  border: 1px solid black;
+  height: 40px;
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 20px;
+}
+
+// .transaction-toggle div {
+//   border: 1px solid black;
+//   width: 100px;
+//   height: 40px;
+//   padding-top: 5px;
+//   padding-bottom: 5px;
+//   padding-left: 10px;
+//   padding-right: 10px;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
+
+.memo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.submit-transaction {
+  border: 1px solid black;
+  width: 150px;
+  height: 25px;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #489af7;
+  color: white;
+}
+
+.select-visibility {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25px;
+  width: 150px;
+  border: 1px solid black;
+  margin: 5px;
+}
+
+.select-visibility select {
+  width: 100%;
+}

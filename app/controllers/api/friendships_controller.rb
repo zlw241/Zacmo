@@ -1,14 +1,10 @@
 class Api::FriendshipsController < ApplicationController
 
   def create
-
-    @user = User.find(params[:user_id])
-    # @friendship = Friendship.request(current_user, friend)
-    Friendship.request(current_user, @user)
+    friend = User.find(params[:user_id])
+    @user = current_user
+    Friendship.request(@user, friend)
     render "api/users/show"
-    # else
-    #   render json: @user.errors.full_messages, status: 401
-    # end
   end
 
   def update
@@ -18,10 +14,7 @@ class Api::FriendshipsController < ApplicationController
   end
 
   def destroy
-    # @friendship = Friendship.find_by(user_id: current_user.id, friend_id: params[:id])
-    # @friendship = current_user.friendships.where(friend_id: params[:id])
     @user = User.find(params[:id])
-
     if current_user.friends.delete(@user) && @user.friends.delete(current_user)
       render "api/users/show"
     else

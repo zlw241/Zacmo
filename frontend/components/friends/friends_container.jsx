@@ -8,6 +8,7 @@ const mapStateToProps = (state) => ({
   friends: state.user.friendships.friends,
   pending: state.user.friendships.pending_friends,
   requested: state.user.friendships.friend_requests,
+  user: state.user,
   currentUser: state.session.currentUser
 });
 

@@ -9,7 +9,6 @@ class User extends React.Component {
     super(props)
   }
 
-
   componentWillMount() {
     this.props.fetchUser(this.props.params.user_id);
   }
@@ -22,11 +21,6 @@ class User extends React.Component {
 
   render() {
 
-    // <div id="sidenav-header">
-    //   <div id="sidenav-name">{currentUser.first_name} {currentUser.last_name}</div>
-    //   <div id="sidenav-username">@{currentUser.username}</div>
-    //   <div id="sidenav-balance">${currentUser.balance}.00</div>
-    // </div>
     return (
       <div className="user">
         <div id="user-header">
@@ -45,14 +39,14 @@ class User extends React.Component {
               {this.props.user.friendships.friends.map((friend) => (
                 <li key={friend.id}>
                   <Link key={friend.id} to={`/home/${friend.id}`}>{friend.username}</Link>
-                  <FriendButton user={this.props.user} />
+              
                 </li>
               ))}
             </ul>
           </div>
         </div>
 
-        <FeedContainer />
+
       </div>
     );
   }

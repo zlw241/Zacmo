@@ -23,7 +23,7 @@
 }
 
 .home-content {
-  padding-left: 40px;
+  padding-left: 30px;
   width: 100%;
   height: 100%;
   display: flex;
@@ -31,34 +31,67 @@
   border: 1px solid red;
 }
 
-#transaction-form {
-  margin-top: 30px;
-  border: 1px solid black;
-  height: 50px;
-
-}
 
 .friends {
   display: flex;
   flex-direction: column;
-
+  width: 100%;
 }
 
 .friend-tabs {
-  width: 200%;
+  width: 100%;
 }
 
 .friends-children {
   width: 100%;
-  border: 1px solid black;
+  height: 500px;
+  // border: 1px solid black;
+  // border-top: none;
   display: flex;
   padding: 20px;
 }
 
+.friend-count {
+  background-color: #489af7;
+  color: white;
+  width: 20px;
+  height: 20px;
+  font-size: 14px;
+  border-radius: 100%;
+  text-align: center;
+  margin-left: 7px;
+}
+
 .link-tabs {
-  border: 1px solid black;
+  height: 50px;
   display: flex;
-  justify-content: space-around;
-  padding: 20px;
-  width: 200%;
+  justify-content: flex-start;
+  align-items: flex-end;
+  // padding: 20px;
+  width: 100%;
+
+}
+
+.link-tab-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // border: 1px solid black;
+  border-left: none;
+  width: 150px;
+  height: 40px;
+
+}
+
+.link-tab-item:first-child {
+  // border-left: 1px solid black;
+}
+
+
+.active {
+  background-color: white;
+  margin-bottom: -1px;
+  border: 1px solid black;
+  border-top: 3px solid #489af7;
+  // border-bottom: 1px solid #fff;
 }

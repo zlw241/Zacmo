@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 const TransactionDetail = ({transaction, currentUser}) => {
 
   if (!currentUser) { return null }
+
   let transactionAmount = null;
   if (transaction.amount) {
     if (transaction.recipient.id === currentUser.id) {
@@ -39,9 +40,5 @@ const TransactionDetail = ({transaction, currentUser}) => {
   );
 }
 
-// const mapStateToProps = (state) => ({
-//   currentUser: state.session.currentUser
-// });
 
 export default TransactionDetail;
-// export default connect(mapStateToProps)(TransactionDetail);

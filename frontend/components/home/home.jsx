@@ -2,6 +2,8 @@ import React from 'react';
 import { Link, withRouter } from 'react-router';
 import { hashHistory } from 'react-router';
 import Sidebar from '../side_bar/side_bar';
+import TransactionFormContainer from '../transaction/transaction_form_container';
+
 
 class Home extends React.Component {
   constructor(props) {
@@ -12,7 +14,9 @@ class Home extends React.Component {
     // if (!this.props.currentUser) { return null }
     return (
       <div className="app-container">
-        <div id="transaction-form">Form to create transactions between friends will go here</div>
+
+        <TransactionFormContainer />
+
         <div className="home">
 
           <Sidebar currentUser={this.props.currentUser}/>

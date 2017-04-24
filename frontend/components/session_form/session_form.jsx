@@ -22,15 +22,11 @@ class SessionForm extends React.Component {
     this.animateTyping = this.animateTyping.bind(this);
   }
 
-  // componentDidUpdate() {
-  //   this.redirectIfLoggedIn();
-  // }
-  //
-  // redirectIfLoggedIn() {
-  //   if (this.props.loggedIn) {
-  //     this.props.router.push("/home/feed");
-  //   }
-  // }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.location.pathname !== this.props.location.pathname) {
+      this.props.clearErrors();
+    }
+  }
 
   handleSubmit(e) {
     if (e) {

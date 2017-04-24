@@ -2,6 +2,8 @@ import React from 'react';
 import { Link, hashHistory } from 'react-router';
 import SearchItem from './search_item';
 import FriendButton from '../user/friend_button';
+import SearchResults from './search_results';
+
 
 class Search extends React.Component {
   constructor(props) {
@@ -14,6 +16,7 @@ class Search extends React.Component {
 
     this.handleInput = this.handleInput.bind(this);
     this.clearState = this.clearState.bind(this);
+    this.searchResultsClass = this.searchResultsClass.bind(this);
   }
 
   handleInput(e) {
@@ -31,13 +34,10 @@ class Search extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     this.clearState()
-    // debugger
-
   }
 
   componentWillUnmount() {
     this.clearState()
-    // debugger
   }
 
 
@@ -46,6 +46,14 @@ class Search extends React.Component {
       query: "",
       search_results: []
     });
+  }
+
+  searchResultsClass() {
+    if (this.state.search_results.length === 0) {
+      return "hidden search-results"
+    } else {
+      return "search-results"
+    }
   }
 
   render() {
@@ -61,18 +69,10 @@ class Search extends React.Component {
             name="query"
             placeholder="Search for users"
             onChange={this.handleInput} value={this.state.query} />
-            <div className="search-results">
-              <ul>
-                {this.state.search_results.map((user) => (
-                  <li key={user.id} onClick={this.clearState}>
-                    <SearchItem user={user} />
-                    <FriendButton user={user} />
-                  </li>
-                ))}
-              </ul>
+            <div className={this.searchResultsClass()}>
+              <SearchResults searchResults={this.state.search_results} clearState={this.clearState} />
             </div>
         </div>
-
       </div>
 
     )
@@ -81,3 +81,15 @@ class Search extends React.Component {
 
 
 export default Search;
+
+
+
+
+// <ul>
+// {this.state.search_results.map((user) => (
+//   <li key={user.id} onClick={this.clearState}>
+//   <SearchItem user={user} />
+//   <FriendButton user={user} />
+//   </li>
+// ))}
+// </ul>

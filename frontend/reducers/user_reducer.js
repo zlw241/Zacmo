@@ -6,10 +6,10 @@ const _nullUser = {
   first_name: null,
   last_name: null,
   username: null,
-  email: null, // only user's own page
+  email: null,
   profile_pic: null,
-  phone_num: null, // only user's own page
-  balance: 0, // only user's own page
+  phone_num: null,
+  balance: 0,
   friends_with: null,
   friend_status: null,
   friendships: {

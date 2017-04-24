@@ -6,8 +6,12 @@ import Iphone from './iphone';
 class LandingPage extends React.Component {
   constructor(props) {
     super(props);
+    this.redirectToSignup = this.redirectToSignup.bind(this);
   }
 
+  redirectToSignup() {
+    this.props.router.push("/signup")
+  }
 
   render() {
 
@@ -20,7 +24,7 @@ class LandingPage extends React.Component {
         <div className="splash-welcome">
           <div className="welcome-content">
             <h1>Send Money and make purchases.</h1>
-            <button className="splash-page-signup">Sign up now</button>
+            <button onClick={this.redirectToSignup} className="splash-page-signup">Sign up now</button>
           </div>
         </div>
       </div>

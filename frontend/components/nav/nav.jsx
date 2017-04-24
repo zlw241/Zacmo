@@ -10,8 +10,7 @@ class Nav extends React.Component {
 
   handleLogout() {
     this.props.logout().then(() => {
-      // debugger
-      // hashHistory.push('/')
+
       this.props.router.push('/')
     })
   }

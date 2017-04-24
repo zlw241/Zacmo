@@ -1,0 +1,46 @@
+
+
+#feed {
+  border: 1px solid black;
+  width: 100%;
+}
+
+.transaction-list {
+  width: 100%;
+  border: 1px solid black;
+}
+
+.transaction-detail {
+  border-bottom: 1px solid $light-gray;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+  height: 100px;
+  padding-left: 15%;
+}
+
+.transaction-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+}
+
+.transaction-user {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.transaction-amount {
+  right: 100%;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
+}

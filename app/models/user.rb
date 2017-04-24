@@ -88,18 +88,16 @@ class User < ActiveRecord::Base
   # end
 
   def feed_transactions
+    # @transactions = self.transactions.pluck("transactions.*")
+    # @transactions + User.joins("INNER JOIN friendships ON users.id = friendships.user_id")
+    # .joins("INNER JOIN transactions ON friendships.friend_id = transactions.user_id")
+    # .where("users.id = ?", self.id)
+    # .where("friendships.status = 'accepted'")
+    # .select("transactions.*")
+    # .order("transactions.created_at")
+    # .pluck("transactions.*")
 
-    @transactions = self.transactions.pluck("transactions.*")
-    @transactions + User.joins("INNER JOIN friendships ON users.id = friendships.user_id")
-    .joins("INNER JOIN transactions ON friendships.friend_id = transactions.user_id")
-    .where("users.id = ?", self.id)
-    .where("friendships.status = 'accepted'")
-    .select("transactions.*")
-    .order("transactions.created_at")
-    .pluck("transactions.*")
-
-    
-    (self.transactions + self.friends)
+    # (self.transactions + self.friends)
 
     # @feed = User.joins(:friends).joins(:transactions).where("transactions.user_id = friends.id", self.id).pluck("transactions.*")
 
@@ -115,6 +113,7 @@ class User < ActiveRecord::Base
         .select("friendships.friend_id")
       ).joins(:transactions)
       .pluck("transactions.*")
+
     # @transactions
     # self.friends.transactions.(:all, order: "created_at DESC")
   end

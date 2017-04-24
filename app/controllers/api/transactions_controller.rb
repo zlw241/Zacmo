@@ -15,15 +15,13 @@ class Api::TransactionsController < ApplicationController
     friends = current_user.friends.pluck(:id)
     @transactions = Transaction
       .where("transactions.user_id IN (:friend_ids) OR transactions.recipient_id IN (:friend_ids) OR transactions.user_id = :id OR transactions.recipient_id = :id", friend_ids: friends, id: current_user.id)
-      .order("created_at DESC")
       .all
-
-    puts @transactions
+      .order("created_at DESC")
     render "/api/transactions/index"
   end
 
   def show
-    @transaction = Transaction.find_by(id: params[:transaction_id])
+    @transaction = Transaction.find(params[:id])
     render "/api/transactions/show"
   end
 

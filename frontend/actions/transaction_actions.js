@@ -6,7 +6,7 @@ export const RECEIVE_NEW_TRANSACTION = "RECEIVE_NEW_TRANSACTION";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 
 const receiveAllTransactions = (transactions) => ({
-  type: RECEIVE_FEED,
+  type: RECEIVE_ALL_TRANSACTIONS,
   transactions
 });
 
@@ -25,9 +25,9 @@ const receiveErrors = (errors) => ({
   errors
 })
 
-export const getAllTransactions = () => (dispatch) => {
+export const fetchTransactions = () => (dispatch) => {
   return TransactionAPIUtil.fetchTransactions().then(
-    (feed) => dispatch(receiveFeed(feed)),
+    (feed) => dispatch(receiveAllTransactions(feed)),
     (err) => dispatch(receiveFeedErr(err))
   );
 };

@@ -10,9 +10,9 @@ const TransactionReducer = (state = _nullState, action) => {
       return merge({}, action.transactions)
     }
     case RECEIVE_NEW_TRANSACTION: {
-      return merge({}, state, {
-        [action.transaction.id]: action.transaction
-      });
+      debugger
+      return Object.assign({}, state, action.transaction)
+
     }
     case CLEAR_TRANSACTIONS: {
       return _nullState

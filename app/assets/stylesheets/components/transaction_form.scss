@@ -9,7 +9,10 @@
 .form-fields {
   border: 1px solid black;
   width: 100%;
-  padding: 10px;
+  // padding: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 5px;
 }
 
 #transaction-form form {
@@ -44,6 +47,7 @@
 
 #transaction-memo {
   border: 1px solid black;
+  border-bottom: none;
   width: 100%;
   height: 100px;
   padding: 5px;
@@ -108,6 +112,11 @@
   align-items: center;
   background-color: #489af7;
   color: white;
+
+}
+
+.submit-transaction:hover {
+  cursor: pointer;
 }
 
 .select-visibility {
@@ -116,8 +125,9 @@
   align-items: center;
   height: 25px;
   width: 150px;
-  border: 1px solid black;
+  // border: 1px solid black;
   margin: 5px;
+  height: 30px;
 }
 
 .select-visibility select {

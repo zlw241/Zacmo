@@ -17,7 +17,7 @@ export function fetchTransaction(transactionId) {
 
 export function createTransaction(transaction) {
   return $.ajax({
-    url: 'url/transactions',
+    url: 'api/transactions',
     method: 'POST',
     data: {transaction}
   });

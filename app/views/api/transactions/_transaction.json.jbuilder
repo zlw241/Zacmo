@@ -2,8 +2,11 @@
 
 
 json.set! transaction.id do
+  json.id transaction.id
   json.memo transaction.memo
-  json.amount transaction.amount
+  if transaction.user == current_user || transaction.recipient == current_user
+    json.amount transaction.amount
+  end
   json.user do
     json.id transaction.user.id
     json.username transaction.user.username

@@ -9,7 +9,11 @@ class Nav extends React.Component {
   }
 
   handleLogout() {
-    this.props.logout().then(() => hashHistory.push('/'))
+    this.props.logout().then(() => {
+      // debugger
+      // hashHistory.push('/')
+      this.props.router.push('/')
+    })
   }
 
 
@@ -41,4 +45,4 @@ class Nav extends React.Component {
   }
 };
 
-export default Nav;
+export default withRouter(Nav);

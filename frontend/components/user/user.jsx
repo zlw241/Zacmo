@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 import FriendButton from './friend_button';
-
+import FeedContainer from '../feed/feed_container';
 
 
 class User extends React.Component {
@@ -15,7 +15,6 @@ class User extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-
     if (this.props.params.user_id !== nextProps.params.user_id) {
       this.props.fetchUser(nextProps.params.user_id);
     }
@@ -38,6 +37,7 @@ class User extends React.Component {
           </div>
         </div>
 
+
         <div id="user-main">
           <div className="friends">
             <h3 className="friends-list-header">Friends</h3>
@@ -51,6 +51,8 @@ class User extends React.Component {
             </ul>
           </div>
         </div>
+
+        <FeedContainer />
       </div>
     );
   }

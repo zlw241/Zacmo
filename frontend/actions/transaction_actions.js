@@ -4,6 +4,7 @@ export const RECEIVE_ALL_TRANSACTIONS = "RECEIVE_FEED";
 export const RECEIVE_SINGLE_TRANSACTION = "RECEIVE_SINGLE_TRANSACTION";
 export const RECEIVE_NEW_TRANSACTION = "RECEIVE_NEW_TRANSACTION";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
+export const CLEAR_TRANSACTIONS = "CLEAR_TRANSACTIONS";
 
 const receiveAllTransactions = (transactions) => ({
   type: RECEIVE_ALL_TRANSACTIONS,
@@ -18,6 +19,10 @@ const receiveNewTransaction = (transaction) => ({
 const receiveSingleTransaction = (transaction) => ({
   type: RECEIVE_SINGLE_TRANSACTION,
   transaction
+});
+
+export const clearTransactions = () => ({
+  type: CLEAR_TRANSACTIONS
 });
 
 const receiveErrors = (errors) => ({

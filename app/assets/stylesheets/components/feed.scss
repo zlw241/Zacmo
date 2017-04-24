@@ -1,8 +1,40 @@
 
 
 #feed {
-  border: 1px solid black;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.feed-header {
+  display: flex;
+  width: 100%;
+  border: 1px solid black;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  background-color: #eee;
+}
+
+.feed-header button {
+  height: 40px;
+  width: 100px;
+  border-radius: 20px;
+  background-color: transparent;
+  color: $gray;
+  border: 2px solid $gray;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.feed-header button:hover {
+  border-color: #489af7;
+  color: #489af7;
+}
+
+.feed-header button:active {
+  background-color: #E9F4FA;
 }
 
 .transaction-list {
@@ -25,7 +57,7 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  border: 1px solid black;
+
 }
 
 .transaction-user {

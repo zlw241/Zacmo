@@ -1,11 +1,14 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
+import { connect } from 'react-redux';
+
 
 const TransactionDetail = ({transaction, currentUser}) => {
+
+  if (!currentUser) { return null }
   let transactionAmount = null;
   if (transaction.amount) {
-    debugger
-    if (transaction.recipient.id == currentUser.id) {
+    if (transaction.recipient.id === currentUser.id) {
       transactionAmount = (
         <span className="transaction-amount green">
           +${transaction.amount}
@@ -36,4 +39,9 @@ const TransactionDetail = ({transaction, currentUser}) => {
   );
 }
 
+// const mapStateToProps = (state) => ({
+//   currentUser: state.session.currentUser
+// });
+
 export default TransactionDetail;
+// export default connect(mapStateToProps)(TransactionDetail);

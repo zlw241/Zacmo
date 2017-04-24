@@ -24,9 +24,9 @@ class Friends extends React.Component {
     return (
       <div className="friends">
         <div className="link-tabs">
-          <Link to='/home/friends'>Friends</Link>
-          <Link to='/home/friends/pending'>Pending</Link>
-          <Link to='/home/friends/requested'>Requested</Link>
+          <Link to='/home/friends'>Friends {this.props.friends.length || ""}</Link>
+          <Link to='/home/friends/pending'>Pending {this.props.pending.length || ""}</Link>
+          <Link to='/home/friends/requested'>Requested {this.props.requested.length || ""}</Link>
         </div>
 
         <div className="friends-children">

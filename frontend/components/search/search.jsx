@@ -31,13 +31,13 @@ class Search extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     this.clearState()
-    debugger
+    // debugger
 
   }
 
   componentWillUnmount() {
     this.clearState()
-    debugger
+    // debugger
   }
 
 

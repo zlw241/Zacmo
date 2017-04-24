@@ -8,23 +8,33 @@ class TransactionList extends React.Component {
   }
 
   componentWillMount() {
+
     this.props.fetchTransactions()
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //
-  // }
+  componentWillReceiveProps(nextProps) {
+    if (!nextProps.currentUser) {
+
+      this.props.clearTransactions()
+    }
+  }
+
+  componentWillUnmount() {
+    this.props.clearTransactions()
+  }
 
   render() {
-
+    // debugger
     return (
-      <ul className="transaction-list">
-        {this.props.transactions.map((transaction) => (
-          <li key={transaction.id}>
-            <TransactionDetail transaction={transaction} currentUser={currentUser} />
-          </li>
-        ))}
-      </ul>
+
+        <ul className="transaction-list">
+          {this.props.transactions.map((transaction) => (
+            <li key={transaction.id}>
+              <TransactionDetail transaction={transaction} currentUser={this.props.currentUser}/>
+            </li>
+          ))}
+        </ul>
+
     )
   }
 }

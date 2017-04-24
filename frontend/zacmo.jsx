@@ -6,17 +6,17 @@ import configureStore from './store/store';
 import { searchUsers } from './util/user_api_util';
 
 
-window.createUser = APIUtil.createUser;
-window.login = APIUtil.login;
-window.logout = APIUtil.logout;
+// window.createUser = APIUtil.createUser;
+// window.login = APIUtil.login;
+// window.logout = APIUtil.logout;
 
-window.searchUsers = searchUsers
+// window.searchUsers = searchUsers
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
-  if (window.currentUser) {
+  if (window.current_user) {
     const preloadedState = {
-      session: { currentUser: window.currentUser }
+      session: { currentUser: window.current_user }
     }
     store = configureStore(preloadedState);
   } else {

@@ -5,6 +5,7 @@ import Root from './components/root';
 import configureStore from './store/store';
 import { searchUsers } from './util/user_api_util';
 
+
 window.createUser = APIUtil.createUser;
 window.login = APIUtil.login;
 window.logout = APIUtil.logout;
@@ -13,7 +14,6 @@ window.searchUsers = searchUsers
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
-
   if (window.currentUser) {
     const preloadedState = {
       session: { currentUser: window.currentUser }

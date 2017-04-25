@@ -1,0 +1,51 @@
+
+
+
+.Overlay {
+  position: fixed;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.Modal {
+  padding: 10px;
+   width: 500px;
+   height: 330px;
+   position: absolute;
+   left: 50%;
+   top: 35%;
+   margin-left: -250px;
+   margin-top: -150px;
+   border: 1px solid #eee;
+   opacity: 1;
+   background-color: white;
+}
+
+.modal-form-header {
+  display: flex;
+
+}
+
+.modal-title {
+  width: 95%;
+}
+
+.modal-close {
+  background-color: transparent;
+  color: #262626;
+}
+
+.modal-close:hover {
+  background-color: transparent;
+  transform: scale(1.2);
+  color: #262626;
+}
+
+.open-modal {
+  background-color: transparent;
+  color: $insta-blue;
+
+
+}

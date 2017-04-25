@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, withRouter, hashHistory} from 'react-router';
-
+import TransactionModal from '../transaction_modal/transaction_modal';
 
 class Nav extends React.Component {
   constructor(props) {
@@ -20,6 +20,7 @@ class Nav extends React.Component {
 
     let navItems = (
       <div className="nav">
+
         <Link to='/login'>Log In</Link>
         <Link to='/signup'>Create Zacmo Account</Link>
       </div>
@@ -29,8 +30,13 @@ class Nav extends React.Component {
       const username = this.props.currentUser.username;
       navItems = (
         <div className="nav">
-          <Link to="/home/feed">Home</Link>
-          <Link to="/home/profile"><i className="fa fa-lg fa-user-o" aria-hidden="true"></i></Link>
+          <TransactionModal />
+          <Link to="/home/feed">
+            <i className="fa fa-2x fa-home" aria-hidden="true"></i>
+          </Link>
+          <Link to="/home/profile">
+            <i className="fa fa-lg fa-user-o" aria-hidden="true"></i>
+          </Link>
           <button onClick={this.handleLogout}>Logout</button>
         </div>
       );

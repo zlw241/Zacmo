@@ -26,6 +26,12 @@ class User < ActiveRecord::Base
   has_many :received_transactions, class_name: "Transaction", foreign_key: :recipient_id
   has_many :transactions
 
+  has_many :likes
+  has_many :liked_transactions, through: :likes, source: :transaction_item
+
+  has_many :comments
+  has_many :commented_transactions, through: :comments, source: :comment_transaction
+
   def self.generate_session_token
     SecureRandom.urlsafe_base64(16)
   end

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
-import SearchContainer from '../search/search_container';
+import TransactionSearchContainer from '../transaction_search/transaction_search_container';
 
 class TransactionForm extends React.Component {
   constructor(props) {
@@ -16,6 +16,7 @@ class TransactionForm extends React.Component {
     this.checkTransactionValidity = this.checkTransactionValidity.bind(this)
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.setRecipient = this.setRecipient.bind(this);
   }
 
   checkTransactionValidity() {
@@ -38,12 +39,18 @@ class TransactionForm extends React.Component {
     });
   }
 
+  setRecipient(username) {
+    this.setState({
+      recipient: username
+    })
+  }
+
   handleSubmit(e) {
     const recipient_username = this.state.recipient;
     const amount = this.state.amount;
     const memo = this.state.memo;
-
     const newTransaction = {memo, amount, recipient_username }
+    debugger
     this.props.createTransaction(newTransaction)
     this.clearForm();
   }
@@ -64,17 +71,8 @@ class TransactionForm extends React.Component {
                   type="search"
                   value={this.state.amount}
                   onFocus={this.showForm} />
-                  <div className="transaction-recipient">
-                    <input
-                      name="recipient"
-                      placeholder="Pay or charge someone"
-                      type="search"
-                      value={this.state.recipient}
-                      onChange={this.handleInput}
-                      onFocus={this.showForm} />
-                  </div>
-
               </div>
+              <TransactionSearchContainer setRecipient={this.setRecipient} />
             </div>
             <div className="memo">
               <textarea name="memo" id="transaction-memo"

@@ -63,22 +63,32 @@ class TransactionDetail extends React.Component {
     )
     if (this.props.transaction.liked_by_user === true) {
       likeButton = (
-        <i className="fa fa-heart red" aria-hidden="true"></i>
+        <i className="fa fa-heart liked" aria-hidden="true"></i>
       )
     }
 
     return (
       <div className="transaction-detail">
-        <div className="transaction-header">
-          <div className="transaction-summary">
-            <span className="transaction-user">{this.props.transaction.user.username}</span>
-            <span className="transaction-type"> paid </span>
-            <span className="transaction-user">{this.props.transaction.recipient.username}</span>
+        <div className="transaction-main">
+          <div className="transaction-pic">
           </div>
+          <div className="transaction-header">
+            <div className="transaction-title">
+              <div className="transaction-summary">
+                <span className="transaction-user">{this.props.transaction.user.username}</span>
+                <span className="transaction-type"> paid </span>
+                <span className="transaction-user">{this.props.transaction.recipient.username}</span>
+              </div>
 
-          <span className="transaction-amount">{transactionAmount}</span>
+              <span className="transaction-amount">{transactionAmount}</span>
+            </div>
+
+            <div className="transaction-memo">{this.props.transaction.memo}</div>
+          </div>
         </div>
-        <div className="transaction-memo">{this.props.transaction.memo}</div>
+
+
+
         <div className="likes">
 
           <div onClick={this.like} className="like-button">

@@ -15,9 +15,8 @@ class Home extends React.Component {
     return (
       <div className="app-container">
 
-        <TransactionFormContainer />
 
-        <div className="home">
+        <div className="home" id="home">
 
           <Sidebar currentUser={this.props.currentUser}/>
 
@@ -32,3 +31,6 @@ class Home extends React.Component {
 
 
 export default Home;
+
+
+// <TransactionFormContainer />

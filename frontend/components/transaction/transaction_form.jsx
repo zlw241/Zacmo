@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
+import SearchContainer from '../search/search_container';
 
 class TransactionForm extends React.Component {
   constructor(props) {
@@ -15,17 +16,10 @@ class TransactionForm extends React.Component {
     this.checkTransactionValidity = this.checkTransactionValidity.bind(this)
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.showForm = this.showForm.bind(this);
   }
 
   checkTransactionValidity() {
     // console.log(this.state.amount.split(" ")[0].splice(1))
-  }
-
-  showForm() {
-    this.setState({
-      showForm: {}
-    });
   }
 
   handleInput(e) {
@@ -41,7 +35,6 @@ class TransactionForm extends React.Component {
       recipient: "",
       amount: "",
       memo: "",
-      showForm: {display: 'none'}
     });
   }
 
@@ -71,18 +64,10 @@ class TransactionForm extends React.Component {
                   type="search"
                   value={this.state.amount}
                   onFocus={this.showForm} />
-              </div>
-              <div className="transaction-recipient">
-                <input
-                  name="recipient"
-                  placeholder="Pay or charge someone"
-                  type="search"
-                  value={this.state.recipient}
-                  onChange={this.handleInput}
-                  onFocus={this.showForm} />
+                <SearchContainer />
               </div>
             </div>
-            <div className="memo" style={this.state.showForm}>
+            <div className="memo">
               <textarea name="memo" id="transaction-memo"
                 placeholder="for ice-cream!"
                 value={this.state.memo}
@@ -109,3 +94,13 @@ export default TransactionForm;
 
 // <div id="pay-toggle">Pay</div>
 // <div id="charge-toggle">Charge</div>
+
+// <div className="transaction-recipient">
+//   <input
+//     name="recipient"
+//     placeholder="Pay or charge someone"
+//     type="search"
+//     value={this.state.recipient}
+//     onChange={this.handleInput}
+//     onFocus={this.showForm} />
+// </div>

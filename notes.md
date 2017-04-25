@@ -7,7 +7,7 @@
 
 - side bar will still contain previous user until page refresh, after logging out and logging back in as a different user. (fixed by changing the way side bar recieves current user)
 
-- friends button all seem to share the same state or props. While each initially starts with different values, when clicked all buttons being showing the same value (friends, pending, accept) 
+- friends button all seem to share the same state or props. While each initially starts with different values, when clicked all buttons being showing the same value (friends, pending, accept)
 
 - transaction amounts shown for currentUser will reflect previous user's colors/transactions until page refresh, there is an issue with the log out functionality that I think may have to do with the currentUser on the window still being available after logout.
 
@@ -34,6 +34,11 @@
 - make sure to add error handling for friend requests, updates, etc
 - think about how to better separate methods for handling friendships from the
   user model, they're pretty tightly coupled right now
+
+### Sidebar
+
+- Add color to left-border of active tab (like instagram profile edit page)
+
 
 ### Session
 

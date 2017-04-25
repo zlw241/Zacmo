@@ -47,6 +47,7 @@
 }
 
 .transaction-detail {
+  line-height: 1.8;
   border-bottom: 1px solid $light-gray;
   padding: 10px;
   display: flex;
@@ -92,26 +93,48 @@
 }
 
 .add-comment {
-  padding-top: 5px;
+  padding-top: 10px;
   padding-bottom: 5px;
   padding-left: 10px;
   border-top: 1px solid #eee;
-  border: 1px solid black;
+  // border: 1px solid black;
   display: flex;
   align-items: center;
 }
 
-.add-comment input {
-  border: 1px solid black;
+.add-comment form {
   width: 100%;
+  height: 100%;
+}
+
+.add-comment input {
+  // border: 1px solid black;
+  width: 100%;
+  height: 30px;
 }
 
 .comment {
   display: flex;
+  line-height: 1.8;
   // border: 1px solid black;
-  padding: 5px;
+  // padding: 5px;
 }
 
 .comment-user {
   margin-right: 5px;
+}
+
+.likes {
+  display: flex;
+}
+
+.like-button {
+  color: #489af7;
+  // border: 1px solid black;
+  padding-right: 7px;
+
+}
+
+.like-button:hover {
+  cursor: pointer;
 }

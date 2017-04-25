@@ -12,6 +12,11 @@ class Api::TransactionsController < ApplicationController
     if @transaction.save
       # @transaction.includes(:likes, :comments)
       recipient.update(balance: recipient.balance + @transaction.amount)
+      if current_user.balance <= @transaction.amount
+        current_user.update(balance: 0)
+      else
+        current_user.update(balance: current_user.balance - @transaction.amount)
+      end
       render "/api/transactions/show"
     else
       render json: @transaction.errors.full_messages, status: 401

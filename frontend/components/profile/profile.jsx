@@ -27,7 +27,7 @@ class Profile extends React.Component {
       <div className="profile">
         <div className="profile-detail">
           <h1>{this.props.user.first_name} {this.props.user.last_name}
-            <small>  <Link to="/account/settings">Edit</Link>  </small>
+            <small>  <Link to="/home/settings">Edit</Link>  </small>
           </h1>
           <div>{this.props.user.username}</div>
           <div>Balance: {this.props.user.balance}</div>

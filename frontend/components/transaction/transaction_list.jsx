@@ -26,7 +26,10 @@ class TransactionList extends React.Component {
       <ul className="transaction-list">
         {this.props.transactions.map((transaction) => (
           <li key={transaction.id}>
-            <TransactionDetail transaction={transaction} currentUser={this.props.currentUser}/>
+            <TransactionDetail
+              comments={transaction.comments}
+              transaction={transaction}
+              currentUser={this.props.currentUser} />
           </li>
         ))}
       </ul>

@@ -1,7 +1,7 @@
 class Api::CommentsController < ApplicationController
 
   def create
-    @transaction = Transaction.find(comment_params[:transaction_id])
+    @transaction = Transaction.find(params[:transaction_id])
     @transaction.comments.new({ user_id: current_user.id, body: comment_params[:body]})
     # @comment = Comment.new(comment_params)
     if @transaction.save
@@ -13,6 +13,6 @@ class Api::CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:body, :transaction_id)
+    params.require(:comment).permit(:body)
   end
 end

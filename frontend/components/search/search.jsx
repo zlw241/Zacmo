@@ -64,14 +64,15 @@ class Search extends React.Component {
     return (
       <div className="search-container">
         <div className="search-bar">
+          <i className="fa fa-lg fa-search" aria-hidden="true"></i>
           <input className="search"
             type="search"
             name="query"
-            placeholder="Search for users"
+            placeholder="Search for users..."
             onChange={this.handleInput} value={this.state.query} />
-            <div className={this.searchResultsClass()}>
-              <SearchResults searchResults={this.state.search_results} clearState={this.clearState} />
-            </div>
+        </div>
+        <div className={this.searchResultsClass()}>
+          <SearchResults searchResults={this.state.search_results} clearState={this.clearState} />
         </div>
       </div>
 

@@ -14,12 +14,24 @@ const Sidebar = ({currentUser}) => {
         <div id="sidenav-balance">${currentUser.balance}.00</div>
       </div>
       <div id="side-nav">
-        <Link to="/home/feed">Feed</Link>
-        <Link to="/home/profile">Profile</Link>
-        <Link to="/home/friends">Friends</Link>
-        <Link to="/home/settings">Settings</Link>
-        <Link to="/home/accounts">Linked Accounts</Link>
-        <Link to="/home/notifications">Notifications</Link>
+        <div className="sidenav-link">
+          <Link to="/home/feed">Feed</Link>
+        </div>
+        <div className="sidenav-link">
+          <Link to="/home/profile">Profile</Link>
+        </div>
+        <div className="sidenav-link">
+          <Link to="/home/friends">Friends</Link>
+        </div>  
+        <div className="sidenav-link">
+          <Link to="/home/settings">Settings</Link>
+        </div>
+        <div className="sidenav-link">
+          <Link to="/home/accounts">Linked Accounts</Link>
+        </div>
+        <div className="sidenav-link">
+          <Link to="/home/notifications">Notifications</Link>
+        </div>
       </div>
     </div>
   )

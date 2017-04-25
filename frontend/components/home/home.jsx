@@ -22,7 +22,7 @@ class Home extends React.Component {
           <Sidebar currentUser={this.props.currentUser}/>
 
           <div className="home-content">
-          {this.props.children}
+            {this.props.children}
           </div>
         </div>
       </div>

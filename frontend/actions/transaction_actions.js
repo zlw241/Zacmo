@@ -26,7 +26,7 @@ export const clearTransactions = () => ({
 });
 
 const receiveErrors = (errors) => ({
-  type: RECEIVE_ERROR,
+  type: RECEIVE_ERRORS,
   errors
 })
 
@@ -46,6 +46,13 @@ export const createTransaction = (transaction) => (dispatch) => {
 
 export const fetchTransaction = (transactionId) => (dispatch) => {
   return TransactionAPIUtil.fetchTransaction(transactionId).then(
+    (transaction) => dispatch(receiveSingleTransaction(transaction)),
+    (err) => dispatch(receiveErrors(err))
+  );
+};
+
+export const createComment = (comment) => (dispatch) => {
+  return TransactionAPIUtil.createComment(comment).then(
     (transaction) => dispatch(receiveSingleTransaction(transaction)),
     (err) => dispatch(receiveErrors(err))
   );

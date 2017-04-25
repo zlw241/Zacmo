@@ -64,7 +64,16 @@ class TransactionForm extends React.Component {
                   type="search"
                   value={this.state.amount}
                   onFocus={this.showForm} />
-                <SearchContainer />
+                  <div className="transaction-recipient">
+                    <input
+                      name="recipient"
+                      placeholder="Pay or charge someone"
+                      type="search"
+                      value={this.state.recipient}
+                      onChange={this.handleInput}
+                      onFocus={this.showForm} />
+                  </div>
+
               </div>
             </div>
             <div className="memo">

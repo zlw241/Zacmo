@@ -1,13 +1,15 @@
 
 .main {
   height: 100%;
+
 }
 
 .home {
   display: flex;
   margin-top: 30px;
   height: 100%;
-  border: 1px solid black;
+  border: 1px solid #eee;
+
 }
 
 #side-nav {
@@ -18,17 +20,19 @@
   line-height: 1.8;
   font-size: 18px;
   height: 50%;
-  border: 1px solid black;
-  width: 30%;
+  // border: 1px solid black;
+  width: 33%;
 }
 
 .home-content {
-  padding-left: 30px;
-  width: 100%;
+  // padding-left: 30px;
+  width: calc(100% - 200px);
   height: 100%;
   display: flex;
-  justify-content: flex-start;
-  border: 1px solid red;
+  justify-content: center;
+  // border: 1px solid black;
+  // justify-content: center;
+  // border: 1px solid red;
 }
 
 

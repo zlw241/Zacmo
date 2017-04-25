@@ -11,7 +11,7 @@
 .feed-header {
   display: flex;
   width: 100%;
-  border: 1px solid black;
+  // border: 1px solid black;
   height: 50px;
   justify-content: center;
   align-items: center;
@@ -41,9 +41,10 @@
 
 .transaction-list {
   width: 100%;
-  border: 1px solid black;
+  // border: 1px solid black;
   display: flex;
   flex-direction: column-reverse;
+  padding: 10px;
 }
 
 .transaction-detail {

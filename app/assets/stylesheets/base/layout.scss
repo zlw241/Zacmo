@@ -51,6 +51,7 @@ h1 {
 
 h2 {
 	text-align: center;
+	font-size: 24px;
 	margin-bottom: 10px;
 	font-weight: bold;
 }
@@ -130,6 +131,6 @@ input[type="search"] {
 	padding: 5px;
 }
 
-input[type="search"]:focus, input[type="text"]:focus {
-	color: $light-blue;
-}
+// input[type="search"]:focus, input[type="text"]:focus {
+// 	color: $light-blue;
+// }

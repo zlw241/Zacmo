@@ -32,5 +32,19 @@ json.set! transaction.id do
       end
     end
   end
-
+  json.num_likes transaction.likes.length
+  json.liked_by_user current_user.liked_transactions.include? transaction
+  json.likes do
+    transaction.likes.each do |like|
+      json.set! like.id do
+        json.id like.id
+        json.user do
+          json.id like.user.id
+          json.first_name like.user.first_name
+          json.last_name like.user.last_name
+          json.username like.user.username
+        end
+      end
+    end
+  end
 end

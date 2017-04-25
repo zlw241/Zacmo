@@ -51,8 +51,15 @@ export const fetchTransaction = (transactionId) => (dispatch) => {
   );
 };
 
-export const createComment = (comment) => (dispatch) => {
-  return TransactionAPIUtil.createComment(comment).then(
+export const createComment = (transactionId, comment) => (dispatch) => {
+  return TransactionAPIUtil.createComment(transactionId, comment).then(
+    (transaction) => dispatch(receiveSingleTransaction(transaction)),
+    (err) => dispatch(receiveErrors(err))
+  );
+};
+
+export const addLike = (transactionId) => (dispatch) => {
+  return TransactionAPIUtil.addLike(transactionId).then(
     (transaction) => dispatch(receiveSingleTransaction(transaction)),
     (err) => dispatch(receiveErrors(err))
   );

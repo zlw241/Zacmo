@@ -1,4 +1,10 @@
-import { RECEIVE_ALL_TRANSACTIONS, RECEIVE_NEW_TRANSACTION, CLEAR_TRANSACTIONS } from '../actions/transaction_actions';
+import {
+  RECEIVE_ALL_TRANSACTIONS,
+  RECEIVE_SINGLE_TRANSACTION,
+  RECEIVE_NEW_TRANSACTION,
+  CLEAR_TRANSACTIONS
+} from '../actions/transaction_actions';
+
 import merge from 'lodash/merge';
 
 const _nullState = {}
@@ -9,10 +15,11 @@ const TransactionReducer = (state = _nullState, action) => {
     case RECEIVE_ALL_TRANSACTIONS: {
       return merge({}, action.transactions)
     }
+    case RECEIVE_SINGLE_TRANSACTION: {
+      return Object.assign({}, state, action.transaction);
+    }
     case RECEIVE_NEW_TRANSACTION: {
-      debugger
       return Object.assign({}, state, action.transaction)
-
     }
     case CLEAR_TRANSACTIONS: {
       return _nullState

@@ -8,7 +8,6 @@ const RootReducer = combineReducers({
   session: SessionReducer,
   user: UserReducer,
   transactions: TransactionReducer,
-  transactionDetail: TransactionDetailReducer
 });
 
 export default RootReducer;

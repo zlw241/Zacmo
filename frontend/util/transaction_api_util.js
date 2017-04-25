@@ -23,10 +23,17 @@ export function createTransaction(transaction) {
   });
 }
 
-export function createComment(comment) {
+export function createComment(transactionId, comment) {
   return $.ajax({
-    url: 'api/comments',
+    url: `api/transactions/${transactionId}/comments`,
     method: 'POST',
     data: {comment}
-  })
+  });
+}
+
+export function addLike(transactionId) {
+  return $.ajax({
+    url: `api/transactions/${transactionId}/likes`,
+    method: 'POST'
+  });
 }

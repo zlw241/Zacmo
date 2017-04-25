@@ -15,6 +15,8 @@ import PendingFriends from './friends/pending';
 import RequestedFriends from './friends/requested';
 import ExistingFriends from './friends/existing';
 import FriendsContainer from './friends/friends_container';
+import TransactionModal from './transaction_modal/transaction_modal';
+
 
 const Root = ({store}) => {
 
@@ -52,7 +54,9 @@ const Root = ({store}) => {
               <Route path="pending" component={PendingFriends} />
               <Route path="requested" component={RequestedFriends} />
             </Route>
+            <Route path="test" component={TransactionModal} />
             <Route path=":user_id" component={UserContainer} />
+
           </Route>
           <Route path="/:user_id" component={UserContainer} onEnter={_ensureLoggedIn}/>
 

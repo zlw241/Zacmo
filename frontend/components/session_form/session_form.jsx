@@ -47,14 +47,20 @@ class SessionForm extends React.Component {
 
   renderErrors() {
 
-    return (
-      <ul>
-      {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>{error}</li>
-        )
-      )}
-      </ul>
-    )
+    if (this.props.errors.length > 0) {
+      return (
+        <div className="form-errors">
+          <ul>
+            {this.props.errors.map((error, i) => (
+                <li style={{color: '#ED4956'}} key={`error-${i}`}>{error}</li>
+              )
+            )}
+          </ul>
+        </div>
+      );
+    } else {
+      return null;
+    }
   }
 
   animateTyping(field, letter) {
@@ -183,15 +189,13 @@ class SessionForm extends React.Component {
 
     return (
       <div className={formClass}>
-        <div className="form-errors">
-          {this.renderErrors()}
-        </div>
         <div className="form-header">
           {guestLoginButton}
           <h2>{formHeader}</h2>
           <p>To continue, use your email, phone number, or Zacmo username to log into your Zacmo account.</p>
         </div>
         <form onSubmit={this.handleSubmit}>
+          {this.renderErrors()}
           {firstNameInput}
           {lastNameInput}
           {emailInput}

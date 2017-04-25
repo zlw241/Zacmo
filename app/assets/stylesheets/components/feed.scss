@@ -84,3 +84,34 @@
 .red {
   color: red;
 }
+
+.comments {
+  // border-top: 1px solid #eee;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+.add-comment {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  border-top: 1px solid #eee;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+}
+
+.add-comment input {
+  border: 1px solid black;
+  width: 100%;
+}
+
+.comment {
+  display: flex;
+  // border: 1px solid black;
+  padding: 5px;
+}
+
+.comment-user {
+  margin-right: 5px;
+}

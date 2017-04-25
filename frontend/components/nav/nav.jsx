@@ -37,7 +37,7 @@ class Nav extends React.Component {
           <Link to="/home/profile">
             <i className="fa fa-lg fa-user-o" aria-hidden="true"></i>
           </Link>
-          <button onClick={this.handleLogout}>Logout</button>
+          <button className="logout-button" onClick={this.handleLogout}>Logout</button>
         </div>
       );
     }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 import { connect } from 'react-redux';
-import Test from '../test/test';
+import TransactionModal from '../transaction_modal/transaction_modal';
 
 
 const Sidebar = ({currentUser, router}) => {
@@ -26,7 +26,7 @@ const Sidebar = ({currentUser, router}) => {
           <div id="sidenav-balance">${currentUser.balance}.00</div>
         </div>
         <div className="pay-modal">
-          <Test />
+          <TransactionModal />
         </div>
       </div>
       <div id="side-nav">

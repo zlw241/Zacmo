@@ -22,3 +22,11 @@ export function createTransaction(transaction) {
     data: {transaction}
   });
 }
+
+export function createComment(comment) {
+  return $.ajax({
+    url: 'api/comments',
+    method: 'POST',
+    data: {comment}
+  })
+}

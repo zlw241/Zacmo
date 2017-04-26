@@ -20,7 +20,6 @@ class User extends React.Component {
   }
 
   render() {
-
     return (
       <div className="user">
         <div id="user-header">
@@ -31,38 +30,11 @@ class User extends React.Component {
           </div>
         </div>
 
-
         <div id="user-main">
         </div>
-
-
       </div>
     );
   }
-
 }
 
 export default User;
-
-// <div className="friends">
-// <h3 className="friends-list-header">Friends</h3>
-// <ul className="friends-list">
-// {this.props.user.friendships.friends.map((friend) => (
-//   <li key={friend.id}>
-//   <Link key={friend.id} to={`/home/${friend.id}`}>{friend.username}</Link>
-//
-//   </li>
-// ))}
-// </ul>
-// </div>
-
-// <h2 className="user-header">
-// {this.props.user.first_name} {this.props.user.last_name}
-// <small> @{this.props.user.username}</small>
-// </h2>
-// <div className="member-since">
-// member since: {this.props.user.member_since}
-// </div>
-// <div className="friend-button">
-// <FriendButton />
-// </div>

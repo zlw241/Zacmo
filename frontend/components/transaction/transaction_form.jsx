@@ -7,7 +7,7 @@ class TransactionForm extends React.Component {
     super(props);
 
     this.state = {
-      recipient: "",
+      recipient: this.props.user,
       amount: "",
       memo: "",
       showForm: {display: 'none'}
@@ -33,24 +33,29 @@ class TransactionForm extends React.Component {
 
   clearForm() {
     this.setState({
-      recipient: "",
+      recipient: {
+        username: "",
+        id: null
+      },
       amount: "",
       memo: "",
     });
   }
 
-  setRecipient(username) {
+  setRecipient(user) {
     this.setState({
-      recipient: username
-    })
+      recipient: {
+        username: user.username,
+        id: user.id
+      }
+    });
   }
 
   handleSubmit(e) {
-    const recipient_username = this.state.recipient;
+    const recipient_username = this.state.recipient.username;
     const amount = this.state.amount;
     const memo = this.state.memo;
     const newTransaction = {memo, amount, recipient_username }
-    debugger
     this.props.createTransaction(newTransaction)
     this.clearForm();
   }
@@ -72,7 +77,7 @@ class TransactionForm extends React.Component {
                   value={this.state.amount}
                   onFocus={this.showForm} />
               </div>
-              <TransactionSearchContainer setRecipient={this.setRecipient} />
+              <TransactionSearchContainer recipient={this.state.recipient} setRecipient={this.setRecipient} />
             </div>
             <div className="memo">
               <textarea name="memo" id="transaction-memo"

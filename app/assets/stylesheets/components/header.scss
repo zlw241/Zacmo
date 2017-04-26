@@ -10,7 +10,7 @@
 
 .header nav {
   // border: 1px solid black;
-  width: 30%;
+  width: 35%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -18,23 +18,25 @@
 
 .header nav .nav {
   // border: 1px solid black;
-  width: 100%;
+  width: 60%;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
 .header-link {
-  margin-left: 20px;
+  padding-left: 50px;
   font-style: italic;
   font-size: 20px;
-  width: 20%;
+  width: 35%;
 }
 
 .search-container {
   // border: 1px solid black;
-  width: 60%;
-  margin-left: 30px;
+  width: 30%;
+  // margin-left: 30px;
+
+  // display: flex;
 
 }
 
@@ -45,7 +47,9 @@
   // background-color: $light-gray;
   // height: 40px;
   display: flex;
+  justify-content: center;
   align-items: center;
+  // padding-left: 40px;
 }
 
 .fa-search {
@@ -70,17 +74,31 @@
 .search {
   // border: 0.5px solid $gray;
   // background-color: $light-gray;
-  width: 60%;
-  -webkit-transition: all .5s;
-  -moz-transition: all .5s;
+
+  // width: 50%;
+
+  -webkit-transition: all .2s;
+  -moz-transition: all .2s;
   transition: all .5s;
-  height: 40px;
-  font-size: 18px;
+  height: 30px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  background-color: #FAFAFA;
 }
 
-.search:focus {
-  border-color: #3D95CE;
 
+.search::-webkit-input-placeholder {
+   text-align: center;
+}
+
+.search:focus::-webkit-input-placeholder {
+  text-align: left;
+}
+
+
+.search:focus {
+  border-color: #ddd;
+  background-color: white;
 }
 
 .search-results ul li {
@@ -129,6 +147,26 @@
   flex-direction: column;
 }
 
-.logout-button {
-  background-color: $insta-blue;
+.transaction-search-results {
+  position: absolute;
+  background-color: white;
+  z-index: 1;
+  box-shadow: -1px 4px 6px 1px rgba(0,0,0,0.09);
+  // border: 1px solid;
+  top: 90px;
+  width: 400px;
+  margin-top: 10px;
+  border: 1px solid $light-gray;
+
 }
+
+.transaction-search-results ul li {
+  line-height: 40px;
+  border-bottom: 1px solid $gray;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+// .logout-button {
+//   background-color: $insta-blue;
+// }

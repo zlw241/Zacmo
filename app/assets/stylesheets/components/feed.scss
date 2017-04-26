@@ -12,27 +12,45 @@
   display: flex;
   width: 100%;
   // border: 1px solid black;
-  height: 50px;
+  height: 60px;
   justify-content: center;
   align-items: center;
-  background-color: #eee;
+  // background-color: #eee;
+  // padding-top: 10px;
+  // padding-bottom: 10px;
+  background-color: white;
+  border-bottom: 1px solid #eee;
+}
+
+.feed-button-container {
+  // border: 1px solid black;
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+}
+
+.feed-button-container:first-child {
+  border-top: 2px solid #262626;
 }
 
 .feed-header button {
   height: 40px;
+  // height: 100%;
   width: 100px;
-  border-radius: 20px;
+  border-radius: 3px;
   background-color: transparent;
-  color: $gray;
-  border: 2px solid $gray;
+  color: #262626;
+  border: 2px solid #262626;
   margin-left: 10px;
   margin-right: 10px;
 }
 
 .feed-header button:hover {
-  border-color: #489af7;
-  color: #489af7;
+  // border-color: #489af7;
+  // color: #489af7;
   background-color: #E9F4FA;
+  // background-color: $insta-blue;
 }
 
 .feed-header button:active {
@@ -49,19 +67,15 @@
 
 .transaction-detail {
   line-height: 1.8;
-  // border: 1px solid black;
-  border-bottom: 1px solid $light-gray;
+  border: 1px solid $light-gray;
   padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   width: 100%;
-  // height: 100px;
-  // padding-left: 15%;
   background-color: #fff;
-  // background-color: red;
-  margin-bottom: 10px;
-  margin-top: 10px;
+  margin-bottom: 15px;
+  margin-top: 15px;
 }
 
 .transaction-main {

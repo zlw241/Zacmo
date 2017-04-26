@@ -23,6 +23,7 @@
   align-items: flex-start;
   line-height: 2.0;
   font-size: 18px;
+
   // height: 50%;
   height: 300px;
   // border: 1px solid #ddd;
@@ -53,8 +54,10 @@
   padding-left: 10px;
   width: 100%;
   // border: 1px solid black;
+  font-family: $sans-serif;
   display: flex;
   align-items: center;
+  color: #262626;
 }
 
 .sidenav-link:hover {

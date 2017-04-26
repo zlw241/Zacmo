@@ -62,9 +62,9 @@ class TransactionSearch extends React.Component {
 
   searchResultsClass() {
     if (this.state.search_results.length === 0) {
-      return "hidden search-results"
+      return "hidden transaction-search-results"
     } else {
-      return "search-results"
+      return "transaction-search-results"
     }
   }
 
@@ -73,10 +73,10 @@ class TransactionSearch extends React.Component {
       return null
     }
     return (
-      <div className="search-container">
-        <div className="search-bar">
+      <div className="transaction-search-container">
+        <div className="transaction-search-bar">
           <i className="fa fa-lg fa-search" aria-hidden="true"></i>
-          <input className="search"
+          <input className="transaction-search"
             type="search"
             name="recipient"
             placeholder="Search for users..."

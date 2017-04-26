@@ -7,9 +7,11 @@ const Header = () => {
 
   return (
     <div className="header">
-      <Link to="/" className="header-link">
-        <em><h1>zacmo</h1></em>
-      </Link>
+      <div className="header-link">
+        <Link to="/" >
+          <em><h1>zacmo</h1></em>
+        </Link>
+      </div>
       <SearchContainer className="search-bar"/>
       <NavContainer />
     </div>

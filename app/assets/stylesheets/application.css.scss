@@ -43,8 +43,12 @@ body {
 
 a {
   text-decoration: none;
-  color: #3D95CE;
+  color: #262626;
+  font-family: $noto-sans;
+  font-weight: 1000;
+  // color: #3D95CE;
 }
+
 
 button:hover {
   cursor: pointer;

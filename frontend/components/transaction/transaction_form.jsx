@@ -87,7 +87,7 @@ class TransactionForm extends React.Component {
                     <option>Private</option>
                   </select>
                 </div>
-                <div onClick={this.handleSubmit} className="submit-transaction">Pay</div>
+                <button onClick={this.handleSubmit} className="submit-transaction">Pay</button>
               </div>
             </div>
           </div>

@@ -66,6 +66,7 @@ class Search extends React.Component {
         <div className="search-bar">
           <i className="fa fa-lg fa-search" aria-hidden="true"></i>
           <input className="search"
+            autoComplete="off"
             type="search"
             name="query"
             placeholder="Search for users..."

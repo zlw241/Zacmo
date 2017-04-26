@@ -11,9 +11,15 @@ class Feed extends React.Component {
     return (
       <div id="feed">
         <div className="feed-header">
-          <button>Public</button>
+          <div className="feed-button-container">
+            <button>Public</button>
+          </div>
+          <div className="feed-button-container">
           <button>Friends</button>
+          </div>
+          <div className="feed-button-container">
           <button>Mine</button>
+          </div>
         </div>
         <TransactionListContainer />
       </div>

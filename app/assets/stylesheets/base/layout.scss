@@ -12,9 +12,9 @@ body {
 }
 
 button {
-	background-color: $light-blue;
-	border-color: $dark-blue;
-	color: white;
+	background-color: transparent;
+	border: 2px solid #262626;
+	color: #262626;
 	font-weight: bold;
 	padding: 7px 9px;
 	border-radius: 3px;
@@ -26,12 +26,12 @@ button {
 }
 
 button:hover {
-	background-color: $blue;
-  border-color: $darkest-blue;
+	background-color: #E9F4FA;
+  // border-color: $darkest-blue;
 }
 
 a:hover {
-	text-decoration: underline;
+	// text-decoration: underline;
 }
 
 .hidden {

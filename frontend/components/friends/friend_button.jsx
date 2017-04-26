@@ -13,15 +13,15 @@ class FriendButton extends React.Component {
   }
 
   addFriend() {
-    this.props.addFriend(this.props.user.id);
+    this.props.addFriend(this.props.user.id)
   }
 
   removeFriend() {
-    this.props.removeFriend(this.props.user.id);
+    this.props.removeFriend(this.props.user.id)
   }
 
   acceptRequest() {
-    this.props.acceptRequest(this.props.user.id);
+    this.props.acceptRequest(this.props.user.id)
   }
 
   render() {
@@ -29,28 +29,35 @@ class FriendButton extends React.Component {
     switch(this.props.user.friend_status) {
 
       case "friends": return (
-        <div className="friend-button">
-          <button onClick={this.removeFriend}>Unfriend</button>
+        <div className="friend-button-container">
+          <button className="friend-button" onClick={this.removeFriend}>
+            Unfriend
+          </button>
         </div>
       )
       case "pending": return (
-        <div className="friend-button">
-          <button disabled>Pending</button>
+        <div className="friend-button-container">
+          <button className="friend-button" disabled="true">
+            Pending
+          </button>
         </div>
       )
       case "requested": return (
-        <div className="friend-button">
-          <button onClick={this.acceptRequest}>Accept</button>
+        <div className="friend-button-container">
+          <button className="friend-button" onClick={this.acceptRequest}>
+            Accept
+          </button>
         </div>
       )
       default: return (
-        <div className="friend-button">
-          <button onClick={this.addFriend}>Add Friend</button>
+        <div className="friend-button-container">
+          <button className="friend-button" onClick={this.addFriend}>
+            Add Friend
+          </button>
         </div>
       )
     }
   }
-
 }
 
 const mapStateToProps = (state) => ({

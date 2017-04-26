@@ -17,9 +17,9 @@ class Friends extends React.Component {
 
   activeTab(tab) {
     if (tab === this.props.location.pathname) {
-      return "active link-tab-item"
+      return "friends-button-container active"
     } else {
-      return "link-tab-item"
+      return "friends-button-container"
     }
   }
 
@@ -31,28 +31,41 @@ class Friends extends React.Component {
   //   this.props.fetchUser(this.props.currentUser.id);
   // }
 
-
   render() {
 
     if (!this.props.currentUser) { return null }
     return (
-      <div className="friends">
-        <h2>Your Friends</h2>
-        <div className="link-tabs">
-          <Link to='/home/friends' className={this.activeTab("/home/friends")}>
-            <div>Friends</div>
-            <div className="friend-count">{this.props.friends.length}</div>
-          </Link>
-          <Link to='/home/friends/pending' className={this.activeTab("/home/friends/pending")}>
-          Pending
-          <div className="friend-count">{this.props.pending.length}</div>
-          </Link>
-          <Link to='/home/friends/requested' className={this.activeTab("/home/friends/requested")}>
-          <div>Requested</div>
-          <div className="friend-count">{this.props.requested.length}</div>
-          </Link>
-        </div>
+      <div id="friends">
+        <div className="friends-header">
 
+          <div className={this.activeTab("/home/friends")}>
+            <Link to='/home/friends'>
+              <button>
+                <div className="friend-status">Friends</div>
+                <div className="friend-count">{this.props.friends.length}</div>
+              </button>
+            </Link>
+          </div>
+
+          <div className={this.activeTab("/home/friends/pending")}>
+            <Link to='/home/friends/pending'>
+              <button>
+                <div className="friend-status">Pending</div>
+                <div className="friend-count">{this.props.pending.length}</div>
+              </button>
+            </Link>
+          </div>
+
+          <div className={this.activeTab("/home/friends/requested")}>
+            <Link to='/home/friends/requested'>
+              <button>
+                <div className="friend-status">Requested</div>
+                <div className="friend-count">{this.props.requested.length}</div>
+              </button>
+            </Link>
+          </div>
+
+        </div>
         <div className="friends-children">
           {this.props.children}
         </div>
@@ -64,3 +77,17 @@ class Friends extends React.Component {
 }
 
 export default Friends;
+// <div id="friends">
+//   <div className="friends-header">
+//     <div className="friends-button-container">
+//       <button>Public</button>
+//     </div>
+//     <div className="feed-button-container">
+//       <button>Friends</button>
+//     </div>
+//     <div className="feed-button-container">
+//       <button>Mine</button>
+//     </div>
+//   </div>
+//   <TransactionListContainer />
+// </div>

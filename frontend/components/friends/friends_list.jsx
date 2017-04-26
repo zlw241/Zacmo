@@ -2,62 +2,46 @@ import React from 'react';
 import { Link, withRouter } from 'react-router';
 
 
-class FriendsList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {friends: []}
-    this.toggleTab = this.toggleTab.bind(this)
-  }
+const FriendsList = ({friendList}) => {
 
-  componentWillReceiveProps(friends) {
-    this.setState({friends: friends})
-
-  }
-
-
-  toggleTab(e) {
-    this.setState({friends: this.props.friendships[e.currentTarget.value]})
-  }
-
-
-  render() {
-//     return (
-//       <div className="friend-tabs">
-//         <div className="tabs">
-//           <div className="accepted">
-//             <button value="accepted" onClick={this.toggleTab}>Friends</button>
-//           </div>
-//           <div className="pending">
-//             <button value="pending" onClick={this.toggleTab}>Pending</button>
-//           </div>
-//           <div className="requested">
-//             <button value="requested" onClick={this.toggleTab}>Requests</button>
-//           </div>
-//         </div>
-//         <ul>
-//           {this.state.friends.map((friend) => (
-//             <li key={friend.id}>
-//               <Link key={friend.id} to={`/${friend.id}`}>{friend.username}</Link>
-//             </li>
-//           ))}
-//         </ul>
-//       </div>
-//     )
-//   }
-// }
-
-    return (
-      <div className="friend-tabs">
-        <ul>
-          {this.props.friends.map((friend) => (
-            <li key={friend.id}>
-              <Link key={friend.id} to={`/${friend.id}`}>{friend.username}</Link>
-            </li>
-          ))}
-        </ul>
+  return (
+    <div className="friend-list-container">
+      <div className="friend-list-header">
+        <div className="user-column">
+          User
+        </div>
+        <div className="actions-column">
+          Action
+        </div>
       </div>
-    )
-  }
+      <ul className="friend-list">
+        {friendList.map((friend) => (
+          <li className="friend-list-item" key={friend.id}>
+            <Link className="friend-list-link" key={friend.id} to={`/${friend.id}`}>
+              <div className="friend-list-pic">
+
+              </div>
+              <div className="friend-list-username">
+                {friend.username}
+              </div>
+            </Link>
+            <div className="friend-list-actions">
+              <div className="friend-list-pay">
+                <button className="friend-list-button">
+                  Pay
+                </button>
+              </div>
+              <div className="friend-list-relationship">
+                <button className="friend-list-button">
+                  Unfriend
+                </button>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
 }
 
 export default FriendsList;

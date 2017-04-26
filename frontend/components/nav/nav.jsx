@@ -31,9 +31,6 @@ class Nav extends React.Component {
       navItems = (
         <div className="nav">
           <TransactionModal />
-          <Link to="/home/feed">
-            <i className="fa fa-2x fa-home" aria-hidden="true"></i>
-          </Link>
           <Link to="/home/profile">
             <i className="fa fa-lg fa-user-o" aria-hidden="true"></i>
           </Link>
@@ -51,3 +48,7 @@ class Nav extends React.Component {
 };
 
 export default withRouter(Nav);
+
+// <Link to="/home/feed">
+//   <i className="fa fa-2x fa-home" aria-hidden="true"></i>
+// </Link>

@@ -2,10 +2,15 @@
 .main {
   height: 100%;
 
+
 }
 
 .home {
+  // width: 95%;
+  padding-left: 10px;
+  padding-right: 10px;
   display: flex;
+  justify-content: center;
   margin-top: 30px;
   height: 100%;
   border: 1px solid #eee;
@@ -30,7 +35,8 @@
   height: 100%;
   display: flex;
   justify-content: center;
-  // border: 1px solid black;
+  border-top: 1px solid #ddd;
+  border-right: 1px solid #ddd;
   // justify-content: center;
   // border: 1px solid red;
 }

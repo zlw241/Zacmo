@@ -53,9 +53,12 @@ class TransactionDetail extends React.Component {
       }
     }
 
-    let like = "likes";
+    let like = `${this.props.transaction.num_likes} likes`;
+    if (this.props.transaction.num_likes === 0) {
+      like = `Be the first person to like this`;
+    }
     if (this.props.transaction.num_likes === 1) {
-      like = "like";
+      like = "1 like";
     }
 
     let likeButton = (
@@ -96,7 +99,7 @@ class TransactionDetail extends React.Component {
           </div>
 
           <div className="likes-count">
-            {this.props.transaction.num_likes} {like}
+            {like}
           </div>
         </div>
         <div className="comments">

@@ -14,25 +14,27 @@ if current_user
       json.friends user.friends do |friend|
         json.id friend.id
         json.username friend.username
+        json.friend_status current_user.friend_status friend
       end
       json.friend_requests user.friend_requests do |requester|
         json.id requester.id
         json.username requester.username
+        json.friend_status current_user.friend_status requester
       end
       json.pending_friends user.pending_friends do |pending_friend|
         json.id pending_friend.id
         json.username pending_friend.username
+        json.friend_status current_user.friend_status pending_friend
       end
     end
   else
     json.friends_with current_user.friends_with? user
     json.friend_status current_user.friend_status user
-  end
-
-  json.friendships do
-    json.friends user.friends do |friend|
-      json.id friend.id
-      json.username friend.username
+    json.friendships do
+      json.friends user.friends do |friend|
+        json.id friend.id
+        json.username friend.username
+      end
     end
   end
   json.member_since user.created_at

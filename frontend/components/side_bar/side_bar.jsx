@@ -7,9 +7,15 @@ import TransactionModal from '../transaction_modal/transaction_modal';
 const Sidebar = ({currentUser, router}) => {
 
   const sideNavClass = (path) => {
-    if (path === router.location.pathname) {
+    const loc = router.location.pathname
+    if (path === loc) {
       return "sidenav-active";
     } else {
+      if (path === "/home/friends" && loc === "/home/friends/pending") {
+        return "sidenav-active";
+      } else if (path === "/home/friends" && loc === "/home/friends/requested") {
+        return "sidenav-active";
+      }
       return "sidenav-link";
     }
   }
@@ -18,13 +24,13 @@ const Sidebar = ({currentUser, router}) => {
   return (
     <div id="side-bar">
       <div id="sidenav-header">
-        <div className="side-nav-user">
+        <div className="sidenav-user">
           <div id="sidenav-name">{currentUser.first_name} {currentUser.last_name}</div>
           <div id="sidenav-username">@{currentUser.username}</div>
           <div id="sidenav-balance">${currentUser.balance}.00</div>
         </div>
         <div className="pay-modal">
-          <TransactionModal />
+          <TransactionModal size={{width: '50px', height: '50px'}} />
         </div>
       </div>
       <div id="side-nav">

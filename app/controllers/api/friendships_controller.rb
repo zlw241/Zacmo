@@ -8,14 +8,16 @@ class Api::FriendshipsController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
-    Friendship.accept(current_user, @user)
+    friend = User.find(params[:id])
+    @user = current_user
+    Friendship.accept(@user, friend)
     render "api/users/show"
   end
 
   def destroy
-    @user = User.find(params[:id])
-    if current_user.friends.delete(@user) && @user.friends.delete(current_user)
+    friend = User.find(params[:id])
+    @user = current_user
+    if @user.friends.delete(friend) && friend.friends.delete(@user)
       render "api/users/show"
     else
       render json: @user.errors.fullmessages, status: 422

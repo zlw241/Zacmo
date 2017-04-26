@@ -40,7 +40,6 @@ class Search extends React.Component {
     this.clearState()
   }
 
-
   clearState() {
     this.setState({
       query: "",
@@ -61,6 +60,7 @@ class Search extends React.Component {
     if (!this.props.currentUser) {
       return null
     }
+    
     return (
       <div className="search-container">
         <div className="search-bar">
@@ -81,17 +81,4 @@ class Search extends React.Component {
   }
 }
 
-
 export default Search;
-
-
-
-
-// <ul>
-// {this.state.search_results.map((user) => (
-//   <li key={user.id} onClick={this.clearState}>
-//   <SearchItem user={user} />
-//   <FriendButton user={user} />
-//   </li>
-// ))}
-// </ul>

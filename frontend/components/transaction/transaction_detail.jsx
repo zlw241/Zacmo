@@ -78,9 +78,13 @@ class TransactionDetail extends React.Component {
           <div className="transaction-header">
             <div className="transaction-title">
               <div className="transaction-summary">
-                <span className="transaction-user">{this.props.transaction.user.username}</span>
+                <Link to={`/home/${this.props.transaction.user.id}`}>
+                  {this.props.transaction.user.username}
+                </Link>
                 <span className="transaction-type"> paid </span>
-                <span className="transaction-user">{this.props.transaction.recipient.username}</span>
+                <Link to={`/home/${this.props.transaction.recipient.id}`}>
+                  {this.props.transaction.recipient.username}
+                </Link>
               </div>
 
               <span className="transaction-amount">{transactionAmount}</span>

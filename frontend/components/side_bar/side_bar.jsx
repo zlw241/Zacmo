@@ -6,8 +6,6 @@ import TransactionModal from '../transaction_modal/transaction_modal';
 
 const Sidebar = ({currentUser, router}) => {
 
-  // debugger
-
   const sideNavClass = (path) => {
     if (path === router.location.pathname) {
       return "sidenav-active";

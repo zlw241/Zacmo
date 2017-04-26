@@ -47,7 +47,7 @@ class Settings extends React.Component {
 
   render() {
 
-
+    if (!this.props.currentUser) { return null }
     return (
       <div id="settings-form-container">
         <div className="settings-form-header">

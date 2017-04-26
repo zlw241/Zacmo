@@ -1,23 +1,15 @@
 
+.friend-button-container {
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
 .friend-button {
-  height: 30px;
-}
-
-.friend-button button {
-  margin: 0;
-  padding: 0;
-  height: 30px;
   width: 100px;
-  border-radius: 20px;
-  background-color: transparent;
-  color: $gray;
-  border: 2px solid $gray;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.friend-button button:hover {
-  border-color: #489af7;
-  color: #489af7;
-  background-color: #E9F4FA;
+  height: 30px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  border-radius: 12px;
 }

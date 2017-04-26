@@ -31,3 +31,21 @@
   border-color: #ddd;
   background-color: white;
 }
+
+.transaction-search-results {
+  position: absolute;
+  background-color: white;
+  z-index: 1;
+  box-shadow: -1px 4px 6px 1px rgba(0,0,0,0.09);
+  top: 90px;
+  width: 400px;
+  margin-top: 10px;
+  border: 1px solid $light-gray;
+}
+
+.transaction-search-results ul li {
+  line-height: 1.8;
+  border-bottom: 1px solid $gray;
+  margin-left: 10px;
+  margin-right: 10px;
+}

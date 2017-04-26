@@ -31,10 +31,26 @@
 }
 
 #sidenav-header {
+  display: flex;
+  align-items: flex-start;
   line-height: 1.4;
   padding: 10px;
   background: #eee;
   width: 100%;
+}
+
+.sidenav-user {
+  width: 66%;
+}
+
+.pay-modal {
+  width: 33%;
+  height: 60px;
+  border-left: 1px solid black;
+  padding-left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #sidenav-name {

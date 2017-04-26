@@ -1,30 +1,11 @@
 
-
-
 .user-form {
-  // border: 1px solid black;
-
   width: 95%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   line-height: 1.8;
 }
-
-// .user-form input[type=text] {
-//   border: 0.5px solid $gray;
-//   margin: 10px;
-//   margin-top: 5px;
-//   width: 50%;
-// }
-
-// .user-form > div {
-//   display: flex;
-//   // flex-direction: column;
-//   margin: 10px;
-//   margin-bottom: 0px;
-//   width: 100%;
-// }
 
 .form-submit > button {
   width: 200px;
@@ -47,19 +28,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  // border: 1px solid red;
   width: 100%;
   text-align: left;
   background-color: white;
 }
 
 .profile-pic-container {
-
   width: 30%;
   display: flex;
   justify-content: flex-end;
-  // border: 1px solid black;
-
 }
 
 .profile-pic {
@@ -69,9 +46,7 @@
   border: 1px solid black;
 }
 
-
 .settings-form-header {
-  // border: 1px solid black;
   width: 95%;
   display: flex;
   height: 110px;
@@ -85,25 +60,19 @@
 .settings-form-item {
   padding: 10px;
   margin-bottom: 0px;
-  // border: 1px solid black;
   display: flex;
   justify-content: flex-start;
   width: 100%;
 }
 
-
 .settings-form-label {
   width: 30%;
-  // border: 1px solid black;
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
 
 .settings-form-input {
-  // width: 100%;
-  // border: 1px solid black;
-  // height: 30px;
   border: 0.5px solid $gray;
   border-radius: 3px;
   margin: 10px;

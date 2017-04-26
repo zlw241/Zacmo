@@ -11,9 +11,9 @@ class Friends extends React.Component {
     this.props.fetchUser(this.props.currentUser.id)
   }
 
-  componentWillReceiveProps(nextProps) {
-
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   debugger
+  // }
 
   activeTab(tab) {
     if (tab === this.props.location.pathname) {

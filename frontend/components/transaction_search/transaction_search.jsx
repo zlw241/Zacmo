@@ -7,14 +7,26 @@ class TransactionSearch extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = {
-      query: "",
-      selectedUser: {
-        id: null,
-        username: ""
-      },
-      search_results: []
-    };
+    if (this.props.recipient) {
+      this.state = {
+        query: this.props.recipient.username,
+        selectedUser: {
+          username: this.props.recipient.username,
+          id: this.props.recipient.id
+        },
+        search_results: []
+      };
+    } else {
+      this.state = {
+        query: "",
+        selectedUser: {
+          username: "",
+          id: null
+        },
+        search_results: []
+      };
+    }
+
 
     this.handleInput = this.handleInput.bind(this);
     this.clearState = this.clearState.bind(this);
@@ -43,14 +55,13 @@ class TransactionSearch extends React.Component {
   }
 
   selectUser(id, username) {
-    console.log(id, username);
+    const user = { id: id, username: username }
     this.setState({
-      selectedUser: { id: id, username: username},
+      selectedUser: user,
       query: username,
       search_results: []
     });
-    this.props.setRecipient(username)
-
+    this.props.setRecipient(user)
   }
 
   clearState() {

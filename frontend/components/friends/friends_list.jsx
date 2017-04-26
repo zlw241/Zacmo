@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
-
+import FriendButton from './friend_button';
+import TransactionModal from '../transaction_modal/transaction_modal';
 
 const FriendsList = ({friendList}) => {
 
@@ -19,7 +20,6 @@ const FriendsList = ({friendList}) => {
           <li className="friend-list-item" key={friend.id}>
             <Link className="friend-list-link" key={friend.id} to={`/${friend.id}`}>
               <div className="friend-list-pic">
-
               </div>
               <div className="friend-list-username">
                 {friend.username}
@@ -27,14 +27,10 @@ const FriendsList = ({friendList}) => {
             </Link>
             <div className="friend-list-actions">
               <div className="friend-list-pay">
-                <button className="friend-list-button">
-                  Pay
-                </button>
+                <TransactionModal user={friend} size={{width: '50px', height: '30px'}}/>
               </div>
               <div className="friend-list-relationship">
-                <button className="friend-list-button">
-                  Unfriend
-                </button>
+                <FriendButton user={friend} />
               </div>
             </div>
           </li>
@@ -46,7 +42,9 @@ const FriendsList = ({friendList}) => {
 
 export default FriendsList;
 
-
+// <button className="friend-list-button">
+//   <TransactionModal user={friend} />
+// </button>
 
 // <div className="tabs">
 // <div className="accepted">

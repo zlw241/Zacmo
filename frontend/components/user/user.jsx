@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
-import FriendButton from './friend_button';
+import FriendButton from '../friends/friend_button';
 import FeedContainer from '../feed/feed_container';
 
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
-import FriendButton from '../user/friend_button';
+import FriendButton from '../friends/friend_button';
 
 const SearchItem = ({user}) => {
   return (

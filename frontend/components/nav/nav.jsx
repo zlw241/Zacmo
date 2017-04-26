@@ -48,7 +48,3 @@ class Nav extends React.Component {
 };
 
 export default withRouter(Nav);
-
-// <Link to="/home/feed">
-//   <i className="fa fa-2x fa-home" aria-hidden="true"></i>
-// </Link>

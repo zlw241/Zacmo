@@ -50,44 +50,19 @@
   background-color: white;
 }
 
-.search-results ul li {
-  line-height: 40px;
-  border-bottom: 1px solid $gray;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
 .search-result-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.friend-button {
-  height: 30px;
-}
-
-.search-results ul li:last-of-type {
-  border-bottom: none;
-}
-
-.friend-button button {
-  margin: 0;
-  padding: 0;
-  height: 30px;
-  width: 100px;
-  border-radius: 20px;
-  background-color: transparent;
-  color: $gray;
-  border: 2px solid $gray;
+  border: 1px solid black;
+  line-height: 40px;
+  border-bottom: 1px solid #eee;
   margin-left: 10px;
   margin-right: 10px;
 }
 
-.friend-button button:hover {
-  border-color: #489af7;
-  color: #489af7;
-  background-color: #E9F4FA;
+.search-result-item:last-of-type {
+  border-bottom: none;
 }
 
 .search-result-link {
@@ -96,6 +71,7 @@
   flex-direction: column;
   border: 1px solid black;
 }
+
 
 .transaction-search-results {
   position: absolute;

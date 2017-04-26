@@ -1,9 +1,6 @@
 
-
 .form-fields {
-  // border: 1px solid black;
   width: 100%;
-  // padding: 10px;
   padding-left: 5px;
   padding-right: 5px;
   padding-bottom: 5px;
@@ -23,7 +20,6 @@
 }
 
 .transaction-recipient {
-  // border: 1px solid black;
   width: 65%;
   display: flex;
   justify-content: flex-start;
@@ -41,7 +37,6 @@
 
 #transaction-memo {
   border: 0.5px solid $gray;
-
   border-radius: 3px;
   width: 100%;
   height: 100px;
@@ -49,7 +44,6 @@
 }
 
 .memo-bottom {
-
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -58,11 +52,8 @@
 }
 
 .amount-to-pay {
-
   display: flex;
-  // padding: 10px;
   padding-right: 10px;
-
   width: 30%;
   display: flex;
   justify-content: flex-start;
@@ -78,28 +69,13 @@
   font-size: 20px;
 }
 
-// .transaction-toggle div {
-//   border: 1px solid black;
-//   width: 100px;
-//   height: 40px;
-//   padding-top: 5px;
-//   padding-bottom: 5px;
-//   padding-left: 10px;
-//   padding-right: 10px;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// }
-
 .memo {
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
 .submit-transaction {
-  // border: 1px solid black;
   border-radius: 100%;
   width: 50px;
   height: 50px;
@@ -107,9 +83,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  // background-color: $insta-blue;
-  // color: white;
-
 }
 
 .submit-transaction:hover {

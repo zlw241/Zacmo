@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, hashHistory } from 'react-router';
 import SearchItem from './search_item';
-import FriendButton from '../user/friend_button';
+import FriendButton from '../friends/friend_button';
 import SearchResults from './search_results';
 
 

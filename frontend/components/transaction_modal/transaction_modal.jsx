@@ -16,17 +16,28 @@ const modalStyle = {
 }
 
 class TransactionModal extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
-    this.state = {
-      modalIsOpen: false
-
+    if (this.props.user) {
+      this.state = {
+        user: this.props.user,
+        modalIsOpen: false
+      }
+    } else {
+      this.state = {
+        username: {
+          username: "",
+          id: null
+        },
+        modalIsOpen: false
+      }
     }
 
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.buttonSize = this.buttonSize.bind(this);
   }
 
   componentWillMount() {
@@ -35,7 +46,12 @@ class TransactionModal extends React.Component {
 
   openModal() {
     this.setState({modalIsOpen: true})
+  }
 
+  buttonSize() {
+    return {
+      width: this.props.size.width, height: this.props.size.height
+    }
   }
 
   afterOpenModal() {
@@ -45,12 +61,13 @@ class TransactionModal extends React.Component {
   closeModal() {
     this.setState({modalIsOpen: false});
   }
+  // <i className="fa fa-2x fa-money" aria-hidden="true"></i>
 
   render() {
     return (
       <div>
-        <button className="open-modal" onClick={this.openModal}>
-          <i className="fa fa-2x fa-money" aria-hidden="true"></i>
+        <button className="open-modal" style={this.buttonSize()} onClick={this.openModal}>
+          PAY
         </button>
         <Modal
           style={modalStyle}
@@ -71,14 +88,13 @@ class TransactionModal extends React.Component {
             </div>
           </div>
           <div className="modal-form">
-            <TransactionFormContainer />
+            <TransactionFormContainer user={this.state.user} />
           </div>
         </Modal>
       </div>
     )
   }
 }
-
 
 
 

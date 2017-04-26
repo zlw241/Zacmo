@@ -19,7 +19,7 @@ class Nav extends React.Component {
   render() {
 
     let navItems = (
-      <div className="nav">
+      <div className="nav nav-login">
 
         <Link to='/login'>Log In</Link>
         <Link to='/signup'>Create Zacmo Account</Link>
@@ -29,8 +29,7 @@ class Nav extends React.Component {
     if (this.props.currentUser) {
       const username = this.props.currentUser.username;
       navItems = (
-        <div className="nav">
-          <TransactionModal />
+        <div className="nav nav-main">
           <Link to="/home/profile">
             <i className="fa fa-lg fa-user-o" aria-hidden="true"></i>
           </Link>
@@ -40,9 +39,9 @@ class Nav extends React.Component {
     }
 
     return (
-      <nav>
+      <div className="nav-container">
         {navItems}
-      </nav>
+      </div>
     );
   }
 };

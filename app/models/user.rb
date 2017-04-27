@@ -1,12 +1,16 @@
+require 'net/http'
+
 class User < ActiveRecord::Base
   attr_reader :password
+  after_initialize :ensure_session_token
 
   validates :username, :email, :first_name, :last_name, :phone_num, :session_token, presence: true
   validates :username, :email, :phone_num, uniqueness: true
   validates :password_digest, presence: { message: "Password can't be blank"}
   validates :password, length: { minimum: 8}, allow_nil: true
 
-  after_initialize :ensure_session_token
+  has_attached_file :image, default_url: "placeholder.jpg"
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   has_many :friendships
 
@@ -89,39 +93,21 @@ class User < ActiveRecord::Base
     end
   end
 
-  # def transactions
-  #   sent_transactions.or(received_transactions)
-  # end
-
   def feed_transactions
-    # @transactions = self.transactions.pluck("transactions.*")
-    # @transactions + User.joins("INNER JOIN friendships ON users.id = friendships.user_id")
-    # .joins("INNER JOIN transactions ON friendships.friend_id = transactions.user_id")
-    # .where("users.id = ?", self.id)
-    # .where("friendships.status = 'accepted'")
-    # .select("transactions.*")
-    # .order("transactions.created_at")
-    # .pluck("transactions.*")
-
-    # (self.transactions + self.friends)
-
-    # @feed = User.joins(:friends).joins(:transactions).where("transactions.user_id = friends.id", self.id).pluck("transactions.*")
-
-    # @transactions = [self.transactions]
-    # self.friends.each do |friend|
-    #   @transactions << friend.transactions
-    # end
-    #
-
     @transactions = User.
       where(id: User.joins(:friendships)
         .where("friendships.user_id = ? AND friendships.status = 'accepted'", 1)
         .select("friendships.friend_id")
       ).joins(:transactions)
       .pluck("transactions.*")
+  end
 
-    # @transactions
-    # self.friends.transactions.(:all, order: "created_at DESC")
+  def generate_avatar(username)
+    File.join(File.dirname(__FILE__), '../assets/')
+    output = File.open("../assets/images/#{username}.png", "w")
+    avatar = Net::HTTP.get("api.adorable.io", "/avatars/285/#{username}@adorable.io.png")
+    output << avatar
+    output.close
   end
 
   private

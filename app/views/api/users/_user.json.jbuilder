@@ -5,6 +5,7 @@ if current_user
   json.username user.username
   json.first_name user.first_name
   json.last_name user.last_name
+  json.image_url asset_path(user.image.url)
 
   if current_user.id == user.id
     json.email user.email
@@ -37,5 +38,6 @@ if current_user
       end
     end
   end
+  
   json.member_since user.created_at
 end

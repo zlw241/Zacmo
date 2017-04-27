@@ -10,6 +10,7 @@ font-family: 'Noto Sans', sans-serif;*/
 
 .splash-welcome {
   padding-right: 50px;
+  // font-style: normal;
 }
 
 .iphone-container {
@@ -56,7 +57,9 @@ font-family: 'Noto Sans', sans-serif;*/
 
 .welcome-content h1 {
   text-align: center;
+  font-style: normal;
   margin-bottom: 40px;
+  font-family: $noto-sans;
 }
 
 .animatedFeed {

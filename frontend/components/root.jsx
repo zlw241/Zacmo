@@ -9,7 +9,7 @@ import UserContainer from './user/user_container';
 import LandingPageContainer from './landing_page/landing_page_container';
 import HomeContainer from './home/home_container';
 import SettingsContainer from './settings/settings_container';
-import FeedContainer from './feed/feed_container';
+import TransactionListContainer from './transaction/transaction_list_container';
 import NotificationsContainer from './notifications/notifications_container';
 import PendingFriends from './friends/pending';
 import RequestedFriends from './friends/requested';
@@ -44,7 +44,7 @@ const Root = ({store}) => {
           <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn}/>
           <Route path="/profile" component={ProfileContainer} onEnter={_ensureLoggedIn} />
           <Route path="/home" component={HomeContainer} onEnter={_ensureLoggedIn}>
-            <Route path="feed" component={FeedContainer} />
+            <Route path="feed" component={TransactionListContainer} />
             <Route path="profile" component={ProfileContainer} />
             <Route path="notifications" component={NotificationsContainer} />
             <Route path="settings" component={SettingsContainer} />

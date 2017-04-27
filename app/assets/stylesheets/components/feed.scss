@@ -35,7 +35,6 @@
 
 .feed-header button {
   height: 40px;
-  // height: 100%;
   width: 100px;
   border-radius: 3px;
   background-color: transparent;
@@ -46,10 +45,7 @@
 }
 
 .feed-header button:hover {
-  // border-color: #489af7;
-  // color: #489af7;
   background-color: #E9F4FA;
-  // background-color: $insta-blue;
 }
 
 .feed-header button:active {
@@ -58,7 +54,6 @@
 
 .transaction-list {
   width: 100%;
-  // border: 1px solid black;
   display: flex;
   flex-direction: column-reverse;
   padding: 10px;
@@ -79,14 +74,12 @@
 
 .transaction-main {
   display: flex;
-  // border: 1px solid black;
   padding-bottom: 10px;
 }
 
 .transaction-pic {
   width: 100px;
   height: 100px;
-
   border: 1px solid black;
   border-radius: 100%;
 }
@@ -95,14 +88,12 @@
   width: calc(100% - 100px);
   display: flex;
   flex-direction: column;
-  // justify-content: space-between;
   padding: 10px;
   justify-content: space-around;
 }
 
 .transaction-title {
   display: flex;
-  // border: 1px solid black;
   justify-content: space-between;
   width: 100%;
 }

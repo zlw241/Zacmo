@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 import FriendButton from '../friends/friend_button';
-import FeedContainer from '../feed/feed_container';
+import TransactionListContainer from '../transaction/transaction_list_container';
 
 
 class User extends React.Component {

@@ -62,7 +62,7 @@ class TransactionModal extends React.Component {
   closeModal() {
     this.setState({modalIsOpen: false});
   }
-  // <i className="fa fa-2x fa-money" aria-hidden="true"></i>
+
 
   render() {
     return (

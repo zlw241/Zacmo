@@ -27,10 +27,7 @@ class CommentList extends React.Component {
       this.setState({
         numComments: this.state.numComments + 1
       })
-    }, 100)
-    // this.setState({
-    //   numComments: previousNum + 5
-    // });
+    }, 50)
   }
 
   lessComments() {

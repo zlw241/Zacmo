@@ -10,6 +10,13 @@ class Api::LikesController < ApplicationController
   end
 
   def destroy
+    @like = Like.find(params[:id])
+    @transaction = @like.transaction_item
+    if @transaction.likes.destroy(@like)
+      render "api/transactions/show"
+    else
+      render json: @transaction.errors.full_messages, status: 422
+    end
   end
 
 end

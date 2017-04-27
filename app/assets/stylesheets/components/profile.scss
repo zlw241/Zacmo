@@ -1,9 +1,26 @@
 
 .profile {
   display: flex;
-
+  flex-direction: column;
+  width: 100%;
 }
 
+.profile-detail {
+  border: 1px solid black;
+  width: 100%;
+  display: flex;
+}
+
+.main-profile-pic {
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  border: 1px solid black;
+}
+
+.main-profile-pic img {
+  border-radius: 100%;
+}
 .user-friends {
   border: 1px solid black;
   width: 60%;

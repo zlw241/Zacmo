@@ -26,14 +26,17 @@ class Profile extends React.Component {
     return (
       <div className="profile">
         <div className="profile-detail">
-          <h1>{this.props.user.first_name} {this.props.user.last_name}
-            <small>  <Link to="/home/settings">Edit</Link>  </small>
-          </h1>
-          <div>{this.props.user.username}</div>
-          <div>Balance: {this.props.user.balance}</div>
+          <div className="main-profile-pic">
+            <img src={this.props.user.image_url} />
+          </div>
+          <div className="profile-header">
+            <h1>{this.props.user.first_name} {this.props.user.last_name}
+              <small>  <Link to="/home/settings">Edit</Link>  </small>
+            </h1>
+            <div>{this.props.user.username}</div>
+            <div>Balance: {this.props.user.balance}</div>
+          </div>
         </div>
-
-
       </div>
     );
   }

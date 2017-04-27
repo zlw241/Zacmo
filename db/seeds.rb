@@ -7,18 +7,30 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.destroy_all
+Transaction.destroy_all
+Friendship.destroy_all
+Like.destroy_all
+Comment.destroy_all
 
 users = User.create([
     {
-      username: "legolas_suckz",
+      username: "zlw241",
+      email: "zach.l.ward6@gmail.com",
+      first_name: "Zach",
+      last_name: "Ward",
+      phone_num: "703-309-2314",
+      password: "password"
+    },
+    {
+      username: "gimli",
       email: "gimli@lotr.me",
       first_name: "Gimli",
       last_name: "Son of Gloin",
       phone_num: "343-839-2233",
-      password: "ilovemyaxe"
+      password: "password"
     },
     {
-      username: "real_kool_guy",
+      username: "legolas",
       email: "legolas@lotr.me",
       first_name: "Legolas",
       last_name: "Son of Thranduil",
@@ -26,52 +38,76 @@ users = User.create([
       password: "ilovemybow"
     },
     {
-      username: "sav3_m3_sam",
+      username: "frodo",
       email: "frodo@lotr.me",
       first_name: "Frodo",
       last_name: "Baggins",
       phone_num: "000-000-0000",
-      password: "sauronsuckz"
+      password: "password"
     },
     {
-      username: "king_of_gondor_swagx1000",
+      username: "aragorn",
       email: "aragorn@lotr.me",
       first_name: "Aragorn",
       last_name: "Son of Arathorn",
       phone_num: "888-453-8989",
-      password: "ilovearwen"
+      password: "password"
     },
     {
-      username: "YOU__SHALLNOT__PASS",
+      username: "aragorn",
+      email: "aragorn@lotr.me",
+      first_name: "Aragorn",
+      last_name: "Son of Arathorn",
+      phone_num: "888-453-8989",
+      password: "password"
+    },
+    {
+      username: "gandalf",
       email: "gandalf@lotr.me",
       first_name: "Gandalf",
       last_name: "The White",
       phone_num: "123-456-7890",
-      password: "runyoufools"
+      password: "password"
     },
     {
-      username: "i_saved_middle_earth",
+      username: "sam",
       email: "sam@lotr.me",
       first_name: "Samwise",
       last_name: "Gamgee",
       phone_num: "555-555-5556",
-      password: "fucksmeagol"
+      password: "password"
     },
     {
-      username: "im_dead",
+      username: "borimir",
       email: "@lotr.me",
       first_name: "Borimir",
       last_name: "Son of Denathor",
       phone_num: "993-234-5609",
-      password: "somanyarrows"
+      password: "password"
     },
     {
-      username: "yall_want_sum_ringz?",
+      username: "sauron",
       email: "sauron@lotr.me",
       first_name: "Sauron",
       last_name: "The Necromancer",
       phone_num: "666-666-6666",
-      password: "oneringtorulethemall"
+      password: "password"
+    },
+    {
+      username: "merry",
+      email: "merry@lotr.me",
+      first_name: "Merry",
+      last_name: "Brandybuck",
+      phone_num: "676-666-6666",
+      password: "password"
+    },
+    {
+      username: "pippin",
+      email: "pippin@lotr.me",
+      first_name: "Peregrin",
+      last_name: "Took",
+      phone_num: "676-669-6666",
+      password: "password"
     },
     {
       username: "guest",

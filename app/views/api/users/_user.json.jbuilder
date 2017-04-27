@@ -16,16 +16,19 @@ if current_user
         json.id friend.id
         json.username friend.username
         json.friend_status current_user.friend_status friend
+        json.profile_pic asset_path(friend.image.url)
       end
       json.friend_requests user.friend_requests do |requester|
         json.id requester.id
         json.username requester.username
         json.friend_status current_user.friend_status requester
+        json.profile_pic asset_path(requester.image.url)
       end
       json.pending_friends user.pending_friends do |pending_friend|
         json.id pending_friend.id
         json.username pending_friend.username
         json.friend_status current_user.friend_status pending_friend
+        json.profile_pic asset_path(pending_friend.image.url)
       end
     end
   else
@@ -38,6 +41,6 @@ if current_user
       end
     end
   end
-  
+
   json.member_since user.created_at
 end

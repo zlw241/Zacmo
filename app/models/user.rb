@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   validates :password_digest, presence: { message: "Password can't be blank"}
   validates :password, length: { minimum: 8}, allow_nil: true
 
-  has_attached_file :image, default_url: "placeholder.jpg"
+  has_attached_file :image, default_url: "avatar.jpg"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   has_many :friendships
@@ -102,12 +102,9 @@ class User < ActiveRecord::Base
       .pluck("transactions.*")
   end
 
-  def generate_avatar(username)
-    File.join(File.dirname(__FILE__), '../assets/')
-    output = File.open("../assets/images/#{username}.png", "w")
-    avatar = Net::HTTP.get("api.adorable.io", "/avatars/285/#{username}@adorable.io.png")
-    output << avatar
-    output.close
+  def avatar_from_url(username)
+    url = "https://api.adorable.io/avatars/285/#{username}@adorable.io.png"
+    self.image = URI.parse(url)
   end
 
   private

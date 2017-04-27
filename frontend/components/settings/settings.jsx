@@ -52,7 +52,7 @@ class Settings extends React.Component {
       <div id="settings-form-container">
         <div className="settings-form-header">
           <div className="profile-pic-container">
-            <div className="profile-pic"></div>
+            <img className="profile-pic" src={this.props.currentUser.image_url} />
           </div>
           <h2>{this.props.currentUser.first_name} {this.props.currentUser.last_name}</h2>
         </div>

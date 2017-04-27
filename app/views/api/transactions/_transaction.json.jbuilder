@@ -13,6 +13,7 @@ json.set! transaction.id do
     json.username transaction.user.username
     json.first_name transaction.user.first_name
     json.last_name transaction.user.last_name
+    json.profile_pic asset_path(transaction.user.image.url)
   end
   json.recipient do
     json.id transaction.recipient.id

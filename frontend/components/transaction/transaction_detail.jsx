@@ -74,6 +74,7 @@ class TransactionDetail extends React.Component {
       <div className="transaction-detail">
         <div className="transaction-main">
           <div className="transaction-pic">
+            <img className="user-profile-pic" src={this.props.transaction.user.profile_pic} />
           </div>
           <div className="transaction-header">
             <div className="transaction-title">

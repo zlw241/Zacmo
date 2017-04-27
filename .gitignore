@@ -13,3 +13,6 @@ bundle.js.map
 .DS_Store
 npm_debug.log
 
+
+# Ignore application configuration
+/config/application.yml

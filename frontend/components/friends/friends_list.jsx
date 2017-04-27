@@ -18,7 +18,7 @@ const FriendsList = ({friendList}) => {
       <ul className="friend-list">
         {friendList.map((friend) => (
           <li className="friend-list-item" key={friend.id}>
-            <Link className="friend-list-link" key={friend.id} to={`/${friend.id}`}>
+            <Link className="friend-list-link" key={friend.id} to={`/home/${friend.id}`}>
               <div className="friend-list-pic">
               </div>
               <div className="friend-list-username">

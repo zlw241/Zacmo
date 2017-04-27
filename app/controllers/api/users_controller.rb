@@ -31,7 +31,7 @@ class Api::UsersController < ApplicationController
 
   def search
     if params[:query].present?
-      @users = User.where("username ~ ?", params[:query])
+      @users = User.where("lower(username) ~ :query OR lower(first_name) ~ :query", query: params[:query].downcase)
       render "api/users/search"
     else
       @users = User.none

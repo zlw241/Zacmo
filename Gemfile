@@ -39,7 +39,9 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'annotate'
 
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
+
+gem 'paperclip'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

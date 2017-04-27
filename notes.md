@@ -1,6 +1,7 @@
 
 ## To-do 4/26
 - time since transaction for each transaction in feed
+- add small picture for each user in search results
 - profile pictures
 X feed filter
 - feed display on other users' page when user profile

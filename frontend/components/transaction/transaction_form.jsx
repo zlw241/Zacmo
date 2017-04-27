@@ -43,6 +43,8 @@ class TransactionForm extends React.Component {
   }
 
   setRecipient(user) {
+    console.log(user);
+    console.log(this.state);
     this.setState({
       recipient: {
         username: user.username,

@@ -24,9 +24,10 @@ class TransactionModal extends React.Component {
         user: this.props.user,
         modalIsOpen: false
       }
+      console.log(this.state);
     } else {
       this.state = {
-        username: {
+        user: {
           username: "",
           id: null
         },

@@ -11,6 +11,7 @@ class CommentList extends React.Component {
     }
 
     this.showComments = this.showComments.bind(this);
+    this.lessComments = this.lessComments.bind(this);
     this.moreComments = this.moreComments.bind(this);
     this.loadMoreComments = this.loadMoreComments.bind(this);
     this.commentsAsArray = this.commentsAsArray.bind(this);
@@ -18,8 +19,23 @@ class CommentList extends React.Component {
 
   moreComments() {
     const previousNum = this.state.numComments;
+    let x = 0
+    const interval = setInterval(() => {
+      if (++x === 5) {
+        window.clearInterval(interval);
+      };
+      this.setState({
+        numComments: this.state.numComments + 1
+      })
+    }, 100)
+    // this.setState({
+    //   numComments: previousNum + 5
+    // });
+  }
+
+  lessComments() {
     this.setState({
-      numComments: previousNum + 5
+      numComments: 5
     });
   }
 
@@ -39,11 +55,26 @@ class CommentList extends React.Component {
     return commentArray;
   }
 
+
   loadMoreComments() {
     if (this.commentsAsArray().length > 5) {
+      if (this.state.numComments > 5) {
+        return (
+          <div className="comment-actions">
+            <div onClick={this.moreComments} className="load-more-comments">
+              Load more comments
+            </div>
+            <div onClick={this.lessComments} className="show-less-comments">
+              <i className="fa fa-times" aria-hidden="true"></i>
+            </div>
+          </div>
+        );
+      }
       return (
-        <div onClick={this.moreComments} className="load-more-comments">
-          Load more comments
+        <div className="comment-actions">
+          <div onClick={this.moreComments} className="load-more-comments">
+            Load more comments
+          </div>
         </div>
       );
     } else {

@@ -27,7 +27,6 @@ class TransactionSearch extends React.Component {
       };
     }
 
-
     this.handleInput = this.handleInput.bind(this);
     this.clearState = this.clearState.bind(this);
     this.searchResultsClass = this.searchResultsClass.bind(this);
@@ -46,6 +45,7 @@ class TransactionSearch extends React.Component {
       )
     }
   }
+
   componentWillReceiveProps(nextProps) {
     this.clearState()
   }
@@ -66,7 +66,6 @@ class TransactionSearch extends React.Component {
 
   clearState() {
     this.setState({
-      query: "",
       search_results: []
     });
   }

@@ -14,8 +14,10 @@ Rails.application.routes.draw do
 
     resources :transactions, only: [:create, :show, :index, :destroy] do
       resources :comments, only: [:create, :destroy]
-      resources :likes, only: [:create, :destroy]
+      resources :likes, only: [:create]
     end
+
+    resources :likes, only: [:destroy]
 
 
 

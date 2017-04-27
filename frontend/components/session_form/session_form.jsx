@@ -34,9 +34,15 @@ class SessionForm extends React.Component {
     }
 
     const user = this.state;
-    this.props.processForm(user).then(
-      () => this.props.router.push("/home/feed")
-    )
+    if (this.props.router.pathname === "/signup") {
+      this.props.processForm(user).then(
+        () => this.props.router.push("/home/profile")
+      )
+    } else {
+      this.props.processForm(user).then(
+        () => this.props.router.push("/home/feed")
+      )
+    }
   }
 
   handleInput(e) {

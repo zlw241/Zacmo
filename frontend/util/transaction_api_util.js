@@ -37,3 +37,10 @@ export function addLike(transactionId) {
     method: 'POST'
   });
 }
+
+export function removeLike(likeId) {
+  return $.ajax({
+    url: `api/likes/${likeId}`,
+    method: 'DELETE'
+  });
+}

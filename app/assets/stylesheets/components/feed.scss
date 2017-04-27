@@ -128,12 +128,13 @@
   // border-top: 1px solid #eee;
   padding: 5px;
   margin-top: 5px;
-  max-height: 150px;
-  overflow: auto;
+  // max-height: 150px;
+  // overflow: auto;
+  padding-bottom: 10px;
 }
 
 .add-comment {
-  padding-top: 10px;
+  padding-top: 15px;
   padding-bottom: 5px;
   padding-left: 10px;
   border-top: 1px solid #eee;
@@ -158,6 +159,14 @@
   line-height: 1.8;
   // border: 1px solid black;
   // padding: 5px;
+}
+
+.load-more-comments {
+  color: #A6A6A6;
+}
+
+.load-more-comments:hover {
+  cursor: pointer;
 }
 
 .comment-user {

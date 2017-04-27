@@ -22,16 +22,22 @@
 }
 
 .feed-button-container {
-  // border: 1px solid black;
   height: 100%;
   display: flex;
   align-items: center;
 
 }
 
-.feed-button-container:first-child {
+.feed-button-container-active {
+  height: 100%;
+  display: flex;
+  align-items: center;
   border-top: 2px solid #262626;
 }
+
+// .feed-button-container:first-child {
+//   border-top: 2px solid #262626;
+// }
 
 .feed-header button {
   height: 40px;

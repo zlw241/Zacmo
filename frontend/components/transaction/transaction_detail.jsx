@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 import { connect } from 'react-redux';
-import { createComment, addLike } from '../../actions/transaction_actions';
+import { createComment, addLike, removeLike } from '../../actions/transaction_actions';
 import CommentList from '../comment/comment_list';
 import Likes from '../like/likes.jsx';
 
@@ -15,7 +15,14 @@ class TransactionDetail extends React.Component {
   }
 
   like() {
-    this.props.addLike(this.props.transaction.id)
+    if (this.props.transaction.liked_by_user) {
+      const like = Object.values(this.props.transaction.likes).filter((like) => (
+        like.user.id === this.props.currentUser.id
+      ), this)[0]
+      this.props.removeLike(like.id);
+    } else {
+      this.props.addLike(this.props.transaction.id)
+    }
   }
 
   addComment(e) {
@@ -126,7 +133,8 @@ class TransactionDetail extends React.Component {
 
 const mapDispatchToProps = (dispatch) => ({
   createComment: (transactionId, comment) => dispatch(createComment(transactionId, comment)),
-  addLike: (like) => dispatch(addLike(like))
+  addLike: (like) => dispatch(addLike(like)),
+  removeLike: (likeId) => dispatch(removeLike(likeId))
 });
 
 

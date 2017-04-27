@@ -64,3 +64,10 @@ export const addLike = (transactionId) => (dispatch) => {
     (err) => dispatch(receiveErrors(err))
   );
 };
+
+export const removeLike = (likeId) => (dispatch) => {
+  return TransactionAPIUtil.removeLike(likeId).then(
+    (transaction) => dispatch(receiveSingleTransaction(transaction)),
+    (err) => dispatch(receiveErrors(err))
+  );
+};

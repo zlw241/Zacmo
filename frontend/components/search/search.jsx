@@ -17,6 +17,7 @@ class Search extends React.Component {
     this.handleInput = this.handleInput.bind(this);
     this.clearState = this.clearState.bind(this);
     this.searchResultsClass = this.searchResultsClass.bind(this);
+    this.clickHandler = this.clickHandler.bind(this)
   }
 
   handleInput(e) {
@@ -38,6 +39,11 @@ class Search extends React.Component {
 
   componentWillUnmount() {
     this.clearState()
+
+  }
+
+  clickHandler(e) {
+    debugger
   }
 
   clearState() {
@@ -60,7 +66,7 @@ class Search extends React.Component {
     if (!this.props.currentUser) {
       return null
     }
-    
+
     return (
       <div className="search-container">
         <div className="search-bar">

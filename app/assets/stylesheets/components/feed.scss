@@ -36,6 +36,10 @@
 //   border-top: 2px solid #262626;
 // }
 
+.fa-clock-o {
+  padding-right: 5px;
+}
+
 .feed-header button {
   height: 40px;
   width: 100px;
@@ -199,4 +203,10 @@
 
 .like-button:hover {
   cursor: pointer;
+}
+
+.loading {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }

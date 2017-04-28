@@ -9,6 +9,7 @@ body {
 	// font-family: $serif;
 	font-size: 16px;
 	background-color: #FAFAFA;
+	// background-color: #262626;
 }
 
 button {
@@ -26,7 +27,9 @@ button {
 }
 
 button:hover {
-	background-color: #E9F4FA;
+	// background-color: #E9F4FA;
+	// color: #F05872;
+	cursor: pointer;
   // border-color: $darkest-blue;
 }
 
@@ -129,6 +132,10 @@ hr {
 
 input[type="search"] {
 	padding: 5px;
+}
+
+::-webkit-scrollbar {
+	display: none;
 }
 
 // input[type="search"]:focus, input[type="text"]:focus {

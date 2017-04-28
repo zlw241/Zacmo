@@ -117,6 +117,18 @@
 
 }
 
+.friends-slider {
+
+}
+
+// .spinner {
+//   animation: spin 2s linear infinite;
+// }
+
+// @keyframes spin {
+//   0% { transform: rotate(0deg); }
+//   100% { transform: rotate(360deg); }
+// }
 
 .scroll {
   display: flex;
@@ -126,11 +138,18 @@
   -ms-overflow-style: -ms-autohiding-scrollbar;
 }
 
+.friend-slider {
+  border-top: 2px solid #262626;
+  border-bottom: 2px solid #262626;
+}
+
+.scroll::-webkit-scrollbar {
+  display: none;
+}
+
 .scroll-item {
   flex: 0 0 auto;
 }
-
-
 
 .friend-slider-item {
   width: 150px;
@@ -141,6 +160,7 @@
   justify-content: center;
   align-items: center;
   border: 2px solid #262626;
+  background-color: #fff;
 
 }
 
@@ -149,4 +169,5 @@
   width: 100px;
   border-radius: 100%;
   margin-bottom: 10px;
+  border: 1px solid #262626;
 }

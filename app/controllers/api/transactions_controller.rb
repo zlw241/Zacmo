@@ -25,21 +25,42 @@ class Api::TransactionsController < ApplicationController
   end
 
   def index
+    # debugger
+    # debugger
     friends = current_user.friends.pluck(:id)
     @transactions = Transaction
       .includes(:likes, :comments, :user)
       .where("transactions.user_id IN (:friend_ids) OR transactions.recipient_id IN (:friend_ids) OR transactions.user_id = :id OR transactions.recipient_id = :id", friend_ids: friends, id: current_user.id)
       .all
       .order("created_at DESC")
+      .limit(5)
+
     render "/api/transactions/index"
   end
+
+  def offset
+    sleep 1
+    if params[:offset].present?
+      friends = current_user.friends.pluck(:id)
+      @transactions = Transaction
+        .includes(:likes, :comments, :user)
+        .where("transactions.user_id IN (:friend_ids) OR transactions.recipient_id IN (:friend_ids) OR transactions.user_id = :id OR transactions.recipient_id = :id", friend_ids: friends, id: current_user.id)
+        .all
+        .order("created_at DESC")
+        .limit(5)
+        .offset(params[:offset])
+      render "/api/transactions/index"
+    end
+  end
+
 
   def show
     @transaction = Transaction.find(params[:id]).includes(:comments, :likes)
     render "/api/transactions/show"
   end
 
+  private
   def transaction_params
-    params.require(:transaction).permit(:recipient_username, :memo, :amount)
+    params.require(:transaction).permit(:recipient_username, :memo, :amount, :offset)
   end
 end

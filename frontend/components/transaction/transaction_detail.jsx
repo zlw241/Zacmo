@@ -103,7 +103,10 @@ class TransactionDetail extends React.Component {
             </div>
 
             <div className="transaction-time-delta">
-              <small>{moment(this.props.transaction.created_at).fromNow()}</small>
+              <small>
+                <i className="fa fa-clock-o" aria-hidden="true"></i>
+                {moment(this.props.transaction.created_at).fromNow()}
+              </small>
             </div>
 
             <div className="transaction-memo">{this.props.transaction.memo}</div>

@@ -1,12 +1,10 @@
 class Api::TransactionsController < ApplicationController
   def create
     recipient = User.find_by(username: transaction_params['recipient_username'])
-
     recipient_id = recipient.id
     memo = transaction_params['memo']
     amount = transaction_params['amount']
     new_transaction = {'recipient_id': recipient_id, 'memo': memo, 'amount': amount}
-
     @transaction = current_user.transactions.new(new_transaction)
 
     if @transaction.save

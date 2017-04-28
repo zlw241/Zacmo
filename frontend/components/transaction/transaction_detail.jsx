@@ -1,9 +1,11 @@
+import moment from 'moment';
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import { createComment, addLike, removeLike } from '../../actions/transaction_actions';
 import CommentList from '../comment/comment_list';
 import Likes from '../like/likes.jsx';
+
 
 class TransactionDetail extends React.Component {
   constructor(props) {
@@ -59,6 +61,8 @@ class TransactionDetail extends React.Component {
         );
       }
     }
+    //
+    // debugger
 
     let like = `${this.props.transaction.num_likes} likes`;
     if (this.props.transaction.num_likes === 0) {
@@ -96,6 +100,10 @@ class TransactionDetail extends React.Component {
               </div>
 
               <span className="transaction-amount">{transactionAmount}</span>
+            </div>
+
+            <div className="transaction-time-delta">
+              <small>{moment(this.props.transaction.created_at).fromNow()}</small>
             </div>
 
             <div className="transaction-memo">{this.props.transaction.memo}</div>

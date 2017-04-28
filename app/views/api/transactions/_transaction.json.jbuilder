@@ -33,6 +33,7 @@ json.set! transaction.id do
       end
     end
   end
+  json.created_at transaction.created_at
   json.num_likes transaction.likes.length
   json.liked_by_user current_user.liked_transactions.include? transaction
   json.likes do

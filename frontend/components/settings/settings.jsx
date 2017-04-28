@@ -15,6 +15,10 @@ class Settings extends React.Component {
       phone_num: ""
     }
 
+    this.previewImage = this.previewImage.bind(this);
+    this.toggleImageForm = this.toggleImageForm.bind(this);
+    this.updateImage = this.updateImage.bind(this);
+    this.revertImage = this.revertImage.bind(this);
   }
 
   componentWillMount() {
@@ -24,10 +28,16 @@ class Settings extends React.Component {
         last_name: this.props.user.last_name,
         username: this.props.user.username,
         email: this.props.user.email,
-        phone_num: this.props.user.phone_num
+        phone_num: this.props.user.phone_num,
+        image_url: this.props.user.image_url,
+        image_file: null
       })
     )
   }
+
+  // componentWillReceiveProps(nextProps) {
+  //
+  // }
 
   handleInput(e) {
     const field = e.currentTarget.name;
@@ -37,12 +47,74 @@ class Settings extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    const user = this.state;
+    const user = {
+      first_name: this.state.first_name,
+      last_name: this.state.last_name,
+      username: this.state.username,
+      email: this.state.email,
+      phone_num: this.state.phone_num,
+    }
     this.props.updateUser(user).then(
       () => {
         hashHistory.push('/home/profile');
       }
     );
+  }
+
+  toggleImageForm() {
+    if (this.state.image_file) {
+      return (
+        <div className="change-profile-pic-container">
+          <div className="save-profile-pic" onClick={this.updateImage}>
+            Save
+          </div>
+          <div className="revert-profile-pic" onClick={this.revertImage}>
+            Cancel
+          </div>
+        </div>
+      );
+    }
+    return (
+      <div className="change-profile-pic-container">
+        <div className="change-profile-pic" onClick={() => $('#profile-upload').trigger('click')}>
+          Change Avatar
+        </div>
+        <input onChange={this.previewImage} id="profile-upload" type="file" style={{display: 'none'}}/>
+      </div>
+    );
+
+  }
+
+  revertImage() {
+    this.setState({
+      image_url: this.props.user.image_url,
+      image_file: null
+    })
+  }
+
+  updateImage() {
+    const file = this.state.image_file;
+    const formData = new FormData();
+    const userId = this.props.user.id;
+    formData.append("user[image]", file);
+    this.props.updateImage(formData, userId).then(
+      () => this.revertImage()
+    )
+  }
+
+  previewImage(e) {
+    const reader = new FileReader();
+    const file = e.currentTarget.files[0];
+
+    reader.onloadend = function() {
+      this.setState({ image_url: reader.result, image_file: file })
+    }.bind(this);
+
+    if (file) {
+      reader.readAsDataURL(file);
+    } else {
+      this.setState({ image_url: this.props.user.image_url, image_file: null });
+    }
   }
 
   render() {
@@ -52,7 +124,10 @@ class Settings extends React.Component {
       <div id="settings-form-container">
         <div className="settings-form-header">
           <div className="profile-pic-container">
-            <img className="profile-pic" src={this.props.currentUser.image_url} />
+            <img className="profile-pic" src={this.state.image_url} />
+
+            {this.toggleImageForm()}
+
           </div>
           <h2>{this.props.currentUser.first_name} {this.props.currentUser.last_name}</h2>
         </div>

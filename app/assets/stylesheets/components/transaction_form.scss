@@ -91,17 +91,18 @@
 
 .select-visibility {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   height: 25px;
-  width: 150px;
+  width: 100%;
   // border: 1px solid black;
   margin: 5px;
   height: 30px;
+
 }
 
 .select-visibility select {
-  width: 100%;
+  width: 150px;
 }
 
 .dollar {

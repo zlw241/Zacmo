@@ -40,6 +40,15 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def transactions
+    user = User.find(params[:id])
+    @transactions = Transaction
+      .includes(:likes, :comments, :user)
+      .where("transactions.user_id = :user_id OR transactions.recipient_id = :user_id", user_id: user.id)
+      .all
+    render "api/transactions/index"
+  end
+
   # def friend
   #   @user = User.find(params[:id])
   #   Friendship.request(current_user, @user)
@@ -51,6 +60,6 @@ class Api::UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:username, :email, :phone_num, :first_name, :last_name, :password)
+    params.require(:user).permit(:username, :email, :phone_num, :first_name, :last_name, :password, :image)
   end
 end

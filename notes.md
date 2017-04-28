@@ -2,8 +2,9 @@
 ## To-do 4/26
 - time since transaction for each transaction in feed
 - add small picture for each user in search results
-- profile pictures
-- unlike posts
+- privacy for transactions
+X profile pictures
+X unlike posts
 X feed filter
 - feed display on other users' page when user profile
 X display pay button next to 'friend status' column in main search

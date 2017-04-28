@@ -38,9 +38,10 @@ if current_user
       json.friends user.friends do |friend|
         json.id friend.id
         json.username friend.username
+        json.image_url friend.image.url
       end
     end
   end
 
-  json.member_since user.created_at
+  json.created_at user.created_at
 end

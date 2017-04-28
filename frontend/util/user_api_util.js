@@ -59,3 +59,14 @@ export function acceptRequest(friend_id) {
     method: 'PATCH'
   });
 }
+
+export function updateImage(user, user_d) {
+  return $.ajax({
+    url: `/api/users/${user_d}`,
+    type: 'PATCH',
+    processData: false,
+    contentType: false,
+    dataType: 'json',
+    data: user
+  });
+}

@@ -7,16 +7,14 @@
   align-items: flex-start;
 }
 
+
+
 .feed-header {
   display: flex;
   width: 100%;
-  // border: 1px solid black;
   height: 60px;
   justify-content: center;
   align-items: center;
-  // background-color: #eee;
-  // padding-top: 10px;
-  // padding-bottom: 10px;
   background-color: white;
   border-bottom: 1px solid #eee;
 }
@@ -25,7 +23,6 @@
   height: 100%;
   display: flex;
   align-items: center;
-
 }
 
 .feed-button-container-active {
@@ -95,6 +92,10 @@
   height: 100%;
   border-radius: 100%;
 }
+
+// .upload-profile-pic {
+//
+// }
 
 .transaction-header {
   width: calc(100% - 100px);

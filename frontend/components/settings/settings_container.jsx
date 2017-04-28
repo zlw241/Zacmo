@@ -1,7 +1,7 @@
 import React from 'react';
 import Settings from './settings';
 import { connect } from 'react-redux';
-import { fetchUser, updateUser } from '../../actions/user_actions';
+import { fetchUser, updateUser, updateImage } from '../../actions/user_actions';
 
 
 const mapStateToProps = (state) => ({
@@ -13,7 +13,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchUser: (user_id) => dispatch(fetchUser(user_id)),
-  updateUser: (user) => dispatch(updateUser(user))
+  updateUser: (user) => dispatch(updateUser(user)),
+  updateImage: (user, userId) => dispatch(updateImage(user, userId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Settings);

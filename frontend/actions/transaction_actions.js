@@ -33,9 +33,16 @@ const receiveErrors = (errors) => ({
 export const fetchTransactions = () => (dispatch) => {
   return TransactionAPIUtil.fetchTransactions().then(
     (feed) => dispatch(receiveAllTransactions(feed)),
-    (err) => dispatch(receiveFeedErr(err))
+    (err) => dispatch(receiveErrors(err))
   );
 };
+
+export const fetchUserTransactions = (user_id) => (dispatch) => {
+  return TransactionAPIUtil.fetchUserTransactions(user_id).then(
+    (feed) => dispatch(receiveAllTransactions(feed)),
+    (err) => dispatch(receiveErrors(err))
+  )
+}
 
 export const createTransaction = (transaction) => (dispatch) => {
   return TransactionAPIUtil.createTransaction(transaction).then(

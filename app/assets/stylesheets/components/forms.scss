@@ -37,6 +37,10 @@
   width: 30%;
   display: flex;
   justify-content: flex-end;
+  // border: 1px solid black;
+  flex-direction: column;
+  align-items: center;
+
 }
 
 .profile-pic {
@@ -44,12 +48,44 @@
   height: 100px;
   border-radius: 100%;
   border: 1px solid black;
+  margin-bottom: 5px;
+}
+
+.change-profile-pic {
+  font-size: 14px;
+}
+
+.change-profile-pic:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  display: flex;
+  justify-content: space-around;
+}
+
+.change-profile-pic-container {
+  display: flex;
+  justify-content: space-around;
+  width: 120px;
+}
+
+.save-profile-pic:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.revert-profile-pic {
+  color: $red;
+}
+
+.revert-profile-pic:hover {
+  cursor: pointer;
+  transform: scale(1.05);
 }
 
 .settings-form-header {
   width: 95%;
   display: flex;
-  height: 110px;
+  height: 120px;
   align-items: center;
 }
 

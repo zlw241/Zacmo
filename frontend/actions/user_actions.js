@@ -62,3 +62,10 @@ export const acceptRequest = (friendId) => (dispatch) => {
     (err) => dispatch(receiveErrors(err))
   )
 }
+
+export const updateImage = (user, userId) => (dispatch) => {
+  return UserAPIUtil.updateImage(user, userId).then(
+    (updatedUser) => dispatch(receiveUser(updatedUser)),
+    (err) => dispatch(receiveErrors(err))
+  );
+}

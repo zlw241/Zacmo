@@ -10,7 +10,8 @@ class TransactionForm extends React.Component {
       recipient: this.props.user,
       amount: "",
       memo: "",
-      showForm: {display: 'none'}
+      showForm: {display: 'none'},
+      characters: 0
     }
 
     this.checkTransactionValidity = this.checkTransactionValidity.bind(this)
@@ -28,7 +29,11 @@ class TransactionForm extends React.Component {
     this.setState({
       [field]: e.currentTarget.value
     });
-    console.log(this.state);
+    if (field === "memo") {
+      this.setState({
+        "characters": e.currentTarget.value.length
+      })
+    }
   }
 
   clearForm() {
@@ -43,8 +48,6 @@ class TransactionForm extends React.Component {
   }
 
   setRecipient(user) {
-    console.log(user);
-    console.log(this.state);
     this.setState({
       recipient: {
         username: user.username,
@@ -77,7 +80,7 @@ class TransactionForm extends React.Component {
                   placeholder="Amount"
                   type="search"
                   value={this.state.amount}
-                  onFocus={this.showForm} />
+                  onFocus={this.showForm}/>
               </div>
               <TransactionSearchContainer recipient={this.state.recipient} setRecipient={this.setRecipient} />
             </div>
@@ -86,13 +89,18 @@ class TransactionForm extends React.Component {
                 placeholder="for ice-cream!"
                 value={this.state.memo}
                 onChange={this.handleInput}></textarea>
-              <div className="memo-bottom hidden">
+              <div className="memo-bottom">
                 <div className="select-visibility">
+                  <div className="character-count">
+                    {this.state.characters}
+                  </div>
                   <select>
                     <option>Public</option>
                     <option>Friends</option>
                     <option>Private</option>
                   </select>
+                  <div className="spacer">
+                  </div>
                 </div>
                 <button onClick={this.handleSubmit} className="submit-transaction">Pay</button>
               </div>

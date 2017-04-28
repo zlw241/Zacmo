@@ -8,6 +8,13 @@ export function fetchTransactions() {
   });
 }
 
+export function fetchUserTransactions(user_id) {
+  return $.ajax({
+    url: `/api/users/${user_id}/transactions`,
+    method: 'GET'
+  });
+}
+
 export function fetchTransaction(transactionId) {
   return $.ajax({
     url: `api/transactions/${transactionId}`,

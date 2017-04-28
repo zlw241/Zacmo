@@ -23,7 +23,7 @@ class LandingPage extends React.Component {
 
         <div className="splash-welcome">
           <div className="welcome-content">
-            <h1>Send Money and make purchases.</h1>
+            <h1>Send Money to your friends.</h1>
             <button onClick={this.redirectToSignup} className="splash-page-signup">Sign up now</button>
           </div>
         </div>

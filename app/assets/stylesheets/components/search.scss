@@ -24,7 +24,8 @@
   width: 400px;
   margin-top: 10px;
   border: 1px solid $light-gray;
-
+  max-height: 500px;
+  overflow: auto;
 }
 
 .search {
@@ -59,8 +60,16 @@
   border-bottom: 1px solid #eee;
   margin-left: 10px;
   margin-right: 10px;
+
 }
 
+.search-user-img {
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #262626;
+
+}
 .search-result-item:last-of-type {
   border-bottom: none;
 }

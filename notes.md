@@ -1,6 +1,6 @@
 
-## To-do 4/26
-- time since transaction for each transaction in feed
+## To-do
+X time since transaction for each transaction in feed
 - add small picture for each user in search results
 - privacy for transactions
 X profile pictures
@@ -13,6 +13,7 @@ X display pay button next to 'friend status' column in main search
 - models for bank/card info
 - more content/styling for landing page
 - style login/signup form like instagram form to edit profile
+- allow users to mention others in comments
 
 ## Bigger Issues
 

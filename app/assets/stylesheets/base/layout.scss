@@ -1,6 +1,7 @@
 html {
 	position: relative;
-	height: 100%;
+	overflow: hidden; // ** see below
+	height: 100%; // ** see below
 }
 
 body {
@@ -10,7 +11,12 @@ body {
 	font-size: 16px;
 	background-color: #FAFAFA;
 	// background-color: #262626;
+	height: 100%; // ** see below
+	overflow: auto; // ** see below
 }
+
+// ** disable overscrolling of page
+
 
 button {
 	background-color: transparent;

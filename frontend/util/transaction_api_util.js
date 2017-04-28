@@ -8,6 +8,15 @@ export function fetchTransactions() {
   });
 }
 
+export function fetchMoreTransactions(offset) {
+  // debugger
+  return $.ajax({
+    url: '/api/transactions/offset',
+    method: 'GET',
+    data: {offset}
+  });
+}
+
 export function fetchUserTransactions(user_id) {
   return $.ajax({
     url: `/api/users/${user_id}/transactions`,

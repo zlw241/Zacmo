@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :friendships, only: [:destroy, :update]
 
     resources :transactions, only: [:create, :show, :index, :destroy] do
+      get "offset", on: :collection
       resources :comments, only: [:create, :destroy]
       resources :likes, only: [:create]
     end

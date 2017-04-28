@@ -1,6 +1,7 @@
 import * as TransactionAPIUtil from '../util/transaction_api_util';
 
 export const RECEIVE_ALL_TRANSACTIONS = "RECEIVE_ALL_TRANSACTIONS";
+export const RECEIVE_MORE_TRANSACTIONS = "RECEIVE_MORE_TRANSACTIONS";
 export const RECEIVE_SINGLE_TRANSACTION = "RECEIVE_SINGLE_TRANSACTION";
 export const RECEIVE_NEW_TRANSACTION = "RECEIVE_NEW_TRANSACTION";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
@@ -10,6 +11,11 @@ const receiveAllTransactions = (transactions) => ({
   type: RECEIVE_ALL_TRANSACTIONS,
   transactions
 });
+
+const receiveMoreTransactions = (transactions) => ({
+  type: RECEIVE_MORE_TRANSACTIONS,
+  transactions
+})
 
 const receiveNewTransaction = (transaction) => ({
   type: RECEIVE_NEW_TRANSACTION,
@@ -36,6 +42,13 @@ export const fetchTransactions = () => (dispatch) => {
     (err) => dispatch(receiveErrors(err))
   );
 };
+
+export const fetchMoreTransactions = (offset) => (dispatch) => {
+  return TransactionAPIUtil.fetchMoreTransactions(offset).then(
+    (transactions) => dispatch(receiveMoreTransactions(transactions)),
+    (err) => dispatch(receiveErrors(err))
+  )
+}
 
 export const fetchUserTransactions = (user_id) => (dispatch) => {
   return TransactionAPIUtil.fetchUserTransactions(user_id).then(

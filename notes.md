@@ -6,7 +6,7 @@
 X profile pictures
 X unlike posts
 X feed filter
-- feed display on other users' page when user profile
+X feed display on other users' page when user profile
 X display pay button next to 'friend status' column in main search
 - fix bug with negative numbers in transaction form
 - handle transaction form errors

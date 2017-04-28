@@ -60,6 +60,6 @@ class Api::TransactionsController < ApplicationController
 
   private
   def transaction_params
-    params.require(:transaction).permit(:recipient_username, :memo, :amount, :offset)
+    params.require(:transaction).permit(:recipient_username, :memo, :amount, :visibility, :offset)
   end
 end

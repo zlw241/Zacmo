@@ -38,6 +38,8 @@ gem 'paperclip'
 gem 'figaro'
 
 gem 'aws-sdk', '>= 2.0'
+
+gem 'seed_dump'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

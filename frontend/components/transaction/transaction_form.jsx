@@ -10,8 +10,11 @@ class TransactionForm extends React.Component {
       recipient: this.props.user,
       amount: "",
       memo: "",
+      visibility: "friends",
       showForm: {display: 'none'},
-      characters: 0
+      characters: 0,
+      errors: [],
+      showErrors: {display: 'none'}
     }
 
     this.checkTransactionValidity = this.checkTransactionValidity.bind(this)
@@ -22,6 +25,27 @@ class TransactionForm extends React.Component {
 
   checkTransactionValidity() {
     // console.log(this.state.amount.split(" ")[0].splice(1))
+    // const errs = merge([], this.state.errors);
+    const errs = [];
+    if (!this.state.recipient.username || !this.state.recipient.id) {
+      errs.push("Invalid recipient")
+    }
+    if (!this.state.amount) {
+      errs.push("amount can't be blank")
+    }
+    if (isNaN(this.state.amount)) {
+      errs.push("not a valid dollar amount")
+    }
+    if (!this.state.memo) {
+      errs.push("memo can't be blank")
+    }
+    if (errs.length > 0) {
+      this.setState({
+        errors: errs
+      });
+      return true
+    }
+    return false
   }
 
   handleInput(e) {
@@ -60,16 +84,28 @@ class TransactionForm extends React.Component {
     const recipient_username = this.state.recipient.username;
     const amount = this.state.amount;
     const memo = this.state.memo;
-    const newTransaction = {memo, amount, recipient_username }
-    this.props.createTransaction(newTransaction)
-    this.clearForm();
+    const visibility = this.state.visibility;
+    const newTransaction = {memo, amount, recipient_username, visibility }
+    if (this.checkTransactionValidity() === true) {
+      this.setState({
+        showErrors: {}
+      });
+    } else {
+      this.props.createTransaction(newTransaction)
+      this.clearForm();
+    }
   }
 
+  // <div className={this.checkTransactionValidity()}></div>
   render() {
     return (
       <div id="transaction-form">
-        <div className={this.checkTransactionValidity()}></div>
         <form>
+          <ul className="form-errors" style={this.state.showErrors}>
+            {this.state.errors.map((err, i) => (
+              <li key={i} className="error">err</li>
+            ))}
+          </ul>
           <div className="form-fields">
             <div className="form-top">
               <div className="amount-to-pay">
@@ -94,8 +130,7 @@ class TransactionForm extends React.Component {
                   <div className="character-count">
                     {this.state.characters}
                   </div>
-                  <select>
-                    <option>Public</option>
+                  <select name="visibility" value={this.state.visibility} onChange={this.handleInput}>
                     <option>Friends</option>
                     <option>Private</option>
                   </select>

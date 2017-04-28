@@ -19,7 +19,6 @@ class User extends React.Component {
     }
 
     this.toggleFriendSlider = this.toggleFriendSlider.bind(this);
-    this.toggleArrow = this.toggleArrow.bind(this);
   }
 
   componentWillMount() {
@@ -35,16 +34,16 @@ class User extends React.Component {
     }
   }
 
-  toggleArrow() {
-    if (this.state.arrow === 'down') {
-      return (
-        <i className="fa fa-arrow-down" aria-hidden="true"></i>
-      )
-    }
-    return (
-      <i className="fa fa-arrow-up" aria-hidden="true"></i>
-    )
-  }
+  // toggleArrow() {
+  //   if (this.state.arrow === 'down') {
+  //     return (
+  //       <i className="fa fa-arrow-down" aria-hidden="true"></i>
+  //     )
+  //   }
+  //   return (
+  //     <i className="fa fa-arrow-up" aria-hidden="true"></i>
+  //   )
+  // }
 
   toggleFriendSlider() {
     if (this.state.showFriends.display === 'none') {
@@ -73,11 +72,7 @@ class User extends React.Component {
             <div className="user-pic-container">
               <img className="user-pic" src={this.props.user.image_url} />
 
-              <div className="action-buttons">
-                <div className="show-friends-button">
-                  <button onClick={this.toggleFriendSlider}>{this.toggleArrow()} {this.state.buttonText}</button>
-                </div>
-              </div>
+
             </div>
             <div className="user-details">
               <div className="user-handles">
@@ -93,6 +88,11 @@ class User extends React.Component {
                   <div id="user-username">@{this.props.user.username}</div>
                   <div id="member-since">
                     <small>joined {moment(this.props.user.created_at).fromNow()}</small>
+                  </div>
+                </div>
+                <div className="action-buttons">
+                  <div className="show-friends-button">
+                    <div onClick={this.toggleFriendSlider}>{this.props.user.friendships.friends.length} friends</div>
                   </div>
                 </div>
               </div>

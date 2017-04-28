@@ -37,7 +37,7 @@ const Sidebar = ({currentUser, router}) => {
         <Link className={sideNavClass("/home/feed")} to="/home/feed">
           Feed
         </Link>
-        <Link className={sideNavClass("/home/profile")} to="/home/profile">
+        <Link className={sideNavClass(`/home/${currentUser.id}`)} to={`/home/${currentUser.id}`}>
           Profile
         </Link>
         <Link className={sideNavClass("/home/friends")} to="/home/friends">
@@ -51,9 +51,6 @@ const Sidebar = ({currentUser, router}) => {
         </Link>
         <Link className={sideNavClass("/home/notifications")} to="/home/notifications">
           Notifications
-        </Link>
-        <Link className={sideNavClass("/home/test")} to="/home/test">
-          Test
         </Link>
       </div>
     </div>

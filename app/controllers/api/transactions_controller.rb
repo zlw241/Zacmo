@@ -31,9 +31,9 @@ class Api::TransactionsController < ApplicationController
     @transactions = Transaction
       .includes(:likes, :comments, :user)
       .where("transactions.user_id IN (:friend_ids) OR transactions.recipient_id IN (:friend_ids) OR transactions.user_id = :id OR transactions.recipient_id = :id", friend_ids: friends, id: current_user.id)
-      .all
       .order("created_at DESC")
       .limit(5)
+      # .all
 
     render "/api/transactions/index"
   end
@@ -45,7 +45,6 @@ class Api::TransactionsController < ApplicationController
       @transactions = Transaction
         .includes(:likes, :comments, :user)
         .where("transactions.user_id IN (:friend_ids) OR transactions.recipient_id IN (:friend_ids) OR transactions.user_id = :id OR transactions.recipient_id = :id", friend_ids: friends, id: current_user.id)
-        .all
         .order("created_at DESC")
         .limit(5)
         .offset(params[:offset])

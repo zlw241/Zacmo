@@ -54,12 +54,8 @@ const Root = ({store}) => {
               <Route path="pending" component={PendingFriends} />
               <Route path="requested" component={RequestedFriends} />
             </Route>
-            <Route path="test" component={TransactionModal} />
             <Route path=":user_id" component={UserContainer} />
-
           </Route>
-          <Route path="/:user_id" component={UserContainer} onEnter={_ensureLoggedIn}/>
-
         </Route>
       </Router>
     </Provider>

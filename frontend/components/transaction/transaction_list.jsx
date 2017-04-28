@@ -8,14 +8,20 @@ class TransactionList extends React.Component {
 
     this.state = {
       transactions: this.props.transactions,
-      active: "friends"
+      active: "friends",
+      offset: 0,
+      loading: {
+        display: 'none'
+      }
     };
     this.filterFeed = this.filterFeed.bind(this);
     this.activeTab = this.activeTab.bind(this);
+    this.handleScroll = this.handleScroll.bind(this);
   }
 
   componentWillMount() {
-    this.props.fetchTransactions()
+    this.props.fetchTransactions();
+    window.addEventListener('scroll', this.handleScroll);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -30,6 +36,7 @@ class TransactionList extends React.Component {
 
   componentWillUnmount() {
     this.props.clearTransactions()
+    window.removeEventListener('scroll', this.handleScroll);
   }
 
 
@@ -51,12 +58,30 @@ class TransactionList extends React.Component {
     }
   }
 
+
   activeTab(visibility) {
     if (this.state.active === visibility) {
       return "feed-button-container-active";
     } else {
       return "feed-button-container";
     }
+  }
+
+  handleScroll(event) {
+    const scrollTop = event.srcElement.body.scrollTop
+    if (scrollTop == $(document).height() - $(window).height()) {
+      console.log('BOTTOM');
+      this.setState({
+        offset: this.state.offset + 5
+      })
+      this.props.fetchMoreTransactions(this.state.offset).then(
+        () => this.setState({loading: {display: 'none'}})
+      )
+      this.setState({
+        loading: {}
+      });
+    }
+    // console.log(scrollTop - window.outerHeight)
   }
 
   render() {
@@ -70,7 +95,7 @@ class TransactionList extends React.Component {
             <button onClick={() => this.filterFeed('mine')}>Mine</button>
           </div>
         </div>
-        <ul className="transaction-list">
+        <ul className="transaction-list" onScroll={this.infiniteScroll}>
           {this.state.transactions.map((transaction) => (
             <li key={transaction.id}>
               <TransactionDetail
@@ -81,6 +106,9 @@ class TransactionList extends React.Component {
             </li>
           ))}
         </ul>
+        <div className="loading" style={this.state.loading}>
+          <div className="spinner"></div>
+        </div>
       </div>
     )
   }

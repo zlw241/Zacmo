@@ -25,7 +25,7 @@ const Sidebar = ({currentUser, router}) => {
     <div id="side-bar">
       <div id="sidenav-header">
         <div className="sidenav-user">
-          <div id="sidenav-name">{currentUser.first_name} {currentUser.last_name}</div>
+          <div id="sidenav-name">&#128513; {currentUser.first_name} {currentUser.last_name}</div>
           <div id="sidenav-username">@{currentUser.username}</div>
           <div id="sidenav-balance">${currentUser.balance}.00</div>
         </div>

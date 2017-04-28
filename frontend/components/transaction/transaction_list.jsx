@@ -107,7 +107,7 @@ class TransactionList extends React.Component {
           ))}
         </ul>
         <div className="loading" style={this.state.loading}>
-          <div className="spinner"></div>
+          <img src={window.spinnerImg} className="spinner" />
         </div>
       </div>
     )

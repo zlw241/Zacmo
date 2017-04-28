@@ -1,7 +1,7 @@
 
 
 <script id="bootstrap-current-user" type="text/javascript">
-
+  window.spinnerImg = "<%= asset_path('avatar.png') %>"
   <% if logged_in? %>
   	window.current_user = <%= render("api/users/user.json.jbuilder",
     user: current_user).html_safe %>

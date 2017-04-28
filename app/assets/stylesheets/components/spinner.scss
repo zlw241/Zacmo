@@ -3,8 +3,7 @@
 .spinner {
   width: 100px;
   height: 100px;
-  border-left: 2px solid #262626;
-  border-top: 2px solid #262626;
+  border: 1px solid #262626;
   border-radius: 100%;
   animation: spin 2s linear infinite;
 }

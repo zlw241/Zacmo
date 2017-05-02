@@ -20,7 +20,6 @@ class Nav extends React.Component {
 
     let navItems = (
       <div className="nav nav-login">
-
         <Link to='/login'>Log In</Link>
         <Link to='/signup'>Create Zacmo Account</Link>
       </div>
@@ -30,7 +29,7 @@ class Nav extends React.Component {
       const username = this.props.currentUser.username;
       navItems = (
         <div className="nav nav-main">
-          <Link to="/home/profile">
+          <Link to={`/home/${this.props.currentUser.id}`}>
             <i className="fa fa-lg fa-user-o" aria-hidden="true"></i>
           </Link>
           <button className="logout-button" onClick={this.handleLogout}>Logout</button>

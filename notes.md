@@ -1,7 +1,7 @@
 
 ## To-do
 X time since transaction for each transaction in feed
-- add small picture for each user in search results
+X add small picture for each user in search results
 - privacy for transactions
 X profile pictures
 X unlike posts

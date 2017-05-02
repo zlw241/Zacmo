@@ -34,17 +34,6 @@ class User extends React.Component {
     }
   }
 
-  // toggleArrow() {
-  //   if (this.state.arrow === 'down') {
-  //     return (
-  //       <i className="fa fa-arrow-down" aria-hidden="true"></i>
-  //     )
-  //   }
-  //   return (
-  //     <i className="fa fa-arrow-up" aria-hidden="true"></i>
-  //   )
-  // }
-
   toggleFriendSlider() {
     if (this.state.showFriends.display === 'none') {
       this.setState({

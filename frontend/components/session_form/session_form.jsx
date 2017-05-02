@@ -194,40 +194,60 @@ class SessionForm extends React.Component {
     }
 
     return (
-      <div className={formClass}>
-        <div className="form-header">
+      <div id="signup-form-container">
+        <div className="signup-form">
+
+          <form className="user-form" onSubmit={this.handleSubmit}>
+
+            <div className="signup-form-header">
+              <h2>Please Log In</h2>
+            </div>
+
+            <div className="signup-form-item">
+              <div className="signup-form-label">Username</div>
+              <input className="signup-form-input" type="text" onChange={this.handleInput} name="username" value={this.state.username} />
+            </div>
+
+            <div className="signup-form-item">
+              <div className="signup-form-label">Password</div>
+              <input className="signup-form-input" type="password" onChange={this.handleInput} name="password" value={this.state.password} />
+            </div>
+
+            <div className="signup-form-item form-submit">
+              <div className="signup-form-label"></div>
+              <button className="signup-form-input" id="signup-button" type="submit">Log in to Zacmo</button>
+            </div>
+
+          </form>
+
           {guestLoginButton}
-          <h2>{formHeader}</h2>
-          <p>To continue, use your email, phone number, or Zacmo username to log into your Zacmo account.</p>
+
         </div>
-        <form onSubmit={this.handleSubmit}>
-          {this.renderErrors()}
-          {firstNameInput}
-          {lastNameInput}
-          {emailInput}
-          {phoneInput}
-          <div className="form-item input-text">
-            <div className="input-label">Username</div>
-            <input type="text" className="session-form-input" onChange={this.handleInput} name="username"
-            value={this.state.username} />
-          </div>
-
-          <div className="form-item input-text">
-            <div className="input-label">Password</div>
-            <input type="password" className="session-form-input"
-            onChange={this.handleInput} name="password" value={this.state.password} />
-          </div>
-
-          <div className="form-item">
-            <div className="form-help"><Link to="/help">Help</Link></div>
-            <button className="button-submit">{toggleFormButton}</button>
-          </div>
-
-        </form>
-
       </div>
     );
   };
 }
 
 export default SessionForm;
+
+
+// {this.renderErrors()}
+// {firstNameInput}
+// {lastNameInput}
+// {emailInput}
+// {phoneInput}
+// <div className="form-item input-text">
+// <div className="input-label">Username</div>
+// <input type="text" className="session-form-input" onChange={this.handleInput} name="username"
+// value={this.state.username} />
+// </div>
+//
+// <div className="form-item input-text">
+// <div className="input-label">Password</div>
+// <input type="password" className="session-form-input"
+// onChange={this.handleInput} name="password" value={this.state.password} />
+// </div>
+// <div className="form-item">
+// <div className="form-help"><Link to="/help">Help</Link></div>
+// <button className="button-submit">{toggleFormButton}</button>
+// </div>

@@ -106,7 +106,12 @@ class TransactionForm extends React.Component {
       });
       console.log(this.state.errors)
     } else {
-      this.props.createTransaction(newTransaction)
+      this.props.createTransaction(newTransaction).then(
+        () => {
+          this.clearForm();
+          this.props.closeModal();
+        }
+      );
       this.clearForm();
     }
   }
@@ -162,7 +167,7 @@ class TransactionForm extends React.Component {
   }
 }
 
-export default TransactionForm;
+export default withRouter(TransactionForm);
 
 // <div id="pay-toggle">Pay</div>
 // <div id="charge-toggle">Charge</div>

@@ -39,7 +39,6 @@ gem 'figaro'
 
 gem 'aws-sdk', '>= 2.0'
 
-gem 'seed_dump'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -65,6 +64,8 @@ group :development do
   gem "guard-livereload",  :require => false
   gem "rack-livereload"
   gem "rb-fsevent",        :require => false
+
+  gem 'seed_dump'
 end
 
 group :production do

@@ -66,7 +66,10 @@ class UserTransactionList extends React.Component {
     }
   }
 
+
+
   render() {
+
     return (
       <div id="user-feed">
         <div className="feed-header">

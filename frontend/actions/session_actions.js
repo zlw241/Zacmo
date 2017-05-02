@@ -32,7 +32,7 @@ export const logout = () => (dispatch) => {
   return SessionAPIUtil.logout().then(
     () => dispatch(receiveUser(null)),
     (err) => dispatch(receiveErrors(err.responseJSON))
-  ).then(() => console.log('THENNNNNNNNN'));
+  );
 };
 
 export const updateUser = (user) => (dispatch) => {

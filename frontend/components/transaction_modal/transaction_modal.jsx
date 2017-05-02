@@ -88,7 +88,7 @@ class TransactionModal extends React.Component {
             </div>
           </div>
           <div className="modal-form">
-            <TransactionFormContainer user={this.state.user} />
+            <TransactionFormContainer closeModal={this.closeModal} user={this.state.user} />
           </div>
         </Modal>
       </div>

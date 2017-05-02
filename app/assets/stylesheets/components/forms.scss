@@ -33,6 +33,23 @@
   background-color: white;
 }
 
+#signup-form-container {
+  // border: 1px solid black;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+}
+
+.signup-form {
+  border: 1px solid #ddd;
+  width: 80%;
+  background-color: white;
+}
+
 .profile-pic-container {
   width: 30%;
   display: flex;

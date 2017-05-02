@@ -16,6 +16,7 @@ import RequestedFriends from './friends/requested';
 import ExistingFriends from './friends/existing';
 import FriendsContainer from './friends/friends_container';
 import TransactionModal from './transaction_modal/transaction_modal';
+import SignupFormContainer from './session_form/signup_form_container';
 
 
 const Root = ({store}) => {
@@ -40,10 +41,10 @@ const Root = ({store}) => {
       <Router history={hashHistory}>
         <Route path="/" component={App}>
           <IndexRoute component={LandingPageContainer} onEnter={_redirectIfLoggedIn}/>
-          <Route path="/login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn}/>
-          <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn}/>
-          <Route path="/profile" component={ProfileContainer} onEnter={_ensureLoggedIn} />
-          <Route path="/home" component={HomeContainer} onEnter={_ensureLoggedIn}>
+          <Route path="login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn}/>
+          <Route path="signup" component={SignupFormContainer} onEnter={_redirectIfLoggedIn}/>
+          <Route path="profile" component={ProfileContainer} onEnter={_ensureLoggedIn} />
+          <Route path="home" component={HomeContainer} onEnter={_ensureLoggedIn}>
             <Route path="feed" component={TransactionListContainer} />
             <Route path="profile" component={ProfileContainer} />
             <Route path="notifications" component={NotificationsContainer} />

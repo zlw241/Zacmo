@@ -21,6 +21,16 @@ class TransactionForm extends React.Component {
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.setRecipient = this.setRecipient.bind(this);
+    this.validAmount = this.validAmount.bind(this);
+  }
+
+  validAmount() {
+    if (!isNaN(this.state.amount)) {
+      if (this.state.amount > 0) {
+        return true
+      }
+    }
+    return false
   }
 
   checkTransactionValidity() {
@@ -32,6 +42,9 @@ class TransactionForm extends React.Component {
     }
     if (!this.state.amount) {
       errs.push("amount can't be blank")
+    }
+    if (!this.validAmount()) {
+      errs.push("not a valid amount")
     }
     if (isNaN(this.state.amount)) {
       errs.push("not a valid dollar amount")
@@ -81,6 +94,7 @@ class TransactionForm extends React.Component {
   }
 
   handleSubmit(e) {
+    e.preventDefault()
     const recipient_username = this.state.recipient.username;
     const amount = this.state.amount;
     const memo = this.state.memo;
@@ -90,6 +104,7 @@ class TransactionForm extends React.Component {
       this.setState({
         showErrors: {}
       });
+      console.log(this.state.errors)
     } else {
       this.props.createTransaction(newTransaction)
       this.clearForm();
@@ -103,7 +118,7 @@ class TransactionForm extends React.Component {
         <form>
           <ul className="form-errors" style={this.state.showErrors}>
             {this.state.errors.map((err, i) => (
-              <li key={i} className="error">err</li>
+              <li key={i} className="error">{err}</li>
             ))}
           </ul>
           <div className="form-fields">

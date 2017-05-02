@@ -1,5 +1,6 @@
 
 ## To-do
+
 X time since transaction for each transaction in feed
 X add small picture for each user in search results
 - privacy for transactions
@@ -8,12 +9,13 @@ X unlike posts
 X feed filter
 X feed display on other users' page when user profile
 X display pay button next to 'friend status' column in main search
-- fix bug with negative numbers in transaction form
-- handle transaction form errors
+X fix bug with negative numbers in transaction form
+X handle transaction form errors
 - models for bank/card info
 - more content/styling for landing page
-- style login/signup form like instagram form to edit profile
+X style login/signup form like instagram form to edit profile
 - allow users to mention others in comments
+
 
 ## Bigger Issues
 

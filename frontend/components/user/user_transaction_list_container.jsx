@@ -4,7 +4,8 @@ import UserTransactionList from './user_transaction_list';
 import {
   fetchTransactions,
   clearTransactions,
-  fetchUserTransactions } from '../../actions/transaction_actions';
+  fetchUserTransactions
+} from '../../actions/transaction_actions';
 import { fetchUser } from '../../actions/user_actions';
 
 const mapStateToProps = (state) => ({

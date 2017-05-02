@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
-import { hashHistory } from 'react-router';
-import FriendsList from '../friends/friends_list';
-
+import moment from 'moment';
+import ProfileTransactionListContainer from './profile_transaction_list_container';
+import FriendSlider from '../friends/friends_slider';
 
 class Profile extends React.Component {
   constructor(props) {
@@ -10,8 +10,12 @@ class Profile extends React.Component {
     // this.state = this.props.user;
     // this.toggleTab = this.toggleTab.bind(this);
     this.state = {
-      friendList: "accepted"
+      friendList: "accepted",
+      showFriends: {
+        display: 'none'
+      }
     }
+    this.toggleFriendSlider = this.toggleFriendSlider.bind(this);
   }
 
 
@@ -19,23 +23,69 @@ class Profile extends React.Component {
     this.props.fetchUser(this.props.currentUser.id)
   }
 
+  // componentWillReceiveProps(nextProps) {
+  //   if (this.props.params.user_id !== nextProps.params.user_id) {
+  //     this.props.fetchUser(nextProps.params.user_id);
+  //   } else {
+  //
+  //   }
+  // }
+
+  toggleFriendSlider() {
+    if (this.state.showFriends.display === 'none') {
+      this.setState({
+        showFriends: {},
+      });
+    } else {
+      this.setState({
+        showFriends: {
+          display: 'none'
+        }
+      });
+    }
+  }
+
 
   render() {
-   if (!this.props.currentUser) { return null }
-
+    if (!this.props.currentUser) { return null }
     return (
-      <div className="profile">
-        <div className="profile-detail">
-          <div className="main-profile-pic">
-            <img src={this.props.user.image_url} />
+      <div className="user">
+        <div id="user-header">
+          <div className="user-pic-container">
+            <img className="user-pic" src={this.props.user.image_url} />
           </div>
-          <div className="profile-header">
-            <h1>{this.props.user.first_name} {this.props.user.last_name}
-              <small>  <Link to="/home/settings">Edit</Link>  </small>
-            </h1>
-            <div>{this.props.user.username}</div>
-            <div>Balance: {this.props.user.balance}</div>
+          <div className="user-details">
+            <div className="user-handles">
+              <div id="user-name">
+                <div className="user-first-and-last">
+                  <h1>{this.props.user.first_name} {this.props.user.last_name}</h1>
+                </div>
+              </div>
+              <div className="username-and-created-at">
+                <div id="user-username">
+                  @{this.props.user.username}
+                </div>
+                <div id="member-since">
+                  <small>joined {moment(this.props.user.created_at).fromNow()}</small>
+                </div>
+              </div>
+              <div className="action-buttons">
+                <div className="show-friends-button">
+                  <div onClick={this.toggleFriendSlider}>
+                    {this.props.user.friendships.friends.length} friends
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+        </div>
+
+        <div className="friends-slider" style={this.state.showFriends}>
+          <FriendSlider friends={this.props.currentUser.friendships.friends} />
+        </div>
+
+        <div id="user-main">
+          <ProfileTransactionListContainer user={this.props.currentUser}/>
         </div>
       </div>
     );

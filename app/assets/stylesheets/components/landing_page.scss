@@ -1,16 +1,26 @@
 
-/*font-family: 'Oswald', sans-serif;
-font-family: 'Noto Sans', sans-serif;*/
 
 .landing-page-container {
   display: flex;
   justify-content: space-around;
+  width: 100%;
+  height: 800px;
+}
+
+.landing-page-content {
+  border: 1px solid #ddd;
+  width: 900px;
   margin-top: 30px;
+  margin-bottom: 30px;
+  display: flex;
+  background-color: #fff;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
 .splash-welcome {
   padding-right: 50px;
-  // font-style: normal;
 }
 
 .iphone-container {
@@ -18,18 +28,19 @@ font-family: 'Noto Sans', sans-serif;*/
   height: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
+  // border: 1px solid black;
 }
 
-.rotate-right {
-  z-index: 1;
-  transform: translateX(-140px);
-
-}
-
-.scale-down {
-  // transform: rotate(20deg);
-  transform: scale(0.9, 0.9);
-}
+// .rotate-right {
+//   z-index: 1;
+//   transform: translateX(-140px);
+//
+// }
+//
+// .scale-down {
+//   transform: scale(0.9, 0.9);
+// }
 
 .black-body {
   background-color: black;
@@ -40,7 +51,7 @@ font-family: 'Noto Sans', sans-serif;*/
   font-size: 18px;
   width: 200px;
   height: 50px;
-  background-color: #3D95CE;
+  background-color: $insta-blue;
   border: none;
   color: white;
   border-radius: 4px;
@@ -48,11 +59,12 @@ font-family: 'Noto Sans', sans-serif;*/
 
 
 .welcome-content {
+  // border: 1px solid black;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 70%;
+  height: 60%;
 }
 
 .welcome-content h1 {
@@ -63,9 +75,10 @@ font-family: 'Noto Sans', sans-serif;*/
 }
 
 .animatedFeed {
+  margin: 4px;
   margin-top: -5px;
   border: 2px solid black;
-  padding: 0;
+  padding: 0px;
   width: 280px;
   height: 465px;
   overflow: hidden;
@@ -122,6 +135,20 @@ font-family: 'Noto Sans', sans-serif;*/
   margin-right: 5px;
 }
 
+.iphones {
+  position: relative;
+  // border: 1px solid black;
+  // display: flex;
+  // align-items: center;
+  // justify-content: flex-start;
+  // width: 800px;
+  width: 50%;
+  height: 100%;
+  // margin-left: 50%;
+  // right: 100;
+  // justify-content: center;
+}
+
 .iphone {
   border: 3px solid black;
   display: flex;
@@ -167,4 +194,114 @@ font-family: 'Noto Sans', sans-serif;*/
   border-radius: 100%;
   margin-bottom: 15px;
   margin-top: -15px;
+}
+
+
+.iphones-animation {
+  animation-duration: 1.5s;
+  animation-name: scaledown;
+  animation-fill-mode: both;
+  animation-direction: alternate;
+
+}
+
+@keyframes scaledown {
+  0% {
+    transform: scale(1.0, 1.0);
+    z-index: 10;
+  }
+
+  20% {
+    z-index: 1;
+  }
+
+
+  100% {
+    transform: scale(0.9, 0.9);
+    z-index: 1;
+  }
+}
+
+
+.iphones-animation-2 {
+  animation-duration: 1.5s;
+  animation-name: scaleup;
+  animation-fill-mode: both;
+  animation-direction: alternate;
+}
+
+@keyframes scaleup {
+  0% {
+    transform: scale(0.9, 0.9);
+    z-index: 1;
+  }
+
+  20% {
+    z-index: 10;
+  }
+
+
+  100% {
+    transform: scale(1.0, 1.0);
+    z-index: 10;
+  }
+}
+
+.slide-right {
+  animation: slideright;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slideright {
+  0% {
+    // width: 50%;
+    margin-right: 50%;
+  }
+
+  15% {
+    margin-right: 0%;
+    width: 100%;
+  }
+
+  100% {
+    // margin-right: 0%;
+    width: 50%;
+    // margin-left: 50%;
+  }
+}
+
+.slide-left {
+  animation: slideleft;
+  animation-duration: 1.5s;
+  animation-fill-mode: both;
+  // animation-direction: alternate;
+}
+
+@keyframes slideleft {
+  0% {
+    margin-left: 50%;
+  }
+
+  15% {
+    margin-left: 0%;
+    width: 100%;
+  }
+
+  100% {
+    width: 50%;
+  }
+}
+
+
+.iphoneInFront {
+  z-index: 10;
+  position: absolute;
+  right: 0;
+}
+
+.iphoneBehind {
+  transform: scale(0.9, 0.9);
+  position: absolute;
+  left: 0;
 }

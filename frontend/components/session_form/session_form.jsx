@@ -23,10 +23,17 @@ class SessionForm extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    // debugger
     if (nextProps.location.pathname !== this.props.location.pathname) {
       this.props.clearErrors();
+      nextProps.clearErrors();
     }
   }
+
+  componentWillMount() {
+    this.props.clearErrors();
+  }
+
 
   handleSubmit(e) {
     if (e) {
@@ -34,15 +41,11 @@ class SessionForm extends React.Component {
     }
 
     const user = this.state;
-    if (this.props.router.pathname === "/signup") {
-      this.props.processForm(user).then(
-        () => this.props.router.push("/home/profile")
-      )
-    } else {
-      this.props.processForm(user).then(
-        () => this.props.router.push("/home/feed")
-      )
-    }
+
+    this.props.processForm(user).then(
+      () => this.props.router.push("/home/profile")
+    )
+
   }
 
   handleInput(e) {
@@ -194,8 +197,9 @@ class SessionForm extends React.Component {
     }
 
     return (
-      <div id="signup-form-container">
+      <div className="signup-form-container">
         <div className="signup-form">
+          {this.renderErrors()}
 
           <form className="user-form" onSubmit={this.handleSubmit}>
 
@@ -213,14 +217,18 @@ class SessionForm extends React.Component {
               <input className="signup-form-input" type="password" onChange={this.handleInput} name="password" value={this.state.password} />
             </div>
 
-            <div className="signup-form-item form-submit">
+            <div className="signup-form-item form-submit" id="session-form-submit">
               <div className="signup-form-label"></div>
-              <button className="signup-form-input" id="signup-button" type="submit">Log in to Zacmo</button>
+              <div className="session-form-submit">
+                <button className="signup-form-input" id="signup-button" type="submit">Log in to Zacmo</button>
+                {guestLoginButton}
+                <div className="toggle-form-wrapper">
+                  Don't have an account? <div className='toggle-form' onClick={this.props.animate}>Sign up</div>
+                </div>
+              </div>
             </div>
 
           </form>
-
-          {guestLoginButton}
 
         </div>
       </div>
@@ -228,7 +236,7 @@ class SessionForm extends React.Component {
   };
 }
 
-export default SessionForm;
+export default withRouter(SessionForm);
 
 
 // {this.renderErrors()}

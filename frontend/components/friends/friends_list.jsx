@@ -4,7 +4,7 @@ import FriendButton from './friend_button';
 import TransactionModal from '../transaction_modal/transaction_modal';
 
 const FriendsList = ({friendList}) => {
-
+  // debugger
   return (
     <div className="friend-list-container">
       <div className="friend-list-header">

@@ -29,6 +29,7 @@ class User extends React.Component {
   componentWillReceiveProps(nextProps) {
     if (this.props.params.user_id !== nextProps.params.user_id) {
       this.props.fetchUser(nextProps.params.user_id);
+      this.setState({ showFriends: { display: 'none' } });
     } else {
 
     }
@@ -52,7 +53,24 @@ class User extends React.Component {
     }
   }
 
+
   render() {
+    if (!this.props.currentUser) return null;
+
+    let friendsPlural = "friends";
+    if (this.props.user.friendships.friends.length === 1) {
+      friendsPlural = "friend";
+    }
+
+    let friendButton = null;
+    if (this.props.user.id !== this.props.currentUser.id) {
+      friendButton = (
+        <div id="user-friend-button">
+          <FriendButton user={this.props.user}/>
+        </div>
+      );
+    }
+
     if (this.props.user.id) {
       return (
         <div className="user">
@@ -60,18 +78,15 @@ class User extends React.Component {
           <div id="user-header">
             <div className="user-pic-container">
               <img className="user-pic" src={this.props.user.image_url} />
-
-
             </div>
+
             <div className="user-details">
               <div className="user-handles">
                 <div id="user-name">
                   <div className="user-first-and-last">
                     <h1>{this.props.user.first_name} {this.props.user.last_name}</h1>
                   </div>
-                  <div id="user-friend-button">
-                    <FriendButton user={this.props.user}/>
-                  </div>
+                  {friendButton}
                 </div>
                 <div className="username-and-created-at">
                   <div id="user-username">@{this.props.user.username}</div>
@@ -81,7 +96,7 @@ class User extends React.Component {
                 </div>
                 <div className="action-buttons">
                   <div className="show-friends-button">
-                    <div onClick={this.toggleFriendSlider}>{this.props.user.friendships.friends.length} friends</div>
+                    <div onClick={this.toggleFriendSlider}>{this.props.user.friendships.friends.length} {friendsPlural}</div>
                   </div>
                 </div>
               </div>
@@ -99,7 +114,7 @@ class User extends React.Component {
       );
     }
     return (
-      <div className="spinner"></div>
+      <div className="loader"></div>
     )
   }
 }

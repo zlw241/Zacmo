@@ -13,7 +13,8 @@ class FriendSlider extends React.Component {
     this.spinTime = this.spinTime.bind(this);
   }
 
-  spinTime() {
+  spinTime(e) {
+    e.preventDefault();
     if (this.state.imgClass === "friend-slider-img") {
       this.setState({
         imgClass: "spinner friend-slider-img"
@@ -32,7 +33,7 @@ class FriendSlider extends React.Component {
         {this.props.friends.map((friend) => (
           <div key={friend.id} className="friend-slider-item scroll-item">
             <Link to={`/home/${friend.id}`}>
-              <img src={friend.image_url} className={this.state.imgClass} />
+              <img src={friend.profile_pic} className={this.state.imgClass} />
             </Link>
             <div className="friend-slider-username">
               <Link to={`/home/${friend.id}`}>{friend.username}</Link>

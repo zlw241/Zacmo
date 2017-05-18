@@ -24,6 +24,8 @@ class Iphone extends React.Component {
       ]
     };
 
+    // this.animate = this.animate.bind(this);
+
   }
 
   componentDidMount() {
@@ -51,10 +53,22 @@ class Iphone extends React.Component {
     });
   }
 
+  // toggleClass() {
+  //
+  // }
+
+  // animate(e) {
+  //   e.preventDefault();
+  //   if (this.state.iphoneClass === "") {
+  //     this.setState({ iphoneClass: "iphones-animation"});
+  //   } else {
+  //     this.setState({ iphoneClass: "" });
+  //   }
+  // }
 
   render() {
     return (
-      <div className={`iphone-container ${this.props.attrs.scale}`}>
+      <div className={`iphone-container ${this.props.attrs.scale} ${this.props.attrs.iphoneClass}`}>
         <div className="iphone">
           <div className="above-screen">
             <div className="iphone-camera"></div>

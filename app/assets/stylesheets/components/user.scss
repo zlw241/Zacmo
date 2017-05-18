@@ -150,6 +150,7 @@
 .friend-slider {
   border-top: 2px solid #262626;
   border-bottom: 2px solid #262626;
+  margin-bottom: 10px;
 }
 
 .scroll::-webkit-scrollbar {
@@ -158,6 +159,7 @@
 
 .scroll-item {
   flex: 0 0 auto;
+  background-color: #fff;
 }
 
 .friend-slider-item {
@@ -170,7 +172,6 @@
   align-items: center;
   border: 2px solid #262626;
   background-color: #fff;
-
 }
 
 .friend-slider-img {

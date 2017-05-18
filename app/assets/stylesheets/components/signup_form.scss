@@ -1,15 +1,15 @@
 
 .user-form {
+  // border: 1px solid black;
   width: 95%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  line-height: 1.8;
+  // line-height: 1.8;
 }
 
 .form-submit > button {
   width: 200px;
-  background-color: $blue;
   color: #fff;
   height: 40px;
   font-size: 15px;
@@ -23,21 +23,24 @@
   justify-content: center;
 }
 
-#signup-form-container {
+.signup-form-container {
   // border: 1px solid black;
   padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  // width: 100%;
+  width: 500px;
   height: 100%;
   text-align: left;
 }
 
 .signup-form {
-  border: 1px solid #ddd;
-  width: 80%;
+  // border: 1px solid #ddd;
+  // width: 700px;
+  width: 100%;
   background-color: white;
+  // display: none;
 }
 
 
@@ -45,6 +48,7 @@
   // border: 1px solid black;
   width: 90%;
   display: flex;
+  // flex-direction: column;
   height: 120px;
   align-items: center;
   justify-content: center;
@@ -92,4 +96,23 @@
   background-color: $insta-blue;
   border: none;
   color: #fff;
+}
+
+#guest-button {
+  background-color: transparent;
+  color: #262626;
+}
+
+.toggle-form-wrapper {
+  display: flex;
+  width: 100%;
+}
+
+.toggle-form {
+  margin-left: 5px;
+  color: $insta-blue;
+}
+
+.toggle-form:hover {
+  cursor: pointer;
 }

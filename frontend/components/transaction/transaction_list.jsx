@@ -106,13 +106,14 @@ class TransactionList extends React.Component {
           ))}
         </ul>
         <div className="loading" style={this.state.loading}>
-          <img src={window.spinnerImg} className="spinner" />
+          <div className="loader"></div>
         </div>
       </div>
     )
   }
 
 }
+// <img src={window.spinnerImg} className="spinner" />
 
 export default TransactionList;
 

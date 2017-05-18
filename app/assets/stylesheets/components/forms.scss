@@ -9,11 +9,38 @@
 
 .form-submit > button {
   width: 200px;
+  // background-color: $blue;
+  color: #fff;
+  height: 40px;
+  font-size: 15px;
+  margin: 10px;
+}
+
+.session-form-submit > button {
+  width: 200px;
   background-color: $blue;
   color: #fff;
   height: 40px;
   font-size: 15px;
   margin: 10px;
+}
+
+.session-form-submit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-submit {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.signup-form-submit {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
 }
 
 .content-container {
@@ -45,8 +72,8 @@
 }
 
 .signup-form {
-  border: 1px solid #ddd;
-  width: 80%;
+  // border: 1px solid #ddd;
+  width: 50%;
   background-color: white;
 }
 

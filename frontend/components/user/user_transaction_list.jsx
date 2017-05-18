@@ -69,9 +69,11 @@ class UserTransactionList extends React.Component {
 
 
   render() {
-
-    return (
-      <div id="user-feed">
+    let feedHeader;
+    if (this.props.user.id === this.props.currentUser.id) {
+      feedHeader = null;
+    } else {
+      feedHeader = (
         <div className="feed-header">
           <div className={this.activeTab('friends')}>
             <button onClick={() => this.filterFeed('friends')}>Friends</button>
@@ -80,6 +82,19 @@ class UserTransactionList extends React.Component {
             <button onClick={() => this.filterFeed('mine')}>Between you & {this.props.user.first_name}</button>
           </div>
         </div>
+      )
+    }
+    // <div className="feed-header">
+    // <div className={this.activeTab('friends')}>
+    // <button onClick={() => this.filterFeed('friends')}>Friends</button>
+    // </div>
+    // <div className={this.activeTab('mine')}>
+    // <button onClick={() => this.filterFeed('mine')}>Between you & {this.props.user.first_name}</button>
+    // </div>
+    // </div>
+    return (
+      <div id="user-feed">
+        {feedHeader}
         <ul className="user-transaction-list">
           {this.state.transactions.map((transaction) => (
             <li key={transaction.id}>

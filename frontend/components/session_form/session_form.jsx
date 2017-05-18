@@ -43,7 +43,7 @@ class SessionForm extends React.Component {
     const user = this.state;
 
     this.props.processForm(user).then(
-      () => this.props.router.push("/home/profile")
+      () => this.props.router.push("/home/feed")
     )
 
   }

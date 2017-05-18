@@ -20,7 +20,6 @@ const FriendsList = ({friendList}) => {
           <li className="friend-list-item" key={friend.id}>
             <Link className="friend-list-link" key={friend.id} to={`/home/${friend.id}`}>
               <img className="friend-list-pic" src={friend.profile_pic} />
-
               <div className="friend-list-username">
                 {friend.username}
               </div>

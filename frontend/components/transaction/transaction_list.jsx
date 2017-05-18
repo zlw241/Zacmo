@@ -68,16 +68,20 @@ class TransactionList extends React.Component {
   }
 
   handleScroll(event) {
-    const scrollTop = event.srcElement.body.scrollTop
+    const scrollTop = event.srcElement.body.scrollTop;
+    const numTransactions = this.props.transactions.length
     if (scrollTop == $(document).height() - $(window).height()) {
       this.setState({ offset: this.state.offset + 5 })
+      window.removeEventListener('scroll', this.handleScroll)
       this.props.fetchMoreTransactions(this.state.offset).then(
         () => {
-          window.addEventListener('scroll', this.handleScroll)
+          console.log(this.props.transactions.length, numTransactions)
+          if (!this.props.transactions.length > numTransactions) {
+            window.addEventListener('scroll', this.handleScroll)
+          }
           this.setState({loading: {display: 'none'}})
         }
       );
-      window.removeEventListener('scroll', this.handleScroll)
       this.setState({ loading: {} });
     }
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170427044713) do
+ActiveRecord::Schema.define(version: 20170518201650) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,18 @@ ActiveRecord::Schema.define(version: 20170427044713) do
   end
 
   add_index "likes", ["transaction_id", "user_id"], name: "index_likes_on_transaction_id_and_user_id", unique: true, using: :btree
+
+  create_table "token_data", force: :cascade do |t|
+    t.string   "encrypted_access_token"
+    t.string   "encrypted_access_token_iv"
+    t.string   "encrypted_refresh_token"
+    t.string   "encrypted_refresh_token_iv"
+    t.integer  "expires"
+    t.string   "scope"
+    t.string   "account_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
 
   create_table "transactions", force: :cascade do |t|
     t.integer  "user_id",                         null: false

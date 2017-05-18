@@ -39,7 +39,9 @@ gem 'figaro'
 
 gem 'aws-sdk', '>= 2.0'
 
-# gem 'dwolla_v2', '~> 1.2'
+gem 'dwolla_v2', '~> 1.2'
+
+gem 'attr_encrypted', '~> 3.0.0'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

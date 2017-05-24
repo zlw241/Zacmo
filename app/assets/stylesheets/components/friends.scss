@@ -12,8 +12,11 @@
   height: 60px;
   justify-content: center;
   align-items: center;
-  background-color: white;
-  border-bottom: 1px solid #eee;
+  // background-color: white;
+  background-color: $red;
+  // border-bottom: 1px solid #eee;
+  // margin-left: 10px;
+  box-shadow: 2px 2px 1px #ddd;
 }
 
 .friends-button-container {
@@ -61,13 +64,14 @@
 .friends-children {
   display: flex;
   justify-content: center;
-  padding: 10px;
+  box-shadow: 2px 2px 1px #ddd;
+  // padding: 10px;
   width: 100%;
 }
 
 .friend-list-container {
   background-color: #fff;
-  border: 1px solid #eee;
+  // border: 1px solid #eee;
   width: 100%;
   padding: 10px;
 }

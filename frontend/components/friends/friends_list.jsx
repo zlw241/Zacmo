@@ -26,7 +26,7 @@ const FriendsList = ({friendList}) => {
             </Link>
             <div className="friend-list-actions">
               <div className="friend-list-pay">
-                <TransactionModal user={friend} size={{width: '50px', height: '30px'}}/>
+                <TransactionModal user={friend} size={{width: '50px', height: '30px'}} text='PAY'/>
               </div>
               <div className="friend-list-relationship">
                 <FriendButton user={friend} />

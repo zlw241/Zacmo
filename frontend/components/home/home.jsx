@@ -19,7 +19,7 @@ class Home extends React.Component {
         <div className="home" id="home">
 
           <Sidebar currentUser={this.props.currentUser}/>
-
+          <div className="sidebar-empty"></div>
           <div className="home-content">
             {this.props.children}
           </div>

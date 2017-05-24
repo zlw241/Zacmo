@@ -8,11 +8,24 @@
   font-size: 18px;
   // height: 50%;
   // height: 500px;
-  border: 1px solid black;
-  border: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  width: 25%;
+  // border: 1px solid black;
+  // border: 1px solid #ddd;
+  // border-bottom: 1px solid #ddd;
+  width: calc(25% - 10px);
+  min-width: 250px;
   background-color: #fff;
+  box-shadow: 1px 1px 2px #ddd;
+  position: fixed;
+  left: 10px;
+  height: 100%;
+  margin-right: 10px;
+}
+
+.sidebar-empty {
+  width: 25%;
+  // margin-right: 10px;
+  height: 100%;
+  min-width: 250px;
 }
 
 #side-nav {
@@ -23,35 +36,54 @@
   align-items: flex-start;
   line-height: 2.0;
   font-size: 18px;
-
   // height: 50%;
   height: 300px;
   // border: 1px solid #ddd;
   width: 100%;
+  // min-width: 250px;
+
 }
 
 #sidenav-header {
   display: flex;
   align-items: flex-start;
+  align-items: center;
+  justify-content: space-around;
   line-height: 1.4;
   padding: 10px;
-  background: #eee;
+  background-color: #fff;
   width: 100%;
-  border: 1px solid #262626;
+  // border: 1px solid #262626;
+  border-bottom: 3px solid $red;
+  height: auto;
 }
 
 .sidenav-user {
-  width: 66%;
+  // width: 66%;
+  width: 100%;
+  display: flex;
+  // border: 1px solid black;
 }
 
 .pay-modal {
-  width: 33%;
-  height: 60px;
-  border-left: 1px solid black;
+  width: 40%;
+  height: 100%;
+  // border-left: 1px solid $red;
   padding-left: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
+  // border: 1px solid black;
+}
+
+.pay-modal > div {
+  height: 100%;
+  // border: 1px solid black;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // width: 100%;
 }
 
 #sidenav-name {
@@ -75,11 +107,13 @@
   display: flex;
   align-items: center;
   color: #262626;
+  // color: $red;
 }
 
 .sidenav-link:hover {
   background-color: #FAFAFA;
-  border-left: 2px solid #262626;
+  // border-left: 2px solid #262626;
+  border-left: 2px solid $red;
 }
 
 .sidenav-active {
@@ -89,5 +123,33 @@
   display: flex;
   align-items: center;
   border-left: 2px solid #262626;
-  // border-left: 2px solid #F05872;
+  border-left: 2px solid $red;
+  color: $red;
+}
+
+.sidenav-profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10px;
+  // border: 1px solid black;
+}
+
+.sidenav-profile-item {
+  padding-bottom: 5px;
+}
+
+.sidenav-profile-pic {
+  // width: 100px;
+  width: 100px;
+  height: 100px;
+  // border: 1px solid black;
+  // border-radius: 100%;
+}
+
+.sidenav-user-profile-pic {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  border: 1px solid #262626;
 }

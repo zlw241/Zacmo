@@ -20,6 +20,7 @@ class SessionForm extends React.Component {
     this.renderErrors = this.renderErrors.bind(this);
     this.guestLogin = this.guestLogin.bind(this);
     this.animateTyping = this.animateTyping.bind(this);
+    this.showSignupForm = this.showSignupForm.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -125,6 +126,11 @@ class SessionForm extends React.Component {
     }, 1000);
   }
 
+  showSignupForm() {
+    this.props.clearErrors();
+    this.props.animate();
+  }
+
   render() {
 
     let firstNameInput = null;
@@ -223,7 +229,7 @@ class SessionForm extends React.Component {
                 <button className="signup-form-input" id="signup-button" type="submit">Log in to Zacmo</button>
                 {guestLoginButton}
                 <div className="toggle-form-wrapper">
-                  Don't have an account? <div className='toggle-form' onClick={this.props.animate}>Sign up</div>
+                  Don't have an account? <div className='toggle-form' onClick={this.showSignupForm}>Sign up</div>
                 </div>
               </div>
             </div>

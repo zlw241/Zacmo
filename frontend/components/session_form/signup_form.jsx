@@ -17,6 +17,7 @@ class SignupForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInput = this.handleInput.bind(this);
+    this.showLoginForm = this.showLoginForm.bind(this);
   }
 
 
@@ -81,6 +82,11 @@ class SignupForm extends React.Component {
     );
   }
 
+  showLoginForm() {
+    this.props.clearErrors();
+    this.props.animate();
+  }
+
   render() {
     return (
       <div className="signup-form-container">
@@ -133,7 +139,7 @@ class SignupForm extends React.Component {
               <div className="session-form-submit">
                 <button className="signup-form-input" id="signup-button" type="submit">Create New Account</button>
                 <div className="toggle-form-wrapper">
-                  Already a user? <div className='toggle-form' onClick={this.props.animate}>Log In</div>
+                  Already a user? <div className='toggle-form' onClick={this.showLoginForm}>Log In</div>
                 </div>
               </div>
             </div>

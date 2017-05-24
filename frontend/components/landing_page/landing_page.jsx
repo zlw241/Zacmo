@@ -23,7 +23,6 @@ class LandingPage extends React.Component {
   }
 
   animate() {
-
     if (this.state.showingForm === 'login') {
       this.setState({
         secondIphone: "iphoneInFront iphones-animation",

@@ -8,7 +8,7 @@
 }
 
 .landing-page-content {
-  border: 1px solid #ddd;
+  // border: 1px solid #ddd;
   width: 900px;
   margin-top: 30px;
   margin-bottom: 30px;
@@ -17,6 +17,7 @@
   justify-content: center;
   align-items: center;
   padding: 20px;
+  box-shadow: 2px 2px 2px 1px #ddd;
 }
 
 .splash-welcome {

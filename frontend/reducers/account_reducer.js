@@ -10,12 +10,11 @@ const AccountReducer = (state = _nullUser, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_FUNDING_TOKEN: {
-      const fundingToken = action.fundingToken;
-      return Object.assign({}, _nullUser, {fundingToken});
+      return Object.assign({}, _nullUser, action.token);
     }
     case RECEIVE_ACCOUNT_ERRORS: {
-      const errors = action.errors;
-      return Object.assign({}, state, {errors})
+      debugger
+      return Object.assign({}, state, action.errors)
     }
     default:
       return state

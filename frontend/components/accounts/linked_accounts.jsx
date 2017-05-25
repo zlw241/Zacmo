@@ -23,6 +23,7 @@ class LinkedAccounts extends React.Component {
     // debugger
     return (
       <div className="link-account">
+        {this.state.fundingToken}
         <form>
           <div>
             <label>Routing number</label>

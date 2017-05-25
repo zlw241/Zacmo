@@ -4,7 +4,6 @@ import LinkedAccounts from './linked_accounts';
 import { fetchFundingToken } from '../../actions/account_actions';
 
 const mapStateToProps = (state) => {
-  debugger
   return {
     account: state.account,
     errors: state.account.errors,

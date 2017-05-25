@@ -1,5 +1,5 @@
 
 
 if current_user
-  json.funding_token @funding_token
+  json.fundingToken @funding_token
 end

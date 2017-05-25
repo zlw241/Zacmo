@@ -5,10 +5,10 @@ import logger from 'redux-logger';
 
 var middlewares = [thunk];
 
-if (process.env.NODE_ENV !== 'production') {
+// if (process.env.NODE_ENV !== 'production') {
   // must use 'require' (import only allowed at top of file)
-  middlewares.push(logger);
-}
+  // middlewares.push(logger);
+// }
 
 const configureStore = (preloadedState = {}) => {
   return createStore(

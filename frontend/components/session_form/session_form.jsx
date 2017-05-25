@@ -151,9 +151,9 @@ class SessionForm extends React.Component {
               <input className="signup-form-input" type="password" onChange={this.handleInput} name="password" value={this.state.password} />
             </div>
 
-            <div className="signup-form-item form-submit" id="session-form-submit">
+            <div className="signup-form-item">
               <div className="signup-form-label"></div>
-              <div className="session-form-submit">
+              <div className="signup-form-submit">
                 <button className="signup-form-input" id="signup-button" type="submit">Log in to Zacmo</button>
                 <button id="guest-button" onClick={this.guestLogin}>Guest Log In</button>
                 <div className="toggle-form-wrapper">

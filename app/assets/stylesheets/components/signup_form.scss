@@ -1,26 +1,4 @@
 
-.user-form {
-  width: 95%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.form-submit > button {
-  width: 200px;
-  color: #fff;
-  height: 40px;
-  font-size: 15px;
-  margin: 10px;
-}
-
-.content-container {
-  display: flex;
-  border: 1px solid red;
-  width: 100%;
-  justify-content: center;
-}
-
 .signup-form-container {
   padding: 20px;
   display: flex;
@@ -35,7 +13,6 @@
   width: 100%;
   background-color: white;
 }
-
 
 .signup-form-header {
   width: 90%;
@@ -74,23 +51,15 @@
   color: #262626;
 }
 
-.private-info {
-  padding-left: 10px;
-}
-
 .signup-form-input:focus {
   color: #262626;
 }
 
-#signup-button {
-  background-color: $red;
-  border: none;
-  color: #fff;
-}
-
-#guest-button {
-  background-color: transparent;
-  color: #262626;
+.signup-form-submit {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .toggle-form-wrapper {

@@ -14,7 +14,7 @@
 #       .first!
 #       .to_fresh_token
 #   end
-# 
+#
 #   def to_fresh_token
 #     if expired?
 #       # if the token data is expired either refresh the token (account token) or get a new token (app token)

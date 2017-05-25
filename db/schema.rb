@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170518201650) do
+ActiveRecord::Schema.define(version: 20170525060526) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accounts", force: :cascade do |t|
+    t.string   "user_id",     null: false
+    t.string   "account_url", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "accounts", ["user_id"], name: "index_accounts_on_user_id", unique: true, using: :btree
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id",        null: false

@@ -3,6 +3,7 @@ require 'net/http'
 class User < ActiveRecord::Base
   attr_reader :password
   after_initialize :ensure_session_token
+  after_create :register_dwolla
 
   validates :username, :email, :first_name, :last_name, :phone_num, :session_token, presence: true
   validates :username, :email, :phone_num, uniqueness: true
@@ -13,28 +14,23 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   has_many :friendships
-
   has_many :friends, -> { where "status = 'accepted'"},
     through: :friendships,
     source: :friend
-
   has_many :friend_requests, -> { where "status = 'requested'"},
     through: :friendships,
     source: :friend
-
   has_many :pending_friends, -> { where "status = 'pending'"},
     through: :friendships,
     source: :friend
-
   has_many :sent_transactions, class_name: "Transaction", foreign_key: :user_id
   has_many :received_transactions, class_name: "Transaction", foreign_key: :recipient_id
   has_many :transactions
-
   has_many :likes
   has_many :liked_transactions, through: :likes, source: :transaction_item
-
   has_many :comments
   has_many :commented_transactions, through: :comments, source: :comment_transaction
+  has_one :account
 
   def self.generate_session_token
     SecureRandom.urlsafe_base64(16)
@@ -105,6 +101,18 @@ class User < ActiveRecord::Base
   def avatar_from_url(username)
     url = "https://api.adorable.io/avatars/285/#{username}@adorable.io.png"
     self.image = URI.parse(url)
+  end
+
+  def register_dwolla
+    app_token = $dwolla.auths.client
+    request_body = {
+      :firstName => self.first_name,
+      :lastName => self.last_name,
+      :email => self.email
+    }
+    customer = app_token.post "customers", request_body
+    Account.create({user_id: self.id, account_url: customer.headers[:location]})
+    # self.account.create!({account_url: customer.headers[:location]})
   end
 
   private

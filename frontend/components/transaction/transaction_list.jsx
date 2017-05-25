@@ -65,7 +65,7 @@ class TransactionList extends React.Component {
     if (this.state.active === visibility) {
       return "feed-button feed-button-active";
     } else {
-      return "feed-button feed-button-inactive";
+      return "feed-button sfeed-button-inactive";
     }
   }
 

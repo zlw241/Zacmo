@@ -34,18 +34,31 @@
   border-radius: 3px;
   background-color: transparent;
   color: #262626;
+  color: #fff;
   border: 2px solid #262626;
+  border: 2px solid #fff;
   margin-left: 10px;
   margin-right: 10px;
 }
 
 .active {
-  border-top: 2px solid #262626;
+  // border-top: 2px solid #262626;
+}
+
+.active button {
+  background-color: #fff;
+  color: $red;
+}
+
+.active button div {
+  color: $red;
+  border-color: red;
 }
 
 .friend-status {
   font-family: $sans-serif;
-  border-right: 0.5px solid #262626;
+  // border-right: 0.5px solid #262626;
+  border-right: 0.5px solid #fff;
   padding-right: 5px;
   height: 20px;
   display: flex;
@@ -54,11 +67,15 @@
 
 .friend-count {
   color: #262626;
-  width: 20px;
+  color: #fff;
+  width: 30px;
   height: 20px;
   font-size: 14px;
   border-radius: 100%;
-  text-align: center;
+  // text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .friends-children {

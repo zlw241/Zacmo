@@ -23,15 +23,22 @@ const Sidebar = ({currentUser, router}) => {
   if (!currentUser) { return null }
   return (
     <div id="side-bar">
+      <div id="sidenav-button-header">
+        <TransactionModal size={{width: '100%', height: '50px'}} text='PAY SOMEONE' />
+      </div>
       <div id="sidenav-header">
+
         <div className="sidenav-user">
-          <div id="sidenav-name">&#128513; {currentUser.first_name} {currentUser.last_name}</div>
-          <div id="sidenav-username">@{currentUser.username}</div>
-          <div id="sidenav-balance">${currentUser.balance}.00</div>
+          <div className="sidenav-profile-pic">
+            <img className="sidenav-user-profile-pic" src={currentUser.image_url} />
+          </div>
+          <div className="sidenav-profile">
+            <div className="sidenav-profile-item" id="sidenav-name">{currentUser.first_name} {currentUser.last_name}</div>
+            <div className="sidenav-profile-item" id="sidenav-username">@{currentUser.username}</div>
+            <div className="sidenav-profile-item" id="sidenav-balance">${currentUser.balance}.00</div>
+          </div>
         </div>
-        <div className="pay-modal">
-          <TransactionModal size={{width: '50px', height: '50px'}} />
-        </div>
+
       </div>
       <div id="side-nav">
         <Link className={sideNavClass("/home/feed")} to="/home/feed">

@@ -3,7 +3,7 @@
 .spinner {
   width: 100px;
   height: 100px;
-  border: 1px solid #262626;
+  // border: 1px solid #262626;
   border-radius: 100%;
   animation: spin 2s linear infinite;
 }
@@ -26,7 +26,8 @@
   animation: load7 1.8s infinite ease-in-out;
 }
 .loader {
-  color: #262626;
+  // color: #262626;
+  color: $red;
   font-size: 10px;
   margin: 80px auto;
   position: relative;

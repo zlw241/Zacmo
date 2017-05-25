@@ -5,10 +5,12 @@
   justify-content: space-around;
   width: 100%;
   height: 800px;
+  min-width: 800px;
+  overflow: auto;
 }
 
 .landing-page-content {
-  border: 1px solid #ddd;
+  // border: 1px solid #ddd;
   width: 900px;
   margin-top: 30px;
   margin-bottom: 30px;
@@ -17,6 +19,8 @@
   justify-content: center;
   align-items: center;
   padding: 20px;
+  box-shadow: 2px 2px 2px 1px #ddd;
+  // min-width: 900px;
 }
 
 .splash-welcome {
@@ -35,7 +39,6 @@
 // .rotate-right {
 //   z-index: 1;
 //   transform: translateX(-140px);
-//
 // }
 //
 // .scale-down {
@@ -89,8 +92,10 @@
 .demo-feed-item {
   border-bottom: 1px solid black;
   display: flex;
-  flex-direction: column;
-  padding-left: 20px;
+  flex-direction: row;
+  padding-left: 5px;
+  padding-right: 5px;
+
 
 }
 
@@ -98,27 +103,67 @@
   border: none;
 }
 
+.demo-feed-pic-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.demo-feed-pic {
+  margin-top: 5px;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  border: 1px solid black;
+}
+
+.demo-feed-main {
+  // border: 1px solid black;
+  // width: 80%;
+  padding-left: 10px;
+  width: 100%;
+}
+
 .like-comment {
   display: flex;
-  width: 50%;
-  justify-content: space-around;
+  width: 40%;
+  justify-content: space-between;
   margin-top: 5px;
   margin-bottom: 5px;
-  padding-left: 20px;
+  // padding-left: 20px;
+  font-size: 12px;
+  // border: 1px solid black;
 }
 
 .demo-feed-item-memo {
   display: flex;
   justify-content: flex-start;
-  width: 60%;
-  padding-left: 22px;
+  // width: 60%;
+  font-size: 12px;
+  // padding-left: px;
 }
 
 .demo-feed-item-heading {
   display: flex;
-  padding-left: 22px;
-  justify-content: flex-start;
+  // padding-left: 10px;
+  justify-content: space-between;
   margin-bottom: 5px;
+}
+
+.item-heading-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  // border: 1px solid $gray;
+  // color: $dark-gray;
+  color: #262626;
+  width: 35px;
+}
+
+.demo-feed-clock {
+  padding-left: 5px;
+  color: #262626;
+  color: $dark-gray;
 }
 
 .demo-feed-user {

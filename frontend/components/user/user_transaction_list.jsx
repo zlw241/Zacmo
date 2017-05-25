@@ -60,9 +60,9 @@ class UserTransactionList extends React.Component {
 
   activeTab(visibility) {
     if (this.state.active === visibility) {
-      return "feed-button-container-active";
+      return "feed-button feed-button-active";
     } else {
-      return "feed-button-container";
+      return "feed-button feed-button-inactive";
     }
   }
 
@@ -75,11 +75,11 @@ class UserTransactionList extends React.Component {
     } else {
       feedHeader = (
         <div className="feed-header">
-          <div className={this.activeTab('friends')}>
-            <button onClick={() => this.filterFeed('friends')}>Friends</button>
+          <div className="feed-button-container">
+            <button className={this.activeTab('friends')} onClick={() => this.filterFeed('friends')}>Friends</button>
           </div>
-          <div className={this.activeTab('mine')}>
-            <button onClick={() => this.filterFeed('mine')}>Between you & {this.props.user.first_name}</button>
+          <div className="feed-button-container">
+            <button className={this.activeTab('mine')} onClick={() => this.filterFeed('mine')}>Between you & {this.props.user.first_name}</button>
           </div>
         </div>
       )

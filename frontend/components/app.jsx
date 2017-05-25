@@ -9,6 +9,7 @@ const App = ({children}) => {
   return (
     <div className="main">
       <Header />
+      <div className="header-empty"></div>
       {children}
     </div>
   );

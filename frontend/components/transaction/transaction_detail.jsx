@@ -104,7 +104,7 @@ class TransactionDetail extends React.Component {
 
             <div className="transaction-time-delta">
               <small>
-                <i className="fa fa-clock-o" aria-hidden="true"></i>
+                <i className="fa fa-clock-o feed-clock" aria-hidden="true"></i>
                 {moment(this.props.transaction.created_at).fromNow()}
               </small>
             </div>

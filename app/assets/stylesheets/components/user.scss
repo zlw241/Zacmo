@@ -19,6 +19,9 @@
   // border: 1px solid black;
   background-color: white;
   padding: 10px;
+  padding-bottom: 30px;
+  margin-bottom: 10px;
+  box-shadow: 2px 2px 2px #ddd;
 }
 
 .user-pic-container {
@@ -102,7 +105,12 @@
   width: 100%;
   display: flex;
   flex-direction: column-reverse;
-  padding: 10px;
+  // padding: 10px;
+}
+
+
+.user-transaction-list li:last-of-type .transaction-detail {
+  border-top: none;
 }
 
 .action-buttons {
@@ -148,8 +156,8 @@
 }
 
 .friend-slider {
-  border-top: 2px solid #262626;
-  border-bottom: 2px solid #262626;
+  // border-top: 2px solid #262626;
+  // border-bottom: 2px solid #262626;
   margin-bottom: 10px;
 }
 
@@ -170,8 +178,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 2px solid #262626;
+  // border: 2px solid #262626;
   background-color: #fff;
+  box-shadow: 2px 2px 2px #ddd;
 }
 
 .friend-slider-img {

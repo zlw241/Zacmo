@@ -67,7 +67,7 @@ class TransactionModal extends React.Component {
     return (
       <div>
         <button className="open-modal" style={this.buttonSize()} onClick={this.openModal}>
-          PAY
+          {this.props.text}
         </button>
         <Modal
           style={modalStyle}

@@ -7,16 +7,18 @@
   align-items: flex-start;
 }
 
-
-
 .feed-header {
   display: flex;
   width: 100%;
-  height: 60px;
+  height: 70px;
   justify-content: center;
   align-items: center;
   background-color: white;
-  border-bottom: 1px solid #eee;
+  background-color: $red;
+  border-bottom: 1px solid #ddd;
+  // margin-left: 10px;
+  // margin-right: 20px;
+  box-shadow: 2px 2px 2px #ddd;
 }
 
 .feed-button-container {
@@ -25,58 +27,83 @@
   align-items: center;
 }
 
-.feed-button-container-active {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  border-top: 2px solid #262626;
-}
+// .feed-button-container-active {
+//   height: 100%;
+//   display: flex;
+//   align-items: center;
+//   border-top: 2px solid #262626;
+//   border-top: 2px solid #fff;
+  // background-color: #fff;
+  // color: $red;
+// }
 
 // .feed-button-container:first-child {
 //   border-top: 2px solid #262626;
 // }
 
-.fa-clock-o {
+
+.feed-clock {
   padding-right: 5px;
 }
 
-.feed-header button {
+.feed-button {
   height: 40px;
   width: 100px;
   border-radius: 3px;
-  background-color: transparent;
+  background-color: $red;
+  font-size: 12px;
   color: #262626;
+  color: #fff;
   border: 2px solid #262626;
+  border: 2px solid #fff;
   margin-left: 10px;
   margin-right: 10px;
 }
 
 .feed-header button:hover {
   background-color: #E9F4FA;
+  background-color: #fff;
+  color: $red;
 }
 
-.feed-header button:active {
-  background-color: #E9F4FA;
+.feed-button-active {
+  background-color: #fff;
+  color: $red;
 }
+
+// .feed-header button:active {
+//   background-color: #E9F4FA;
+// }
 
 .transaction-list {
   width: 100%;
   display: flex;
   flex-direction: column-reverse;
-  padding: 10px;
+
+  // padding-left: 10px;
+  // padding-right: 10px;
+  // overflow: auto;
+  // box-shadow: 2px 2px 2px #ddd;
 }
+
 
 .transaction-detail {
   line-height: 1.8;
-  border: 1px solid $light-gray;
-  padding: 10px;
+  // border: 1px solid $light-gray;
+  border-top: 3px solid $red;
+  padding: 15px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   width: 100%;
   background-color: #fff;
-  margin-bottom: 15px;
-  margin-top: 15px;
+  margin-bottom: 20px;
+  // margin-top: 15px;
+  box-shadow: 2px 1px 1px #ddd;
+}
+
+.transaction-list li:last-of-type .transaction-detail {
+  border-top: none;
 }
 
 .transaction-main {
@@ -209,4 +236,14 @@
   width: 100%;
   display: flex;
   justify-content: center;
+}
+
+.feed-button-container button {
+  // color: $red;
+  // border-color: $red;
+
+}
+
+.transaction-summary > a {
+  // color: $red;
 }

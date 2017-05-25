@@ -1,18 +1,20 @@
 
 .main {
   height: 100%;
-
+  background-color: #f2f2f2;
 
 }
 
 .home {
   // width: 95%;
   padding-left: 10px;
-  // padding-right: 10px;
+
+  padding-right: 10px;
   display: flex;
   justify-content: center;
   margin-top: 30px;
   height: 100%;
+  // background-color: black;
   // border: 1px solid #eee;
 
 }
@@ -31,11 +33,14 @@
 }
 
 .home-content {
-  width: calc(100% - 200px);
+  // width: calc(100% - 250px);
+  // width: calc(100% - 250px);
+  width: 75%;
   height: 100%;
   display: flex;
   justify-content: center;
-  border-top: 1px solid #ddd;
-  border-right: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
+  margin-left: 10px;
+  // border-top: 1px solid #ddd;
+  // border-right: 1px solid #ddd;
+  // border-bottom: 1px solid #ddd;
 }

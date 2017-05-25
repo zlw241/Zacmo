@@ -1,26 +1,26 @@
 import React from 'react';
 import { Link, withRouter } from 'react-redux';
 import DemoFeedItem from './demo_feed_item';
-
+import moment from 'moment';
 
 class Iphone extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       list: [
-        {user1: "Brandon", user2: "Zach", memo: "for kale salad. yum yum yum"},
-        {user1: "John", user2: "Michael", memo: "for food"},
-        {user1: "Abby", user2: "Emma", memo: "for ice-cream"},
-        {user1: "Brandon", user2: "Zach", memo: "for kale salad. yum yum yum"},
-        {user1: "William", user2: "Gabriela", memo: "for lunch"},
-        {user1: "Paul", user2: "Simon", memo: "I owe u"},
-        {user1: "Brandon", user2: "Zach", memo: "for kale salad. yum yum yum"},
-        {user1: "Sarah", user2: "Tom", memo: "Thanks sweetie"},
-        {user1: "Adam", user2: "Zach", memo: "Thanks man"},
-        {user1: "Brandon", user2: "Zach", memo: "for kale salad. yum yum yum"},
-        {user1: "Chris", user2: "Zach", memo: "chipotle"},
-        {user1: "Rupert", user2: "Oscar", memo: "We've got weird names"},
-        {user1: "Sally", user2: "Joe", memo: "Idk"}
+        {user1: "Brandon", user2: "Zach", memo: "for kale salad. yum yum yum", image_url: "http://s3.amazonaws.com/zacmo-dev/users/images/000/000/060/original/zlw241_adorable.io.png?1493402871", timeSince: moment()},
+        {user1: "John", user2: "Michael", memo: "for food", image_url: "http://s3.amazonaws.com/zacmo-dev/users/images/000/000/064/original/gandalf_adorable.io.png?1493402863", timeSince: moment()},
+        {user1: "Abby", user2: "Emma", memo: "for ice-cream", image_url: "http://s3.amazonaws.com/zacmo-dev/users/images/000/000/066/original/frodo_adorable.io.png?1493402866", timeSince: moment()},
+        {user1: "Brandon", user2: "Zach", memo: "for kale salad. yum yum yum", image_url: "http://s3.amazonaws.com/zacmo-dev/users/images/000/000/074/original/ayellapragada_adorable.io.png?1493402878", timeSince: moment()},
+        {user1: "William", user2: "Gabriela", memo: "for lunch", image_url: "http://s3.amazonaws.com/zacmo-dev/users/images/000/000/068/original/borimir_adorable.io.png?1493402873", timeSince: moment()},
+        {user1: "Paul", user2: "Simon", memo: "I owe u", image_url: "http://s3.amazonaws.com/zacmo-dev/users/images/000/000/059/original/gimli_adorable.io.png?1493402870", timeSince: moment()},
+        {user1: "Brandon", user2: "Zach", memo: "for kale salad. yum yum yum", image_url: "http://s3.amazonaws.com/zacmo-dev/users/images/000/000/063/original/gollum_adorable.io.png?1493402873", timeSince: moment()},
+        {user1: "Sarah", user2: "Tom", memo: "Thanks sweetie", image_url: "http://s3.amazonaws.com/zacmo-dev/users/images/000/000/070/original/royce_adorable.io.png?1493402874", timeSince: moment()},
+        {user1: "Adam", user2: "Zach", memo: "Thanks man", image_url: "http://s3.amazonaws.com/zacmo-dev/users/images/000/000/071/original/legolas_adorable.io.png?1493402875", timeSince: moment()},
+        {user1: "Brandon", user2: "Zach", memo: "for kale salad. yum yum yum", image_url: "http://s3.amazonaws.com/zacmo-dev/users/images/000/000/078/original/aragorn_adorable.io.png?1493402882", timeSince: moment()},
+        {user1: "Chris", user2: "Zach", memo: "chipotle", image_url: "http://s3.amazonaws.com/zacmo-dev/users/images/000/000/073/original/adumbward_adorable.io.png?1493402877", timeSince: moment()},
+        {user1: "Rupert", user2: "Oscar", memo: "We've got weird names", image_url: "http://s3.amazonaws.com/zacmo-dev/users/images/000/000/076/original/guest_adorable.io.png?1493402883", timeSince: moment()},
+        {user1: "Sally", user2: "Joe", memo: "Idk", image_url: "http://s3.amazonaws.com/zacmo-dev/users/images/000/000/069/original/sam_adorable.io.png?1493402874"}
       ]
     };
 
@@ -47,7 +47,7 @@ class Iphone extends React.Component {
   _rotate() {
     let list = this.state.list;
     let newList = [list[list.length-1]].concat(list.slice(0,list.length-1))
-
+    newList[0].timeSince = moment()
     this.setState({
       list: newList
     });

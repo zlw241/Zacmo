@@ -23,7 +23,6 @@ class LandingPage extends React.Component {
   }
 
   animate() {
-
     if (this.state.showingForm === 'login') {
       this.setState({
         secondIphone: "iphoneInFront iphones-animation",
@@ -76,7 +75,6 @@ class LandingPage extends React.Component {
       <div className="landing-page-container">
 
         <div className="landing-page-content">
-
           <div className={this.showingSignup()}>
             <SignupFormContainer animate={this.animate}/>
           </div>
@@ -90,6 +88,7 @@ class LandingPage extends React.Component {
             <SessionFormContainer animate={this.animate}/>
           </div>
         </div>
+
       </div>
     )
   }

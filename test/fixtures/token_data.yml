@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  encrypted_access_token: MyString
+  encrypted_access_token_iv: MyString
+  encrypted_refresh_token: MyString
+  encrypted_refresh_token_iv: MyString
+  expires: 1
+  scope: MyString
+  account_id: MyString
+
+two:
+  encrypted_access_token: MyString
+  encrypted_access_token_iv: MyString
+  encrypted_refresh_token: MyString
+  encrypted_refresh_token_iv: MyString
+  expires: 1
+  scope: MyString
+  account_id: MyString

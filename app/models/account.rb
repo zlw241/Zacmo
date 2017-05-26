@@ -20,4 +20,11 @@ class Account < ActiveRecord::Base
     puts customer
     customer.token
   end
+
+  def get_funding_sources
+    app_token = $dwolla.auths.client
+    customer_url = self.account_url
+    funding_sources = app_token.get "#{customer_url}/funding-sources"
+    funding_sources
+  end
 end

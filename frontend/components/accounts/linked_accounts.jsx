@@ -56,11 +56,8 @@ class LinkedAccounts extends React.Component {
     }
   }
 
-
-
   handleInput(e) {
     e.preventDefault()
-
     const field = e.currentTarget.id;
     this.setState({
       [field]: e.currentTarget.value

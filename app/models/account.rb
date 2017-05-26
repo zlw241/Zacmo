@@ -12,4 +12,12 @@ class Account < ActiveRecord::Base
     puts customer
     customer.token
   end
+
+  def generate_iav_token
+    app_token = $dwolla.auths.client
+    customer_url = self.account_url
+    customer = app_token.post "#{customer_url}/iav-token"
+    puts customer
+    customer.token
+  end
 end

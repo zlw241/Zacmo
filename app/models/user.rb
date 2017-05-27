@@ -3,7 +3,9 @@ require 'net/http'
 class User < ActiveRecord::Base
   attr_reader :password
   after_initialize :ensure_session_token
-  after_create :register_dwolla
+  after_create do
+    register_dwolla
+  end
 
   validates :username, :email, :first_name, :last_name, :phone_num, :session_token, presence: true
   validates :username, :email, :phone_num, uniqueness: true

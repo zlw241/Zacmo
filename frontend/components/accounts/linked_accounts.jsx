@@ -6,97 +6,88 @@ class LinkedAccounts extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      fundingToken: null,
-      routingNumber: "",
-      accountNumber: "",
-      name: "",
-      type: "Checking",
-      logs: {
-        error: "",
-        response: "",
-      },
-      loading: "loader"
+      linkedAccounts: [],
+      loading: {
+        display: 'none'
+      }
     }
-
-    this.handleInput = this.handleInput.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleAPIResponse = this.handleAPIResponse.bind(this);
-    this.initializeIAV = this.initializeIAV.bind(this);
+    this.newAccount = this.newAccount.bind(this);
   }
 
   componentWillMount() {
-    this.props.fetchToken().then(
-      (res) => this.initializeIAV(res.token.iavToken)
-    )
-  }
-
-  initializeIAV(token) {
-    dwolla.iav.start(token, {
-      container: 'iavContainer',
-      stylesheets: [
-        // 'http://localhost:3000/assets/application.self-8478822dee13e342a9069480c2104c16497502f44d0c842b52c49f16a3e729bd.css?body=1'
-      ],
-      microDeposits: false,
-      fallbackToMicroDeposits: true,
-      backButton: true,
-      subscriber: ({ currentPage, error }) => {
-          this.setState({loading: "hidden"});
-          console.log('currentPage:', currentPage, 'error:', JSON.stringify(error))
+    this.props.fetchAccounts().then(
+      (res) => this.setState({
+        linkedAccounts: res.accounts,
+        loading: {
+          display: 'none'
         }
-    }, function(err, res) {
-      console.log('Error: ' + JSON.stringify(err) + ' -- Response: ' + JSON.stringify(res));
+      })
+    )
+    this.setState({
+      loading: {}
     });
   }
 
-  showSearch() {
-    if (this.state.loading === "loader") {
-      return "hidden"
-    } else {
-      return ""
-    }
-  }
-
-  handleInput(e) {
-    e.preventDefault()
-    const field = e.currentTarget.id;
-    this.setState({
-      [field]: e.currentTarget.value
-    });
-    // console.log(this.state)
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-    const token = this.state.fundingToken;
-    const bankInfo = {
-      routingNumber: this.state.routingNumber,
-      accountNumber: this.state.accountNumber,
-      name: this.state.name,
-      type: this.state.type
-    };
-    dwolla.fundingSources.create(token, bankInfo, this.handleAPIResponse);
-  }
-
-  handleAPIResponse(err, res) {
-    debugger
-    this.setState({
-      logs: {
-        error: err,
-        response: res
-      }
-    })
+  newAccount() {
+    this.props.router.push('/home/accounts/new');
   }
 
   render() {
-    // debugger
-
     return (
-
       <div className="dwollaContainer">
-        <div className={this.state.loading}>
+        <div className="linked-accounts">
+          <div className="accounts-header">
+            <h2>Payment Methods</h2>
+            <Link className="new-account-link" to="/home/accounts/new">Link New Account</Link>
+          </div>
+          <div className="account-list-container">
+            <div className="account-list-header">
+              <div className="account-list-header-item">
+                Account Name
+              </div>
+              <div className="account-list-header-item">
+                Nickname
+              </div>
+              <div className="account-list-header-item">
+                Type
+              </div>
+              <div className="account-list-header-item">
+                Status
+              </div>
+            </div>
+            <ul className="account-list">
+              {this.state.linkedAccounts.map((acc, i) => (
+                <li className="account-container" key={i}>
+                  <div className="account-list-items-container">
+                    <div className="account-list-item">
+                      {acc.name}
+                    </div>
+                    <div className="account-list-item">
+                      {acc.nickname}
+                    </div>
+                    <div className="account-list-item">
+                      {acc.type}
+                    </div>
+                    <div className="account-list-item">
+                      <div className="account-verified">
+                        <img className="account-verified-icon" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjIuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgogICAgIHdpZHRoPSIxM3B4IiBoZWlnaHQ9IjEzcHgiIHZpZXdCb3g9IjAgMCAxMyAxMyIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMTMgMTM7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4KICAuc3Qwe2ZpbGw6IzU4QjM2Njt9Cjwvc3R5bGU+CjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik02LjUsMWMzLDAsNS41LDIuNSw1LjUsNS41UzkuNSwxMiw2LjUsMTJTMSw5LjUsMSw2LjVTMy41LDEsNi41LDEgTTYuNSwwQzIuOSwwLDAsMi45LDAsNi41UzIuOSwxMyw2LjUsMTMKICBTMTMsMTAuMSwxMyw2LjVTMTAuMSwwLDYuNSwwTDYuNSwweiIvPgo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNS40LDguOWMtMC4xLDAtMC4zLDAtMC40LTAuMUwzLjMsN2MtMC4yLTAuMi0wLjItMC41LDAtMC43czAuNS0wLjIsMC43LDBsMS40LDEuNEw5LDQuMkM5LjIsNCw5LjUsNCw5LjcsNC4yCiAgczAuMiwwLjUsMCwwLjdMNS44LDguOEM1LjcsOC45LDUuNiw4LjksNS40LDguOXoiLz4KPC9zdmc+Cg=="
+                          />
+                        {acc.status}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="account-list-item-divider">
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-        <div id="iavContainer" className={this.showSearch()}>
+
+        <div className="loading" style={this.state.loading}>
+          <div className="loader"></div>
         </div>
+        {this.props.children}
       </div>
     );
 
@@ -104,34 +95,3 @@ class LinkedAccounts extends React.Component {
 }
 
 export default withRouter(LinkedAccounts);
-
-//
-// <div className="link-account">
-//   {this.state.fundingToken}
-//   <form>
-//     <div>
-//       <label>Routing number</label>
-//       <input type="text" id="routingNumber" placeholder="273222226" />
-//     </div>
-//     <div>
-//       <label>Account number</label>
-//       <input type="text" id="accountNumber" placeholder="Account number" />
-//     </div>
-//     <div>
-//       <label>Bank account name</label>
-//       <input type="text" id="name" placeholder="Name" />
-//     </div>
-//     <div>
-//       <select name="type" id="type">
-//         <option value="checking">Checking</option>
-//         <option value="savings">Savings</option>
-//       </select>
-//     </div>
-//     <div>
-//       <input type="submit" value="Add Bank" />
-//     </div>
-//   </form>
-//
-//   <div id="logs">
-//   </div>
-// </div>

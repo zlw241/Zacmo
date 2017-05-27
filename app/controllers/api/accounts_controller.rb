@@ -14,7 +14,12 @@ class Api::AccountsController < ApplicationController
   end
 
   def show
-    @user = current_user
+    @linked_accounts = current_user.account.get_funding_sources
+    if @linked_accounts
+      render "api/account/show"
+    else
+      render json: "Something went wrong", status: 422
+    end
   end
 
   def create

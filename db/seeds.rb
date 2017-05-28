@@ -29,4 +29,4 @@ User.create!([
   {username: "aragorn", password: "password", email: "aragorn@lotr.me", first_name: "Aragorn", last_name: "Son of Arathorn", phone_num: "888-453-8989"}
 ]);
 
-User.all.each { |u| u.avatar_from_url(u.username) },
+User.all.each { |u| u.avatar_from_url(u.username) }

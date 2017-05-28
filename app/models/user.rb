@@ -104,6 +104,7 @@ class User < ActiveRecord::Base
   def avatar_from_url(username)
     url = "https://api.adorable.io/avatars/285/#{username}@adorable.io.png"
     self.image = URI.parse(url)
+    self.save
   end
 
   def register_dwolla

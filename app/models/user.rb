@@ -117,6 +117,26 @@ class User < ActiveRecord::Base
     # self.account.create!({account_url: customer.headers[:location]})
   end
 
+  def transfer_funds(recipient)
+    app_token = $dwolla.auths.client
+    request_body = {
+      _links: {
+        source: {
+          href: self.account.funding_sources_url
+        },
+        destination: {
+          href: (app_token.get "/")
+        }
+      },
+      amount: {
+        currency: "USD",
+        value: "225.00"
+      }
+    }
+    transfer = app_token.post "transfers", request_body
+    transfer
+  end
+
   private
   def ensure_session_token
     self.session_token ||= User.generate_session_token

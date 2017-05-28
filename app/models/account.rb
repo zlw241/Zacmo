@@ -5,6 +5,11 @@ class Account < ActiveRecord::Base
 
   belongs_to :users
 
+  def get_root
+    app_token = $dwolla.auths.client
+    app_token.get "/"
+  end
+
   def generate_funding_token
     app_token = $dwolla.auths.client
     customer_url = self.account_url
@@ -32,4 +37,13 @@ class Account < ActiveRecord::Base
     end
     funding_sources_info
   end
+
+  def funding_sources_url
+    app_token = $dwolla.auths.client
+    customer_url = self.account_url
+    funding_sources = app_token.get "#{customer_url}/funding-sources"
+    funding_sources._embedded['funding-sources'][0]._links["self"].href
+  end
+
+
 end

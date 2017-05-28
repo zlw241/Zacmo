@@ -87,7 +87,9 @@ class LinkedAccounts extends React.Component {
         <div className="loading" style={this.state.loading}>
           <div className="loader"></div>
         </div>
-        {this.props.children}
+        <div className="new-account-container">
+          {this.props.children}
+        </div>
       </div>
     );
 

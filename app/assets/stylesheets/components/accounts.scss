@@ -112,3 +112,33 @@
 .account-list:last-child .account-list-item-divider {
   border: none;
 }
+
+.new-account-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+}
+
+.iav-container {
+  width: 95%;
+  // border: 1px solid $red;
+  box-shadow: 2px 2px 2px 2px #ddd;
+  margin-bottom: 40px;
+}
+
+.sandbox-warning-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.sandbox-warning {
+  width: 80%;
+  background-color: #D8EDF6;
+  border: 1px solid black;
+  text-align: center;
+  padding: 5px;
+  // height: 40px;
+  border-radius: 3px;
+}

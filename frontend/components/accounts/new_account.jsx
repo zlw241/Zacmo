@@ -52,8 +52,13 @@ class NewAccount extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="iav-container">
         <div id="iavContainer">
+          <div className="sandbox-warning-container">
+            <div className="sandbox-warning">
+              This is a sandbox environment, you can use fake info here<br />Please DON'T use any real account credentials.
+            </div>
+          </div>
         </div>
         <div className="loading" style={this.state.loading}>
           <div className="loader"></div>

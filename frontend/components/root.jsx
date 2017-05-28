@@ -4,7 +4,8 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './app.jsx';
 import SessionFormContainer from './session_form/session_form_container';
 import ProfileContainer from './profile/profile_container';
-import LinkedAccountsContainer from './accounts/linked_accounts';
+import LinkedAccountsContainer from './accounts/linked_accounts_container';
+import NewAccountContainer from './accounts/new_account_container';
 import UserContainer from './user/user_container';
 import LandingPageContainer from './landing_page/landing_page_container';
 import HomeContainer from './home/home_container';
@@ -49,7 +50,9 @@ const Root = ({store}) => {
             <Route path="profile" component={ProfileContainer} />
             <Route path="notifications" component={NotificationsContainer} />
             <Route path="settings" component={SettingsContainer} />
-            <Route path="accounts" component={LinkedAccountsContainer} />
+            <Route path="accounts" component={LinkedAccountsContainer}>
+              <Route path="new" component={NewAccountContainer} />
+            </Route>
             <Route path="friends" component={FriendsContainer}>
               <IndexRoute component={ExistingFriends} />
               <Route path="pending" component={PendingFriends} />

@@ -9,8 +9,6 @@ class SessionForm extends React.Component {
     this.state = {
       username: "",
       email: "",
-      first_name: "",
-      last_name: "",
       phone_num: "",
       password: ""
     };
@@ -40,9 +38,7 @@ class SessionForm extends React.Component {
     if (e) {
       e.preventDefault()
     }
-
     const user = this.state;
-
     this.props.processForm(user).then(
       () => this.props.router.push("/home/feed")
     )
@@ -56,7 +52,6 @@ class SessionForm extends React.Component {
   }
 
   renderErrors() {
-
     if (this.props.errors.length > 0) {
       return (
         <div className="form-errors">
@@ -133,82 +128,13 @@ class SessionForm extends React.Component {
 
   render() {
 
-    let firstNameInput = null;
-    let lastNameInput = null;
-    let emailInput = null;
-    let phoneInput = null;
-
-    let formClass = 'session-form login';
-
-    let guestLoginButton = (
-      <button id="guest-button" onClick={this.guestLogin}>Guest Log In</button>
-    );
-
-    let submitButtonText = "Create a Zacmo Account";
-
-    let toggleFormButton = "Log in to Zacmo";
-
-    let toggleForm = (
-      <Link to="/signup">{submitButtonText}</Link>
-    );
-
-    let formHeader = "Please Log In";
-
-    if (this.props.formType === 'signup') {
-      guestLoginButton = null;
-      formClass = 'session-form signup';
-      formHeader = submitButtonText;
-
-      submitButtonText = "Log In";
-      toggleFormButton = "Complete Signup";
-
-      toggleForm = (
-        <Link to="/login">{submitButtonText}</Link>
-      );
-
-      firstNameInput = (
-        <div className="form-item input-text">
-          <div className="input-label">
-            <label>First Name</label>
-          </div>
-          <input type="text" className="session-form-input"
-          onChange={this.handleInput} name="first_name" value={this.state.first_name} />
-        </div>
-      );
-
-      lastNameInput = (
-        <div className="form-item input-text">
-          <div className="input-label">Last Name</div>
-          <input type="text" className="session-form-input"
-          onChange={this.handleInput} name="last_name" value={this.state.last_name} />
-        </div>
-      );
-
-      emailInput = (
-        <div className="form-item input-text">
-          <div className="input-label">Email</div>
-          <input type="text" className="session-form-input"
-          onChange={this.handleInput} name="email" value={this.state.email} />
-        </div>
-      );
-
-      phoneInput = (
-        <div className="form-item input-text">
-          <div className="input-label">Phone</div>
-          <input type="text" className="session-form-input"
-          onChange={this.handleInput} name="phone_num" value={this.state.phone_num} />
-        </div>
-      );
-
-    }
-
     return (
       <div className="signup-form-container">
         <div className="signup-form">
+
           {this.renderErrors()}
 
           <form className="user-form" onSubmit={this.handleSubmit}>
-
             <div className="signup-form-header">
               <h2>Please Log In</h2>
             </div>
@@ -223,19 +149,17 @@ class SessionForm extends React.Component {
               <input className="signup-form-input" type="password" onChange={this.handleInput} name="password" value={this.state.password} />
             </div>
 
-            <div className="signup-form-item form-submit" id="session-form-submit">
+            <div className="signup-form-item">
               <div className="signup-form-label"></div>
-              <div className="session-form-submit">
+              <div className="signup-form-submit">
                 <button className="signup-form-input" id="signup-button" type="submit">Log in to Zacmo</button>
-                {guestLoginButton}
+                <button id="guest-button" onClick={this.guestLogin}>Guest Log In</button>
                 <div className="toggle-form-wrapper">
                   Don't have an account? <div className='toggle-form' onClick={this.showSignupForm}>Sign up</div>
                 </div>
               </div>
             </div>
-
           </form>
-
         </div>
       </div>
     );
@@ -243,25 +167,3 @@ class SessionForm extends React.Component {
 }
 
 export default withRouter(SessionForm);
-
-
-// {this.renderErrors()}
-// {firstNameInput}
-// {lastNameInput}
-// {emailInput}
-// {phoneInput}
-// <div className="form-item input-text">
-// <div className="input-label">Username</div>
-// <input type="text" className="session-form-input" onChange={this.handleInput} name="username"
-// value={this.state.username} />
-// </div>
-//
-// <div className="form-item input-text">
-// <div className="input-label">Password</div>
-// <input type="password" className="session-form-input"
-// onChange={this.handleInput} name="password" value={this.state.password} />
-// </div>
-// <div className="form-item">
-// <div className="form-help"><Link to="/help">Help</Link></div>
-// <button className="button-submit">{toggleFormButton}</button>
-// </div>

@@ -54,7 +54,7 @@ const Sidebar = ({currentUser, router}) => {
           Settings
         </Link>
         <Link className={sideNavClass("/home/accounts")} to="/home/accounts">
-          Linked Accounts
+          Accounts
         </Link>
         <Link className={sideNavClass("/home/notifications")} to="/home/notifications">
           Notifications

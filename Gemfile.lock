@@ -39,6 +39,8 @@ GEM
       activerecord (>= 2.3.0)
       rake (>= 0.8.7)
     arel (6.0.4)
+    attr_encrypted (3.0.3)
+      encryptor (~> 3.0.0)
     aws-sdk (2.9.12)
       aws-sdk-resources (= 2.9.12)
     aws-sdk-core (2.9.12)
@@ -69,14 +71,24 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     debug_inspector (0.0.2)
+    dwolla_v2 (1.2.3)
+      faraday (~> 0.9)
+      faraday_middleware (~> 0.10)
+      hashie (~> 3.4)
+      public_suffix (~> 1.4.6)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
+    encryptor (3.0.0)
     erubis (2.7.0)
     eventmachine (1.2.3)
     execjs (2.7.0)
     faker (1.7.3)
       i18n (~> 0.5)
+    faraday (0.12.1)
+      multipart-post (>= 1.2, < 3)
+    faraday_middleware (0.11.0.1)
+      faraday (>= 0.7.4, < 1.0)
     ffi (1.9.18)
     figaro (1.1.1)
       thor (~> 0.14)
@@ -100,6 +112,7 @@ GEM
       guard (~> 2.8)
       guard-compat (~> 1.0)
       multi_json (~> 1.8)
+    hashie (3.5.5)
     http_parser.rb (0.6.0)
     i18n (0.8.1)
     jbuilder (2.6.3)
@@ -128,6 +141,7 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.10.1)
     multi_json (1.12.1)
+    multipart-post (2.0.0)
     nenv (0.3.0)
     nokogiri (1.7.1)
       mini_portile2 (~> 2.1.0)
@@ -147,6 +161,7 @@ GEM
       slop (~> 3.4)
     pry-rails (0.3.6)
       pry (>= 0.10.4)
+    public_suffix (1.4.6)
     rack (1.6.5)
     rack-livereload (0.3.16)
       rack
@@ -229,12 +244,14 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  attr_encrypted (~> 3.0.0)
   aws-sdk (>= 2.0)
   bcrypt (~> 3.1.7)
   better_errors
   binding_of_caller
   byebug
   coffee-rails (~> 4.1.0)
+  dwolla_v2 (~> 1.2)
   faker
   figaro
   font-awesome-rails

@@ -7,47 +7,32 @@
   line-height: 1.8;
 }
 
-.form-submit > button {
+#guest-button {
   width: 200px;
-  // background-color: $blue;
+  background-color: transparent;
+  color: #262626;
+  height: 40px;
+  font-size: 15px;
+  margin: 10px;
+}
+
+#signup-button {
+  width: 200px;
+  background-color: $red;
+  border: none;
   color: #fff;
   height: 40px;
   font-size: 15px;
   margin: 10px;
 }
 
-.session-form-submit > button {
-  width: 200px;
-  background-color: $blue;
+#settings-button {
+  background-color: $insta-blue;
+  border: none;
   color: #fff;
   height: 40px;
   font-size: 15px;
   margin: 10px;
-}
-
-.session-form-submit {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.form-submit {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.signup-form-submit {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  align-items: center;
-}
-
-.content-container {
-  display: flex;
-  border: 1px solid red;
-  width: 100%;
-  justify-content: center;
 }
 
 #settings-form-container {
@@ -58,30 +43,14 @@
   width: 100%;
   text-align: left;
   background-color: white;
+  box-shadow: 2px 2px 2px 2px #ddd;
 }
 
-#signup-form-container {
-  // border: 1px solid black;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  text-align: left;
-}
-
-.signup-form {
-  // border: 1px solid #ddd;
-  width: 50%;
-  background-color: white;
-}
 
 .profile-pic-container {
   width: 30%;
   display: flex;
   justify-content: flex-end;
-  // border: 1px solid black;
   flex-direction: column;
   align-items: center;
 
@@ -137,41 +106,6 @@
   padding: 10px;
 }
 
-.settings-form-item {
-  padding: 10px;
-  margin-bottom: 0px;
-  display: flex;
-  justify-content: flex-start;
-  width: 100%;
-}
-
-.settings-form-label {
-  width: 30%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.settings-form-input {
-  border: 0.5px solid $gray;
-  border-radius: 3px;
-  margin: 10px;
-  margin-top: 5px;
-  width: 50%;
-  padding-left: 10px;
-  color: #262626;
-}
-
 .private-info {
   padding-left: 10px;
-}
-
-.settings-form-input:focus {
-  color: #262626;
-}
-
-#settings-button {
-  background-color: $insta-blue;
-  border: none;
-  color: #fff;
 }

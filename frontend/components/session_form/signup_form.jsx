@@ -134,9 +134,9 @@ class SignupForm extends React.Component {
               <input className="signup-form-input" type="text" onChange={this.handleInput} name="phone_num" value={this.state.phone_num} />
             </div>
 
-            <div className="signup-form-item form-submit">
+            <div className="signup-form-item">
               <div className="signup-form-label"></div>
-              <div className="session-form-submit">
+              <div className="signup-form-submit">
                 <button className="signup-form-input" id="signup-button" type="submit">Create New Account</button>
                 <div className="toggle-form-wrapper">
                   Already a user? <div className='toggle-form' onClick={this.showLoginForm}>Log In</div>

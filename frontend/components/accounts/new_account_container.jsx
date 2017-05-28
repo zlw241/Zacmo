@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import LinkedAccounts from './linked_accounts';
+import NewAccount from './new_account';
 import { fetchFundingToken, fetchAccounts } from '../../actions/account_actions';
 
 const mapStateToProps = (state) => {
@@ -12,8 +12,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchToken: () => dispatch(fetchFundingToken()),
-  fetchAccounts: () => dispatch(fetchAccounts())
+  fetchToken: () => dispatch(fetchFundingToken())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(LinkedAccounts);
+export default connect(mapStateToProps, mapDispatchToProps)(NewAccount);

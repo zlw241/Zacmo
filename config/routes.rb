@@ -9,6 +9,8 @@ Rails.application.routes.draw do
       get "transactions", on: :member
     end
 
+    resource :account
+
     resource :session, only: [:create, :destroy]
 
     resources :friendships, only: [:destroy, :update]
@@ -20,7 +22,6 @@ Rails.application.routes.draw do
     end
 
     resources :likes, only: [:destroy]
-
 
 
   end

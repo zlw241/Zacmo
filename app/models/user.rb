@@ -106,18 +106,66 @@ class User < ActiveRecord::Base
   end
 
   def register_dwolla
-    app_token = $dwolla.auths.client
-    request_body = {
-      :firstName => self.first_name,
-      :lastName => self.last_name,
-      :email => self.email
-    }
-    customer = app_token.post "customers", request_body
-    Account.create({user_id: self.id, account_url: customer.headers[:location]})
+    if self.first_name == "verified"
+      register_verified_customer
+      return
+    end
+    if self.account == nil
+      app_token = $dwolla.auths.client
+      request_body = {
+        :firstName => self.first_name,
+        :lastName => self.last_name,
+        :email => self.email,
+        :type => 'receive-only'
+      }
+      begin
+        customer = app_token.post "customers", request_body
+        Account.create({user_id: self.id, account_url: customer.headers[:location]})
+      rescue
+        return "something went wrong"
+      end
+    else
+      puts "already has account"
+    end
     # self.account.create!({account_url: customer.headers[:location]})
   end
 
-  def transfer_funds(recipient)
+  def update_dwolla(request_body)
+    if self.account
+      app_token = $dwolla.auths.client
+      begin
+        customer = app_token.post self.account.account_url, request_body
+      rescue
+        puts "something went wrong in the update"
+      end
+    end
+  end
+
+  def verify_dwolla
+    app_token = $dwolla.auths.client
+    request_body
+  end
+
+  def register_verified_customer
+    app_token = $dwolla.auths.client
+    request_body = {
+      :firstName => 'verified',
+      :lastName => self.last_name,
+      :email => self.email,
+      :type => 'personal',
+      :address1 => '99-99 33rd St',
+      :city => 'Some City',
+      :state => 'NY',
+      :postalCode => '11101',
+      :dateOfBirth => '1970-01-01',
+      :ssn => '1234'
+    }
+    customer = app_token.post "customers", request_body
+    Account.create({user_id: self.id, account_url: customer.headers[:location]})
+    customer.headers[:location]
+  end
+
+  def transfer_funds(recipient, amount)
     app_token = $dwolla.auths.client
     request_body = {
       _links: {
@@ -125,12 +173,12 @@ class User < ActiveRecord::Base
           href: self.account.funding_sources_url
         },
         destination: {
-          href: (app_token.get "/")
+          href: recipient.account.account_url
         }
       },
       amount: {
         currency: "USD",
-        value: "225.00"
+        value: amount
       }
     }
     transfer = app_token.post "transfers", request_body

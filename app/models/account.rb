@@ -10,6 +10,21 @@ class Account < ActiveRecord::Base
     app_token.get "/"
   end
 
+  def get_links
+    app_token = $dwolla.auths.client
+    customer_url = self.account_url
+    customer = app_token.get "#{customer_url}"
+    customer["_links"]
+  end
+
+  def get_status
+    app_token = $dwolla.auths.client
+    customer_url = self.account_url
+    p customer_url
+    customer = app_token.get "#{customer_url}"
+    customer["status"]
+  end
+
   def generate_funding_token
     app_token = $dwolla.auths.client
     customer_url = self.account_url
@@ -32,8 +47,10 @@ class Account < ActiveRecord::Base
     funding_sources = app_token.get "#{customer_url}/funding-sources"
     funding_sources_info = []
     funding_sources._embedded['funding-sources'].each do |f|
-      funds_source = {name: f.name, type: f.type, status: f.status, name: f.bankName, nickname: f.name}
-      funding_sources_info << funds_source
+      if f.type == "bank"
+        funds_source = {name: f.bankName, nickname: f.name, type: f.type, status: f.status}
+        funding_sources_info << funds_source
+      end
     end
     funding_sources_info
   end

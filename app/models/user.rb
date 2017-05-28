@@ -181,6 +181,17 @@ class User < ActiveRecord::Base
         value: amount
       }
     }
+    # fees: {
+    #   _links: {
+    #     "charge-to": {
+    #       href: self.account.funding_sources_url
+    #     }
+    #   },
+    #   amount: {
+    #     value: (amount * 0.2).round(2),
+    #     currency: "USD"
+    #   }
+    # }
     transfer = app_token.post "transfers", request_body
     transfer
   end

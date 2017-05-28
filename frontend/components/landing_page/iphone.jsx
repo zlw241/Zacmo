@@ -19,7 +19,7 @@ class Iphone extends React.Component {
         {user1: "Adam", user2: "Zach", memo: "Thanks man", image_url: "http://s3.amazonaws.com/zacmo-dev/users/images/000/000/071/original/legolas_adorable.io.png?1493402875", timeSince: moment()},
         {user1: "Brandon", user2: "Zach", memo: "for kale salad. yum yum yum", image_url: "http://s3.amazonaws.com/zacmo-dev/users/images/000/000/078/original/aragorn_adorable.io.png?1493402882", timeSince: moment()},
         {user1: "Chris", user2: "Zach", memo: "chipotle", image_url: "http://s3.amazonaws.com/zacmo-dev/users/images/000/000/073/original/adumbward_adorable.io.png?1493402877", timeSince: moment()},
-        {user1: "Rupert", user2: "Oscar", memo: "We've got weird names", image_url: "http://s3.amazonaws.com/zacmo-dev/users/images/000/000/076/original/guest_adorable.io.png?1493402883", timeSince: moment()},
+        {user1: "Rupert", user2: "Oscar", memo: "I like your name", image_url: "http://s3.amazonaws.com/zacmo-dev/users/images/000/000/076/original/guest_adorable.io.png?1493402883", timeSince: moment()},
         {user1: "Sally", user2: "Joe", memo: "Idk", image_url: "http://s3.amazonaws.com/zacmo-dev/users/images/000/000/069/original/sam_adorable.io.png?1493402874"}
       ]
     };

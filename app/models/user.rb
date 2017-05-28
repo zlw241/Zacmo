@@ -177,18 +177,19 @@ class User < ActiveRecord::Base
         }
       },
       amount: {
-        currency: "USD",
-        value: amount
+        value: amount,
+        currency: "USD"
       }
     }
+    # p (amount * 0.2).round(2)
     # fees: {
     #   _links: {
     #     "charge-to": {
-    #       href: self.account.funding_sources_url
+    #       href: self.account.account_url
     #     }
     #   },
     #   amount: {
-    #     value: (amount * 0.2).round(2),
+    #     value: 1.00,
     #     currency: "USD"
     #   }
     # }

@@ -3,14 +3,8 @@
 #side-bar {
   display: flex;
   flex-direction: column;
-  // align-items: center;
   justify-content: flex-start;
   font-size: 18px;
-  // height: 50%;
-  // height: 500px;
-  // border: 1px solid black;
-  // border: 1px solid #ddd;
-  // border-bottom: 1px solid #ddd;
   width: calc(25% - 10px);
   min-width: 250px;
   background-color: #fff;
@@ -31,12 +25,9 @@
 #side-nav {
   display: flex;
   flex-direction: column;
-  // align-items: center;
-  // justify-content: space-around;
   align-items: flex-start;
   line-height: 2.0;
   font-size: 18px;
-  // height: 50%;
   height: 300px;
   // border: 1px solid #ddd;
   width: 100%;

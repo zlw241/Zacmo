@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
   attr_reader :password
   after_initialize :ensure_session_token
   after_create do
-    register_dwolla
+    # register_dwolla
+    register_verified_customer
   end
 
   validates :username, :email, :first_name, :last_name, :phone_num, :session_token, presence: true
@@ -150,7 +151,7 @@ class User < ActiveRecord::Base
     app_token = $dwolla.auths.client
     request_body = {
       :firstName => 'verified',
-      :lastName => self.last_name,
+      :lastName => self.username,
       :email => self.email,
       :type => 'personal',
       :address1 => '99-99 33rd St',

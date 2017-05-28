@@ -26,13 +26,13 @@ class Api::AccountsController < ApplicationController
     @user = current_user
   end
 
-  def edit
-  end
 
   def update
+    # add method here
   end
 
   def destroy
+    # add method here
   end
 
 end

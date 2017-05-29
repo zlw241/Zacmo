@@ -9,7 +9,11 @@ class Api::TransactionsController < ApplicationController
 
     if @transaction.save
       # @transaction.includes(:likes, :comments)
-      current_user.transfer_funds(recipient, amount.to_f)
+      if current_user.account && recipient.account
+        if current_user.account.get_status == "verified" || recipient.account.get_status == "verified"
+          current_user.transfer_funds(recipient, amount.to_f)
+        end
+      end
       recipient.update(balance: recipient.balance + @transaction.amount)
       if current_user.balance <= @transaction.amount
         current_user.update(balance: 0)

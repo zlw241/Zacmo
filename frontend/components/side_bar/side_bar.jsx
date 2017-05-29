@@ -56,13 +56,14 @@ const Sidebar = ({currentUser, router}) => {
         <Link className={sideNavClass("/home/accounts")} to="/home/accounts">
           Accounts
         </Link>
-        <Link className={sideNavClass("/home/notifications")} to="/home/notifications">
-          Notifications
-        </Link>
       </div>
     </div>
   )
 }
+
+// <Link className={sideNavClass("/home/notifications")} to="/home/notifications">
+// Notifications
+// </Link>
 
 // const mapStateToProps = (state) => ({
 //   currentUser: state.session.currentUser

@@ -2,7 +2,7 @@
 
 [Zacmo live][heroku]
 
-[heroku]: http://www.zacmo.herokuapp.com
+[heroku]: http://zacmo.io
 
 Zacmo is a social payments web application inspired by Venmo.  It utilizes a React/Redux front-end that communicates with a Ruby on Rails backend, and a PostgreSQL database for storage of user data.
 
